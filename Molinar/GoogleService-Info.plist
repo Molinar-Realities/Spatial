@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1072100678850-aklarhhfvieb2t3v273hms5r8nabv18o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1072100678850-aklarhhfvieb2t3v273hms5r8nabv18o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAwe830Uaqayl8jAV5igs0xCH8GSlZYdWc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1072100678850</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>co.molinar.Molinar</string>
+	<key>PROJECT_ID</key>
+	<string>molinar-cfee3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>molinar-cfee3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1072100678850:ios:9b5b2d4a2e7d74b0faef5b</string>
+</dict>
+</plist>
