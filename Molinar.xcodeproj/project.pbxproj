@@ -11,7 +11,35 @@
 		DE2F53E529A9CC7A00805518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* ContentView.swift */; };
 		DE2F53E729A9CC7D00805518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F53E629A9CC7D00805518 /* Assets.xcassets */; };
 		DE2F53EA29A9CC7D00805518 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F53E929A9CC7D00805518 /* Preview Assets.xcassets */; };
+		DE2F53FA29AAC7EE00805518 /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F029A9D03500805518 /* MapboxCommon.xcframework */; };
+		DE2F53FB29AAC7EE00805518 /* MapboxCommon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F029A9D03500805518 /* MapboxCommon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE2F53FD29AAC7F000805518 /* MapboxCoreMaps.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F229A9D06100805518 /* MapboxCoreMaps.xcframework */; };
+		DE2F53FE29AAC7F000805518 /* MapboxCoreMaps.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F229A9D06100805518 /* MapboxCoreMaps.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE2F53FF29AAC7F100805518 /* MapboxMaps.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F429A9D06C00805518 /* MapboxMaps.xcframework */; };
+		DE2F540029AAC7F100805518 /* MapboxMaps.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F429A9D06C00805518 /* MapboxMaps.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE2F540129AAC7F300805518 /* MapboxMobileEvents.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F629AAC7C700805518 /* MapboxMobileEvents.xcframework */; };
+		DE2F540229AAC7F300805518 /* MapboxMobileEvents.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F629AAC7C700805518 /* MapboxMobileEvents.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE2F540329AAC7F400805518 /* Turf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F829AAC7D600805518 /* Turf.xcframework */; };
+		DE2F540429AAC7F400805518 /* Turf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F829AAC7D600805518 /* Turf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DE2F53FC29AAC7EE00805518 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DE2F53FE29AAC7F000805518 /* MapboxCoreMaps.xcframework in Embed Frameworks */,
+				DE2F540229AAC7F300805518 /* MapboxMobileEvents.xcframework in Embed Frameworks */,
+				DE2F53FB29AAC7EE00805518 /* MapboxCommon.xcframework in Embed Frameworks */,
+				DE2F540429AAC7F400805518 /* Turf.xcframework in Embed Frameworks */,
+				DE2F540029AAC7F100805518 /* MapboxMaps.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DE2F53DF29A9CC7A00805518 /* Molinar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molinar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +47,11 @@
 		DE2F53E429A9CC7A00805518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE2F53E629A9CC7D00805518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F53E929A9CC7D00805518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DE2F53F029A9D03500805518 /* MapboxCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MapboxCommon.xcframework; sourceTree = "<group>"; };
+		DE2F53F229A9D06100805518 /* MapboxCoreMaps.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MapboxCoreMaps.xcframework; sourceTree = "<group>"; };
+		DE2F53F429A9D06C00805518 /* MapboxMaps.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MapboxMaps.xcframework; sourceTree = "<group>"; };
+		DE2F53F629AAC7C700805518 /* MapboxMobileEvents.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MapboxMobileEvents.xcframework; sourceTree = "<group>"; };
+		DE2F53F829AAC7D600805518 /* Turf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Turf.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +59,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2F53FD29AAC7F000805518 /* MapboxCoreMaps.xcframework in Frameworks */,
+				DE2F53FA29AAC7EE00805518 /* MapboxCommon.xcframework in Frameworks */,
+				DE2F53FF29AAC7F100805518 /* MapboxMaps.xcframework in Frameworks */,
+				DE2F540329AAC7F400805518 /* Turf.xcframework in Frameworks */,
+				DE2F540129AAC7F300805518 /* MapboxMobileEvents.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +73,11 @@
 		DE2F53D629A9CC7900805518 = {
 			isa = PBXGroup;
 			children = (
+				DE2F53F829AAC7D600805518 /* Turf.xcframework */,
+				DE2F53F629AAC7C700805518 /* MapboxMobileEvents.xcframework */,
+				DE2F53F429A9D06C00805518 /* MapboxMaps.xcframework */,
+				DE2F53F229A9D06100805518 /* MapboxCoreMaps.xcframework */,
+				DE2F53F029A9D03500805518 /* MapboxCommon.xcframework */,
 				DE2F53E129A9CC7A00805518 /* Molinar */,
 				DE2F53E029A9CC7A00805518 /* Products */,
 			);
@@ -77,6 +120,7 @@
 				DE2F53DB29A9CC7A00805518 /* Sources */,
 				DE2F53DC29A9CC7A00805518 /* Frameworks */,
 				DE2F53DD29A9CC7A00805518 /* Resources */,
+				DE2F53FC29AAC7EE00805518 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
