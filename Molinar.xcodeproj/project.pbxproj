@@ -62,6 +62,8 @@
 		DE2F546829AAE14200805518 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546129AAE14100805518 /* Handle.swift */; };
 		DE2F546929AAE14200805518 /* NewsHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546229AAE14100805518 /* NewsHeadline.swift */; };
 		DE2F546B29AAE16E00805518 /* HomeScreenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546A29AAE16D00805518 /* HomeScreenContent.swift */; };
+		DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546D29AAE62000805518 /* TasksViewModel.swift */; };
+		DE2F547029AAE67A00805518 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546F29AAE67A00805518 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,6 +132,8 @@
 		DE2F546129AAE14100805518 /* Handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		DE2F546229AAE14100805518 /* NewsHeadline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeadline.swift; sourceTree = "<group>"; };
 		DE2F546A29AAE16D00805518 /* HomeScreenContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenContent.swift; sourceTree = "<group>"; };
+		DE2F546D29AAE62000805518 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		DE2F546F29AAE67A00805518 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 		DE2F540529AACA7600805518 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F546C29AAE5FD00805518 /* Tasks */,
 				DE2F541529AACE7B00805518 /* AuthViewModel.swift */,
 				DE2F542729AADDC300805518 /* MapboxViewModel.swift */,
 				DE2F542C29AADFBF00805518 /* BottomSheetViewModel.swift */,
@@ -210,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2F540829AACA9700805518 /* User.swift */,
+				DE2F546F29AAE67A00805518 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,6 +363,14 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
+		DE2F546C29AAE5FD00805518 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F546D29AAE62000805518 /* TasksViewModel.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,6 +459,7 @@
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
 				DE2F545A29AAE10700805518 /* WorkspaceScreenContent.swift in Sources */,
 				DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */,
+				DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */,
 				DE2F541E29AAD31D00805518 /* CustomTextField.swift in Sources */,
 				DE2F542B29AADDE800805518 /* FilterLabels.swift in Sources */,
 				DE2F546329AAE14200805518 /* SearchBar.swift in Sources */,
@@ -469,6 +484,7 @@
 				DE2F541929AACF7D00805518 /* LoginView.swift in Sources */,
 				DE2F542829AADDC300805518 /* MapboxViewModel.swift in Sources */,
 				DE2F542629AADD2700805518 /* MapboxView.swift in Sources */,
+				DE2F547029AAE67A00805518 /* Task.swift in Sources */,
 				DE2F543B29AAE06A00805518 /* LocationHeader.swift in Sources */,
 				DE2F546429AAE14200805518 /* BottomSheet.swift in Sources */,
 				DE2F543E29AAE06A00805518 /* TaskCell.swift in Sources */,
