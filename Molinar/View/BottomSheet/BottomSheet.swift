@@ -18,7 +18,7 @@ struct BottomSheet<Content: View>: View {
             Handle()
                 
             HStack(spacing: 15) {
-                TextField("Search...", text: .constant(BottomSheetViewModel.shared.searchText))
+                TextField("Search...", text: $searchText)
                     .foregroundColor(Color(.systemGray))
                     .padding(8)
                     .padding(.horizontal, 24)

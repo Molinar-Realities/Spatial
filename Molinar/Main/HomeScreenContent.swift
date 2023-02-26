@@ -24,7 +24,7 @@ struct HomeScreenContent: View {
                     Text("No news.")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .padding()
+                        .padding(.horizontal, 6)
                     Spacer()
                 }
                 

@@ -11,7 +11,8 @@ struct ShortcutsHeadline: View {
     var body: some View {
         HStack {
             Text("World News")
-                .font(.headline)
+                .font(.title3)
+                .fontWeight(.bold)
             
             Spacer()
         }
