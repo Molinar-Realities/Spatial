@@ -15,6 +15,9 @@ struct Task: Identifiable {
     let fullname: String
     let description: String
     let title: String
+    let duration: Int
+    let priority: String
+    
     
     
     
@@ -25,5 +28,7 @@ struct Task: Identifiable {
         self.fullname = dictionary["fullname"] as? String ?? ""
         self.description = dictionary["description"] as? String ?? ""
         self.title = dictionary["title"] as? String ?? ""
+        self.priority = dictionary["priority"] as? String ?? ""
+        self.duration = dictionary["duration"] as? Int ?? 1800 // 30 mins in seconds
     }
 }

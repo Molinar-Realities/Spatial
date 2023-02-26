@@ -64,6 +64,9 @@
 		DE2F546B29AAE16E00805518 /* HomeScreenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546A29AAE16D00805518 /* HomeScreenContent.swift */; };
 		DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546D29AAE62000805518 /* TasksViewModel.swift */; };
 		DE2F547029AAE67A00805518 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546F29AAE67A00805518 /* Task.swift */; };
+		DE2F547329AAE90300805518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547229AAE90300805518 /* Constants.swift */; };
+		DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */; };
+		DE2F547829AAFBFB00805518 /* NowFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547729AAFBFB00805518 /* NowFeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -134,6 +137,9 @@
 		DE2F546A29AAE16D00805518 /* HomeScreenContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenContent.swift; sourceTree = "<group>"; };
 		DE2F546D29AAE62000805518 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		DE2F546F29AAE67A00805518 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DE2F547229AAE90300805518 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTaskViewModel.swift; sourceTree = "<group>"; };
+		DE2F547729AAFBFB00805518 /* NowFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowFeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,7 @@
 		DE2F53E129A9CC7A00805518 /* Molinar */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F547129AAE8B800805518 /* Util */,
 				DE2F542229AADB3B00805518 /* GoogleService-Info.plist */,
 				DE2F542129AAD45300805518 /* Main */,
 				DE2F540729AACA8800805518 /* View */,
@@ -203,6 +210,7 @@
 		DE2F540529AACA7600805518 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F547629AAFBD900805518 /* Now */,
 				DE2F546C29AAE5FD00805518 /* Tasks */,
 				DE2F541529AACE7B00805518 /* AuthViewModel.swift */,
 				DE2F542729AADDC300805518 /* MapboxViewModel.swift */,
@@ -367,8 +375,25 @@
 			isa = PBXGroup;
 			children = (
 				DE2F546D29AAE62000805518 /* TasksViewModel.swift */,
+				DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		DE2F547129AAE8B800805518 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F547229AAE90300805518 /* Constants.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		DE2F547629AAFBD900805518 /* Now */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F547729AAFBFB00805518 /* NowFeedViewModel.swift */,
+			);
+			path = Now;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2F547829AAFBFB00805518 /* NowFeedViewModel.swift in Sources */,
 				DE2F543C29AAE06A00805518 /* PickerSectionView.swift in Sources */,
 				DE2F545329AAE0E000805518 /* Extensions.swift in Sources */,
 				DE2F546729AAE14200805518 /* RecommendedEvents.swift in Sources */,
@@ -464,6 +490,7 @@
 				DE2F542B29AADDE800805518 /* FilterLabels.swift in Sources */,
 				DE2F546329AAE14200805518 /* SearchBar.swift in Sources */,
 				DE2F543F29AAE06A00805518 /* FutureView.swift in Sources */,
+				DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */,
 				DE2F546829AAE14200805518 /* Handle.swift in Sources */,
 				DE2F541629AACE7B00805518 /* AuthViewModel.swift in Sources */,
 				DE2F53E529A9CC7A00805518 /* ContentView.swift in Sources */,
@@ -476,6 +503,7 @@
 				DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */,
 				DE2F543D29AAE06A00805518 /* ProjectsSectionHeader.swift in Sources */,
 				DE2F542F29AADFFE00805518 /* RecommendedSheetView.swift in Sources */,
+				DE2F547329AAE90300805518 /* Constants.swift in Sources */,
 				DE2F545529AAE0E700805518 /* Icons.swift in Sources */,
 				DE2F544D29AAE0B200805518 /* MeView.swift in Sources */,
 				DE2F544229AAE07F00805518 /* NowView.swift in Sources */,

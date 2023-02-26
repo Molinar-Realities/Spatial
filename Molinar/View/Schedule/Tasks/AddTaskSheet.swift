@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AddTaskSheet: View {
+    @ObservedObject var viewModel: UploadTaskViewModel
     @State var taskName = ""
-    @State var taskDuration = ""
-    @State var priority = 1
+    @State var taskDuration = 0
+    @State var priority = ""
     @State private var deadline = Date()
     @State var deadlineType = 1
     @State private var startDate = Date()
@@ -24,6 +25,24 @@ struct AddTaskSheet: View {
             ...
             calendar.date(from:endComponents)!
     }()
+    
+    func convertToSeconds(_ durationString: String) -> Int? {
+        let parts = durationString.split(separator: " ")
+        guard parts.count == 2 else { return nil }
+        let value = Int(parts[0])
+        let unit = parts[1]
+        switch unit {
+        case "sec", "secs", "second", "seconds":
+            return value
+        case "min", "mins", "minute", "minutes":
+            return value! * 60
+        case "hour", "hours":
+            return value! * 3600
+        default:
+            return nil
+        }
+    }
+
 
     var body: some View {
         VStack {
@@ -43,11 +62,57 @@ struct AddTaskSheet: View {
             VStack {
                 TextField("Enter task name", text: $taskName)
                 Divider()
-                TextField("Enter duration",
-                          text: $taskDuration)
+                
+                TextField("Enter duration", text: Binding(
+                    get: {
+                        let minutes = taskDuration / 60
+                        if minutes < 60 {
+                            return "\(minutes) min"
+                        } else {
+                            return "\(minutes / 60) hr \(minutes % 60) min"
+                        }
+                    },
+                    set: { newValue in
+                        if let seconds = convertToSeconds(newValue) {
+                            taskDuration = seconds
+                        }
+                    }
+                ))
+
+
                 Divider()
                 
-                PickerSectionView(selection: $priority, pickerName: "Priority", pickerOptions: ["Low", "Medium", "High", "None"])
+                PickerSectionView(
+                    selection: Binding(
+                        get: {
+                            switch priority {
+                            case "Low":
+                                return 0
+                            case "Medium":
+                                return 1
+                            case "High":
+                                return 2
+                            default:
+                                return 3
+                            }
+                        },
+                        set: {
+                            switch $0 {
+                            case 0:
+                                priority = "Low"
+                            case 1:
+                                priority = "Medium"
+                            case 2:
+                                priority = "High"
+                            default:
+                                priority = "None"
+                            }
+                        }
+                    ),
+                    pickerName: "Priority",
+                    pickerOptions: ["Low", "Medium", "High", "None"]
+                )
+
                 
                 HStack {
                     DatePicker(
@@ -77,14 +142,15 @@ struct AddTaskSheet: View {
                 Divider()
                 
                 LocationHeader(headerText: "Location")
-                MapboxRepresentable().environmentObject(MapboxViewModel())
-                    .cornerRadius(22)
+//                MapboxRepresentable().environmentObject(MapboxViewModel())
+//                    .cornerRadius(22)
                 
                 HStack {
                     Spacer()
                     InboxIcon()
                     Spacer()
                     Button(action: {
+                        viewModel.uploadTask(title: taskName, description: "", priority: priority, duration: taskDuration)
                         showAddTaskSheet.toggle()
                     }) {
                         Text("Schedule")
@@ -111,7 +177,7 @@ struct AddTaskSheet: View {
 
 struct AddTask_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskSheet( showAddTaskSheet: .constant(false))
+        AddTaskSheet( viewModel: UploadTaskViewModel(), showAddTaskSheet: .constant(false))
     }
 }
 

@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-struct TasksViewModel: View {
+class TasksViewModel: ObservableObject {
     @Published var tasks = [Task]()
-    var body: some View {
-        Text("hi")
+    
+    init() {
+        fetchTasks()
     }
-}
-
-struct TasksViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        TasksViewModel()
+    
+    
+    func fetchTasks() {
+        COLLECTION_TASKS.getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            self.tasks = documents.map({ Task(dictionary: $0.data())})
+        }
     }
 }

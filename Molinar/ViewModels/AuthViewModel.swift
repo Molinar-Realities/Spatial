@@ -20,12 +20,16 @@ class AuthViewModel: ObservableObject {
     
     init() {
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
+        isAuthenticating = true
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to login: \(error.localizedDescription)")
+                self.error = error
+                self.isAuthenticating = false
                 return
             }
             
@@ -41,10 +45,12 @@ class AuthViewModel: ObservableObject {
     }
     
     func registerUser(email: String, password: String, username: String, fullname: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error
-            in
+        isAuthenticating = true
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Error \(error.localizedDescription)")
+                self.error = error
+                self.isAuthenticating = false
                 return
             }
             
@@ -56,7 +62,13 @@ class AuthViewModel: ObservableObject {
                         "uid": user.uid
                 ]
             Firestore.firestore().collection("users").document(user.uid)
-                .setData(data) { _ in
+                .setData(data) { error in
+                    if let error = error {
+                        print("DEBUG: Error \(error.localizedDescription)")
+                        self.error = error
+                        self.isAuthenticating = false
+                        return
+                    }
                     self.userSession = user
                     self.fetchUser()
                 }
@@ -66,11 +78,14 @@ class AuthViewModel: ObservableObject {
     func fetchUser() {
         guard let uid = userSession?.uid else { return }
         
-        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                print("DEBUG: Error \(error.localizedDescription)")
+                self.error = error
+                return
+            }
             guard let data = snapshot?.data() else { return }
             self.user = User(dictionary: data)
-            
         }
     }
 }
-

@@ -25,7 +25,7 @@ struct ContentView: View {
                         }
                     }
                     Spacer().fullScreenCover(isPresented: $bottomSheetViewModel.showAddTaskSheet) {
-                        AddTaskSheet(showAddTaskSheet: $bottomSheetViewModel.showAddTaskSheet)
+                        AddTaskSheet(viewModel: UploadTaskViewModel(), showAddTaskSheet: $bottomSheetViewModel.showAddTaskSheet)
                     }
                     TabView(selection: $selectedIndex) {
                         NowView(presentingEventDetailSheet: $presentSheet, scrollPosition: $scrollPosition).environmentObject(BottomSheetViewModel.shared)
@@ -51,6 +51,7 @@ struct ContentView: View {
                         NowView(presentingEventDetailSheet: $presentSheet, scrollPosition: $scrollPosition).environmentObject(BottomSheetViewModel.shared)
                             .onTapGesture {
                                                 self.selectedIndex = 1
+                                viewModel.signOut()
                                             }
                             .environmentObject(BottomSheetViewModel.shared)
                             .tabItem {
