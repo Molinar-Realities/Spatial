@@ -16,9 +16,17 @@ class TasksViewModel: ObservableObject {
     
     
     func fetchTasks() {
-        COLLECTION_TASKS.getDocuments { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
-            self.tasks = documents.map({ Task(dictionary: $0.data())})
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        
+        let query = COLLECTION_TASKS
+        
+        query.addSnapshotListener { snapshot, error in
+            guard let changes = snapshot?.documentChanges else { return }
+            
+            changes.forEach { change in
+                let data = change.document.data()
+                self.tasks.append(Task(dictionary: data))
+            }
         }
     }
 }

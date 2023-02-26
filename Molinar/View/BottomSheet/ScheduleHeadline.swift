@@ -10,7 +10,7 @@ import SwiftUI
 struct ScheduleHeadline: View {
     var body: some View {
         HStack {
-            Text("Based on your schedule")
+            Text("Your tasks")
                 .font(.title3)
                 .fontWeight(.bold)
             

@@ -9,18 +9,23 @@ import SwiftUI
 
 struct HomeScreenContent: View {
     @Binding var presentingEventDetailSheet: Bool
+    
     var body: some View {
         VStack {
             
             ScrollView(.vertical, showsIndicators: false) {
                 ScheduleHeadline()
                 
-                RecommendedEvents(presentingEventDetailSheet: $presentingEventDetailSheet)
+                RecommendedEvents(presentingEventDetailSheet: $presentingEventDetailSheet, viewModel: TasksViewModel())
                 
                 ShortcutsHeadline()
                 
-                ForEach(0 ..< 30) { item in
-                    NewsCell()
+                HStack {
+                    Text("No news.")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding()
+                    Spacer()
                 }
                 
             }

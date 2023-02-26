@@ -66,7 +66,6 @@
 		DE2F547029AAE67A00805518 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546F29AAE67A00805518 /* Task.swift */; };
 		DE2F547329AAE90300805518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547229AAE90300805518 /* Constants.swift */; };
 		DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */; };
-		DE2F547829AAFBFB00805518 /* NowFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547729AAFBFB00805518 /* NowFeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -139,7 +138,6 @@
 		DE2F546F29AAE67A00805518 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DE2F547229AAE90300805518 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTaskViewModel.swift; sourceTree = "<group>"; };
-		DE2F547729AAFBFB00805518 /* NowFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowFeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +208,6 @@
 		DE2F540529AACA7600805518 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F547629AAFBD900805518 /* Now */,
 				DE2F546C29AAE5FD00805518 /* Tasks */,
 				DE2F541529AACE7B00805518 /* AuthViewModel.swift */,
 				DE2F542729AADDC300805518 /* MapboxViewModel.swift */,
@@ -388,14 +385,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		DE2F547629AAFBD900805518 /* Now */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F547729AAFBFB00805518 /* NowFeedViewModel.swift */,
-			);
-			path = Now;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -477,7 +466,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE2F547829AAFBFB00805518 /* NowFeedViewModel.swift in Sources */,
 				DE2F543C29AAE06A00805518 /* PickerSectionView.swift in Sources */,
 				DE2F545329AAE0E000805518 /* Extensions.swift in Sources */,
 				DE2F546729AAE14200805518 /* RecommendedEvents.swift in Sources */,
