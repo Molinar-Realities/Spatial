@@ -26,7 +26,12 @@
 		DE2F540E29AACB8400805518 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DE2F540D29AACB8400805518 /* FirebaseFirestore */; };
 		DE2F541029AACB8400805518 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = DE2F540F29AACB8400805518 /* FirebaseFunctions */; };
 		DE2F541229AACB8500805518 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DE2F541129AACB8500805518 /* FirebaseStorage */; };
-		DE2F541429AACE0500805518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2F541329AACE0400805518 /* GoogleService-Info.plist */; };
+		DE2F541629AACE7B00805518 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541529AACE7B00805518 /* AuthViewModel.swift */; };
+		DE2F541929AACF7D00805518 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541829AACF7D00805518 /* LoginView.swift */; };
+		DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541A29AACF8800805518 /* RegisterView.swift */; };
+		DE2F541E29AAD31D00805518 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541D29AAD31D00805518 /* CustomTextField.swift */; };
+		DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541F29AAD3D200805518 /* CustomSecureField.swift */; };
+		DE2F542329AADB3B00805518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2F542229AADB3B00805518 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,7 +64,12 @@
 		DE2F53F629AAC7C700805518 /* MapboxMobileEvents.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MapboxMobileEvents.xcframework; sourceTree = "<group>"; };
 		DE2F53F829AAC7D600805518 /* Turf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Turf.xcframework; sourceTree = "<group>"; };
 		DE2F540829AACA9700805518 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DE2F541329AACE0400805518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DE2F541529AACE7B00805518 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		DE2F541829AACF7D00805518 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DE2F541A29AACF8800805518 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		DE2F541D29AAD31D00805518 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		DE2F541F29AAD3D200805518 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
+		DE2F542229AADB3B00805518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +116,12 @@
 		DE2F53E129A9CC7A00805518 /* Molinar */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F541329AACE0400805518 /* GoogleService-Info.plist */,
+				DE2F542229AADB3B00805518 /* GoogleService-Info.plist */,
+				DE2F542129AAD45300805518 /* Main */,
 				DE2F540729AACA8800805518 /* View */,
 				DE2F540629AACA8300805518 /* Model */,
 				DE2F540529AACA7600805518 /* ViewModels */,
 				DE2F53E229A9CC7A00805518 /* MolinarApp.swift */,
-				DE2F53E429A9CC7A00805518 /* ContentView.swift */,
 				DE2F53E629A9CC7D00805518 /* Assets.xcassets */,
 				DE2F53E829A9CC7D00805518 /* Preview Content */,
 			);
@@ -129,6 +139,7 @@
 		DE2F540529AACA7600805518 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F541529AACE7B00805518 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,8 +155,36 @@
 		DE2F540729AACA8800805518 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F541C29AAD31000805518 /* Components */,
+				DE2F541729AACF6F00805518 /* Authentication */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DE2F541729AACF6F00805518 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F541829AACF7D00805518 /* LoginView.swift */,
+				DE2F541A29AACF8800805518 /* RegisterView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DE2F541C29AAD31000805518 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F541D29AAD31D00805518 /* CustomTextField.swift */,
+				DE2F541F29AAD3D200805518 /* CustomSecureField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DE2F542129AAD45300805518 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F53E429A9CC7A00805518 /* ContentView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE2F53EA29A9CC7D00805518 /* Preview Assets.xcassets in Resources */,
+				DE2F542329AADB3B00805518 /* GoogleService-Info.plist in Resources */,
 				DE2F53E729A9CC7D00805518 /* Assets.xcassets in Resources */,
-				DE2F541429AACE0500805518 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
+				DE2F541E29AAD31D00805518 /* CustomTextField.swift in Sources */,
+				DE2F541629AACE7B00805518 /* AuthViewModel.swift in Sources */,
 				DE2F53E529A9CC7A00805518 /* ContentView.swift in Sources */,
 				DE2F53E329A9CC7A00805518 /* MolinarApp.swift in Sources */,
+				DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */,
+				DE2F541929AACF7D00805518 /* LoginView.swift in Sources */,
 				DE2F540929AACA9700805518 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
