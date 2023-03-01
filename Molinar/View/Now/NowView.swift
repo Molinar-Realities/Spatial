@@ -36,7 +36,7 @@ struct NowView: View {
                     
                     Spacer()
                     BottomSheet(searchText: $bottomSheetViewModel.searchText, content: {
-                        HomeScreenContent(presentingEventDetailSheet: $presentingEventDetailSheet)
+                        FocusNow()
                     }, offset: $bottomSheetViewModel.bottomSheetOffset)
                     
                     // this controls everything in the bottom sheet.

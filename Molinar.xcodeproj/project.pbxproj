@@ -66,6 +66,8 @@
 		DE2F547029AAE67A00805518 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546F29AAE67A00805518 /* Task.swift */; };
 		DE2F547329AAE90300805518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547229AAE90300805518 /* Constants.swift */; };
 		DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */; };
+		DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */; };
+		DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,6 +140,8 @@
 		DE2F546F29AAE67A00805518 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DE2F547229AAE90300805518 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTaskViewModel.swift; sourceTree = "<group>"; };
+		DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNow.swift; sourceTree = "<group>"; };
+		DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +361,7 @@
 		DE2F545B29AAE14100805518 /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				DEFA4B7B29AFEF0600F2FCD8 /* Screens */,
 				DE2F545C29AAE14100805518 /* SearchBar.swift */,
 				DE2F545D29AAE14100805518 /* BottomSheet.swift */,
 				DE2F545E29AAE14100805518 /* ScheduleHeadline.swift */,
@@ -383,6 +388,23 @@
 				DE2F547229AAE90300805518 /* Constants.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		DEFA4B7B29AFEF0600F2FCD8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DEFA4B7E29B000CD00F2FCD8 /* FocusNow */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DEFA4B7E29B000CD00F2FCD8 /* FocusNow */ = {
+			isa = PBXGroup;
+			children = (
+				DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */,
+				DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */,
+			);
+			path = FocusNow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +502,7 @@
 				DE2F543F29AAE06A00805518 /* FutureView.swift in Sources */,
 				DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */,
 				DE2F546829AAE14200805518 /* Handle.swift in Sources */,
+				DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */,
 				DE2F541629AACE7B00805518 /* AuthViewModel.swift in Sources */,
 				DE2F53E529A9CC7A00805518 /* ContentView.swift in Sources */,
 				DE2F546B29AAE16E00805518 /* HomeScreenContent.swift in Sources */,
@@ -495,6 +518,7 @@
 				DE2F545529AAE0E700805518 /* Icons.swift in Sources */,
 				DE2F544D29AAE0B200805518 /* MeView.swift in Sources */,
 				DE2F544229AAE07F00805518 /* NowView.swift in Sources */,
+				DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */,
 				DE2F543A29AAE06A00805518 /* AddTaskSheet.swift in Sources */,
 				DE2F542D29AADFBF00805518 /* BottomSheetViewModel.swift in Sources */,
 				DE2F541929AACF7D00805518 /* LoginView.swift in Sources */,
