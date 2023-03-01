@@ -33,21 +33,10 @@ struct ContentView: View {
                                                 self.selectedIndex = 0
                                             }
                             .tabItem {
-                                Label("Now", systemImage: "globe.americas.fill")
+                                Label("Focus Now", systemImage: "globe.americas.fill")
                             }
                             .tag(0)
                         
-                        FutureView(scrollPosition: $scrollPosition).environmentObject(BottomSheetViewModel.shared)
-                            .onTapGesture {
-                                                self.selectedIndex = 2
-                                            }
-                            .tabItem {
-                                Label("Schedule", systemImage: "calendar")
-                            }
-                            .tag(1)
-                        
-                        
-
                         NowView(presentingEventDetailSheet: $presentSheet, scrollPosition: $scrollPosition).environmentObject(BottomSheetViewModel.shared)
                             .onTapGesture {
                                                 self.selectedIndex = 1
@@ -59,28 +48,20 @@ struct ContentView: View {
                                     .resizable()
                                     
                             }
-                            .tag(2)
+                            .tag(1)
                         
                         FriendView(presentingEventDetailSheet: $presentSheet)
                             .environmentObject(BottomSheetViewModel.shared )
                             .tabItem {
                                 Label("Friends", systemImage: "figure.2.arms.open")
                             }
-                            .tag(3)
+                            .tag(2)
                         
-                        MeView(presentingEventDetailSheet: $presentSheet)
-                            .environmentObject(BottomSheetViewModel.shared)
-                            
-                            .tabItem {
-                                Label("Me", systemImage: "person.circle.fill")
-                            }
-                            .tag(4)
-                            
                         
                         
                     }
                     .onChange(of: selectedIndex) { value in
-                        if self.selectedIndex == 2 {
+                        if self.selectedIndex == 1 {
                             presentSheet.toggle()
                             
                         }

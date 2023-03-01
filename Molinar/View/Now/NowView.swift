@@ -19,7 +19,7 @@ struct NowView: View {
                 MapboxRepresentable().environmentObject(MapboxViewModel.shared)
                     .edgesIgnoringSafeArea(.all)
                 VStack {
-                    
+                    AppHeader()
                     MapboxViewModel.shared.filterButtons
                     HStack {
                         Spacer()
