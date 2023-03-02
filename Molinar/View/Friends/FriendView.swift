@@ -33,70 +33,7 @@ struct FriendView: View {
                     .padding(.horizontal)
                     
                     Spacer()
-                    BottomSheet(searchText: $bottomSheetViewModel.searchText, content: {
-                        ScrollView(showsIndicators: false) {
-                            ForEach(0..<10) { item in
-                                UserCell()
-                            }
-                        }
-                    }, offset: $bottomSheetViewModel.bottomSheetOffset)
-//                    .overlay {
-//                        // this has already been lined up to be above the bottom sheet.
-//                        ChatBubble()
-//                    }
-                    // this controls everything in the bottom sheet.
-                    .offset(y: geometry.frame(in: .global).height - geometry.frame(in: .global).height * 0.65)
-                    .offset(y: bottomSheetViewModel.bottomSheetOffset)
-                    // gesture
-                    .gesture(DragGesture().onChanged({ (value) in
-                        withAnimation{
-                            // checking the direction of scroll
-                            
-                            // scrolling upwards
-                            // using startLocation bc translation will change when we drag up and down.
-                            if value.startLocation.y > geometry.frame(in: .global).midX{
-                                
-                                if value.translation.height < 0 && bottomSheetViewModel.bottomSheetOffset > (-geometry.frame(in: .global).height + geometry.frame(in: .global).height * 0.65){
-                                    bottomSheetViewModel.bottomSheetOffset = value.translation.height
-                                }
-                                
-                            }
-                            
-                            if value.startLocation.y < geometry.frame(in: .global).midX{
-                                
-                                if value.translation.height > 0  && bottomSheetViewModel.bottomSheetOffset > 0 {
-                                    bottomSheetViewModel.bottomSheetOffset = (-geometry.frame(in: .global).height + geometry.frame(in: .global).height * 0.65) + value.translation.height
-                                }
-                            }
-                        }
-                    }).onEnded({ (value) in
-                        withAnimation{
-                            // checking and pulling up the screen...
-                            
-                            if value.startLocation.y > geometry.frame(in: .global).midX{
-                                
-                                if -value.translation.height > geometry.frame(in: .global).midX{
-                                    bottomSheetViewModel.bottomSheetOffset = (-geometry.frame(in: .global).height + geometry.frame(in: .global).height * 0.65)
-                                    
-                                    return
-                                }
-                                
-                                bottomSheetViewModel.bottomSheetOffset = 0
-                            }
-                            
-                            if value.startLocation.y < geometry.frame(in: .global).midX{
-                                if value.translation.height < geometry.frame(in: .global).midX{
-                                    bottomSheetViewModel.bottomSheetOffset = (-geometry.frame(in: .global).height + geometry.frame(in: .global).height * 0.65)
-                                    
-                                    return
-                                }
-                                
-                                bottomSheetViewModel.bottomSheetOffset = 0
-                            }
-                            
-                            
-                        }
-                    }))
+                    
                     
                 }
                 

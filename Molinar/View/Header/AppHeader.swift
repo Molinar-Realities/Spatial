@@ -11,8 +11,7 @@ struct AppHeader: View {
     var body: some View {
         
         ZStack {
-            BlurView()
-                .ignoresSafeArea()
+            
             HStack {
                 Image("AppLogo")
                     .resizable()
@@ -21,10 +20,12 @@ struct AppHeader: View {
                 Spacer()
                 Circle()
                     .frame(width: 38, height: 38)
+                    .foregroundColor(.white)
             }
             .padding(.horizontal)
         }
         .frame(height: 55)
+        .background(.black)
     }
 }
 

@@ -69,6 +69,7 @@
 		DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */; };
 		DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */; };
 		DEFA4B8329B0059100F2FCD8 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B8229B0059100F2FCD8 /* AppHeader.swift */; };
+		DEFA4B8B29B0311800F2FCD8 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = DEFA4B8A29B0311800F2FCD8 /* BottomSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -156,6 +157,7 @@
 				DE2F541229AACB8500805518 /* FirebaseStorage in Frameworks */,
 				DE2F53FA29AAC7EE00805518 /* MapboxCommon.xcframework in Frameworks */,
 				DE2F541029AACB8400805518 /* FirebaseFunctions in Frameworks */,
+				DEFA4B8B29B0311800F2FCD8 /* BottomSheet in Frameworks */,
 				DE2F53FF29AAC7F100805518 /* MapboxMaps.xcframework in Frameworks */,
 				DE2F540329AAC7F400805518 /* Turf.xcframework in Frameworks */,
 				DE2F540129AAC7F300805518 /* MapboxMobileEvents.xcframework in Frameworks */,
@@ -440,6 +442,7 @@
 				DE2F540D29AACB8400805518 /* FirebaseFirestore */,
 				DE2F540F29AACB8400805518 /* FirebaseFunctions */,
 				DE2F541129AACB8500805518 /* FirebaseStorage */,
+				DEFA4B8A29B0311800F2FCD8 /* BottomSheet */,
 			);
 			productName = Molinar;
 			productReference = DE2F53DF29A9CC7A00805518 /* Molinar.app */;
@@ -471,6 +474,7 @@
 			mainGroup = DE2F53D629A9CC7900805518;
 			packageReferences = (
 				DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = DE2F53E029A9CC7A00805518 /* Products */;
 			projectDirPath = "";
@@ -754,6 +758,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -776,6 +788,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		DEFA4B8A29B0311800F2FCD8 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

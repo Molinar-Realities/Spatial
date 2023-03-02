@@ -12,12 +12,11 @@ struct FocusNow: View {
     var body: some View {
       
         // Main VStack
-        ScrollView {
             VStack(alignment: .leading, spacing: 15) {
-                Text("Focus Now")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
+//                Text("Focus Now")
+//                    .font(.largeTitle)
+//                    .fontWeight(.bold)
+//                    .padding(.horizontal)
                 // Card slide shows
                     
                 // Tasks from Calendar
@@ -34,7 +33,7 @@ struct FocusNow: View {
                             // HACK
                             Rectangle()
                                 .frame(width: 10, height: 187)
-                                .foregroundColor(.white)
+                                .foregroundColor(.clear)
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 10) {
@@ -54,7 +53,7 @@ struct FocusNow: View {
                             // HACK
                             Rectangle()
                                 .frame(width: 10, height: 187)
-                                .foregroundColor(.white)
+                                .foregroundColor(.clear)
                             // HACK
                         }
                     }
@@ -84,7 +83,7 @@ struct FocusNow: View {
                             // HACK
                             Rectangle()
                                 .frame(width: 10, height: 187)
-                                .foregroundColor(.white)
+                                .foregroundColor(.clear)
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 2) {
@@ -108,7 +107,7 @@ struct FocusNow: View {
                             // HACK
                             Rectangle()
                                 .frame(width: 10, height: 187)
-                                .foregroundColor(.white)
+                                .foregroundColor(.clear)
                             // HACK
                         }
                     }
@@ -135,7 +134,7 @@ struct FocusNow: View {
                             // HACK
                             Rectangle()
                                 .frame(width: 10, height: 187)
-                                .foregroundColor(.white)
+                                .foregroundColor(.clear)
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 2) {
@@ -161,14 +160,14 @@ struct FocusNow: View {
                             // HACK
                             Rectangle()
                                 .frame(width: 10, height: 187)
-                                .foregroundColor(.white)
+                                .foregroundColor(.clear)
                             // HACK
                         }
                     }
                     .edgesIgnoringSafeArea(.horizontal)
                 }
             }
-        }
+        
     }
 }
 
