@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var presentSheet = false
     @State private var scrollPosition: CGFloat = 0
     @State var bottomSheetPosition: BottomSheetPosition = .relative(0.4)
+    @State var searchText: String = ""
     
     let icons = ["globe.americas.fill", "plus.app.fill", "figure.2.arms.open" ]
 
@@ -113,28 +114,24 @@ struct ContentView: View {
                                         .fontWeight(.bold)
                                         .padding(.horizontal)
                                 case 2:
-                                    HStack {
-                                        Text("Friends")
-                                            .font(.largeTitle)
-                                            .fontWeight(.bold)
-                                        .padding(.horizontal)
-                                        Spacer()
-                                        Button(action: {}) {
-                                            Image(systemName: "person.crop.circle.badge.plus")
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 38, height: 38)
-                                                .padding(.horizontal)
-                                            .foregroundColor(.blue)
+                                    VStack {
+                                        HStack {
+                                            Text("Friends")
+                                                .font(.largeTitle)
+                                                .fontWeight(.bold)
+                                            .padding(.horizontal)
+                                            Spacer()
+                                            
+                                            Button(action: {}) {
+                                                Image(systemName: "square.and.pencil.circle.fill")
+                                                    .resizable()
+                                                    .scaledToFill()
+                                                    .frame(width: 38, height: 38)
+                                                    .padding(.horizontal)
+                                                .foregroundColor(.blue)
+                                            }
                                         }
-                                        Button(action: {}) {
-                                            Image(systemName: "square.and.pencil.circle.fill")
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 38, height: 38)
-                                                .padding(.horizontal)
-                                            .foregroundColor(.blue)
-                                        }
+                                        
                                     }
                                 default:
                                     Text("Focus Now")
@@ -149,13 +146,14 @@ struct ContentView: View {
                                 case 0:
                                     FocusNow()
                                 case 2:
-                                    FriendsBottomTab()
+                                    FriendsBottomTab(searchText: $searchText, bottomSheetPosition: $bottomSheetPosition)
                                 default:
                                     Text("")
                                 }
                                 
                             }
                             .enableAppleScrollBehavior()
+                            .customBackground(.white)
                            
 
 

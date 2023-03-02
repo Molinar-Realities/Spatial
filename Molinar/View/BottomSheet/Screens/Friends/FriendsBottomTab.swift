@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import BottomSheet
 
 struct FriendsBottomTab: View {
+    @Binding var searchText: String
+    @Binding var bottomSheetPosition: BottomSheetPosition
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
+            
+            
             HStack {
                 Text("Messages")
                     .font(.headline)
@@ -42,6 +48,6 @@ struct FriendsBottomTab: View {
 
 struct FriendsBottomTab_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsBottomTab()
+        FriendsBottomTab(searchText: .constant(""), bottomSheetPosition: .constant(.relativeTop(0.5)))
     }
 }

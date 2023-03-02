@@ -37,7 +37,7 @@ struct FocusNow: View {
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("Made For You")
+                                    Text("From Tasks")
                                         .foregroundColor(.gray)
                                         .font(.footnote)
                                     // TO DO: Make the cards from Apple Music.
