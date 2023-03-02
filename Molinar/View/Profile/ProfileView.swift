@@ -35,7 +35,7 @@ struct ProfileView: View {
                                 Spacer()
                                 HStack {
                                     Spacer()
-                                    Text("\(user.name) doesn't have any events :(")
+                                    Text("\(user.name) doesn't have any activity :(")
                                         .padding(.bottom, 25)
                                     Spacer()
                                 }
