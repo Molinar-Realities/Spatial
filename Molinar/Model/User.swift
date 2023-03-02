@@ -5,32 +5,29 @@
 //  Created by Matt Molinar on 2/24/23.
 //
 
+import Foundation
 import Firebase
 
 struct User: Identifiable {
     let id: String
-    var username: String
-    var profileImageUrl: String
-    var fullname: String
-    var email: String
-    var bio: String
-    var stats: UserStats
+    let name: String
+    let age: String
+    let grade: String
+    let profilePictureUrl: String
+    let profileDescription: String
+    let username: String
+    let isCurrentUser: Bool
+    
     
     
     init(dictionary: [String: Any]) {
         self.id = dictionary["uid"] as? String ?? ""
+        self.name = dictionary["name"] as? String ?? ""
+        self.age = dictionary["age"] as? String ?? ""
+        self.grade = dictionary["grade"] as? String ?? ""
+        self.profilePictureUrl = dictionary["profilePictureUrl"] as? String ?? ""
+        self.profileDescription = dictionary["profileDescription"] as? String ?? ""
         self.username = dictionary["username"] as? String ?? ""
-        self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
-        self.email = dictionary["email"] as? String ?? ""
-        self.fullname = dictionary["fullname"] as? String ?? ""
-        self.bio = dictionary["bio"] as? String ?? ""
-        self.stats = UserStats(followers: 0, following: 0)
-    }
+        self.isCurrentUser = Auth.auth().currentUser?.uid == self.id
+     }
 }
-
-
-struct UserStats {
-    var followers: Int
-    var following: Int
-}
-

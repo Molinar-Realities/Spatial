@@ -76,6 +76,12 @@
 		DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */; };
 		DEFA4B9829B08E6E00F2FCD8 /* BigCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */; };
 		DEFA4B9A29B097DC00F2FCD8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9929B097DC00F2FCD8 /* ProfileViewModel.swift */; };
+		DEFA4B9C29B09B0D00F2FCD8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9B29B09B0D00F2FCD8 /* ProfileView.swift */; };
+		DEFA4B9E29B09BA300F2FCD8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9D29B09BA300F2FCD8 /* ProfileHeaderView.swift */; };
+		DEFA4BA029B09BB600F2FCD8 /* ProfileActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9F29B09BB600F2FCD8 /* ProfileActionButtonView.swift */; };
+		DEFA4BA229B09BC400F2FCD8 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4BA129B09BC400F2FCD8 /* FilterButtonView.swift */; };
+		DEFA4BA529B09C9200F2FCD8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DEFA4BA429B09C9200F2FCD8 /* Kingfisher */; };
+		DEFA4BA729B09E1600F2FCD8 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4BA629B09E1600F2FCD8 /* ImagePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +163,11 @@
 		DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSheet.swift; sourceTree = "<group>"; };
 		DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCalendar.swift; sourceTree = "<group>"; };
 		DEFA4B9929B097DC00F2FCD8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		DEFA4B9B29B09B0D00F2FCD8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DEFA4B9D29B09BA300F2FCD8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		DEFA4B9F29B09BB600F2FCD8 /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
+		DEFA4BA129B09BC400F2FCD8 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
+		DEFA4BA629B09E1600F2FCD8 /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +183,7 @@
 				DEFA4B8B29B0311800F2FCD8 /* BottomSheet in Frameworks */,
 				DE2F53FF29AAC7F100805518 /* MapboxMaps.xcframework in Frameworks */,
 				DE2F540329AAC7F400805518 /* Turf.xcframework in Frameworks */,
+				DEFA4BA529B09C9200F2FCD8 /* Kingfisher in Frameworks */,
 				DE2F540129AAC7F300805518 /* MapboxMobileEvents.xcframework in Frameworks */,
 				DE2F540E29AACB8400805518 /* FirebaseFirestore in Frameworks */,
 			);
@@ -269,6 +281,7 @@
 		DE2F541729AACF6F00805518 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				DEFA4BA629B09E1600F2FCD8 /* ImagePickerView.swift */,
 				DE2F541829AACF7D00805518 /* LoginView.swift */,
 				DE2F541A29AACF8800805518 /* RegisterView.swift */,
 			);
@@ -448,6 +461,10 @@
 		DEFA4B9129B0613900F2FCD8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DEFA4B9B29B09B0D00F2FCD8 /* ProfileView.swift */,
+				DEFA4B9D29B09BA300F2FCD8 /* ProfileHeaderView.swift */,
+				DEFA4B9F29B09BB600F2FCD8 /* ProfileActionButtonView.swift */,
+				DEFA4BA129B09BC400F2FCD8 /* FilterButtonView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -485,6 +502,7 @@
 				DE2F540F29AACB8400805518 /* FirebaseFunctions */,
 				DE2F541129AACB8500805518 /* FirebaseStorage */,
 				DEFA4B8A29B0311800F2FCD8 /* BottomSheet */,
+				DEFA4BA429B09C9200F2FCD8 /* Kingfisher */,
 			);
 			productName = Molinar;
 			productReference = DE2F53DF29A9CC7A00805518 /* Molinar.app */;
@@ -517,6 +535,7 @@
 			packageReferences = (
 				DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				DEFA4BA329B09C9200F2FCD8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DE2F53E029A9CC7A00805518 /* Products */;
 			projectDirPath = "";
@@ -549,11 +568,13 @@
 				DE2F545329AAE0E000805518 /* Extensions.swift in Sources */,
 				DE2F546729AAE14200805518 /* RecommendedEvents.swift in Sources */,
 				DE2F546629AAE14200805518 /* SwiftUIView.swift in Sources */,
+				DEFA4BA729B09E1600F2FCD8 /* ImagePickerView.swift in Sources */,
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
 				DE2F545A29AAE10700805518 /* WorkspaceScreenContent.swift in Sources */,
 				DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */,
 				DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */,
 				DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */,
+				DEFA4B9E29B09BA300F2FCD8 /* ProfileHeaderView.swift in Sources */,
 				DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */,
 				DEFA4B9829B08E6E00F2FCD8 /* BigCalendar.swift in Sources */,
 				DEFA4B8E29B04BF900F2FCD8 /* FriendsBottomTab.swift in Sources */,
@@ -576,15 +597,18 @@
 				DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */,
 				DE2F543D29AAE06A00805518 /* ProjectsSectionHeader.swift in Sources */,
 				DEFA4B9A29B097DC00F2FCD8 /* ProfileViewModel.swift in Sources */,
+				DEFA4BA029B09BB600F2FCD8 /* ProfileActionButtonView.swift in Sources */,
 				DE2F542F29AADFFE00805518 /* RecommendedSheetView.swift in Sources */,
 				DE2F547329AAE90300805518 /* Constants.swift in Sources */,
 				DE2F545529AAE0E700805518 /* Icons.swift in Sources */,
+				DEFA4BA229B09BC400F2FCD8 /* FilterButtonView.swift in Sources */,
 				DE2F544D29AAE0B200805518 /* MeView.swift in Sources */,
 				DE2F544229AAE07F00805518 /* NowView.swift in Sources */,
 				DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */,
 				DE2F543A29AAE06A00805518 /* AddTaskSheet.swift in Sources */,
 				DE2F542D29AADFBF00805518 /* BottomSheetViewModel.swift in Sources */,
 				DE2F541929AACF7D00805518 /* LoginView.swift in Sources */,
+				DEFA4B9C29B09B0D00F2FCD8 /* ProfileView.swift in Sources */,
 				DE2F542829AADDC300805518 /* MapboxViewModel.swift in Sources */,
 				DE2F542629AADD2700805518 /* MapboxView.swift in Sources */,
 				DE2F547029AAE67A00805518 /* Task.swift in Sources */,
@@ -814,6 +838,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		DEFA4BA329B09C9200F2FCD8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -841,6 +873,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		DEFA4BA429B09C9200F2FCD8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEFA4BA329B09C9200F2FCD8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

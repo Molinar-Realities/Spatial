@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
 import Firebase
+import FirebaseStorage
 import FirebaseAuth
 
 class AuthViewModel: ObservableObject {
@@ -44,34 +46,44 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
-    func registerUser(email: String, password: String, username: String, fullname: String) {
-        isAuthenticating = true
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+    func registerUser(email: String, password: String, username: String, name: String, profileImage: UIImage, age: String, grade: String) {
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+        let filename = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child(filename)
+        
+        storageRef.putData(imageData, metadata: nil) { _, error in
             if let error = error {
-                print("DEBUG: Error \(error.localizedDescription)")
-                self.error = error
-                self.isAuthenticating = false
+                print("DEBUG: failed to upload image: \(error.localizedDescription)")
                 return
             }
             
-            guard let user = result?.user else { return }
-            
-            let data = ["email": email,
-                        "username": username.lowercased(),
-                        "fullname": fullname,
-                        "uid": user.uid
-                ]
-            Firestore.firestore().collection("users").document(user.uid)
-                .setData(data) { error in
+            storageRef.downloadURL { url, _ in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error {
-                        print("DEBUG: Error \(error.localizedDescription)")
-                        self.error = error
-                        self.isAuthenticating = false
+                        print("Error \(error.localizedDescription)")
                         return
                     }
-                    self.userSession = user
-                    self.fetchUser()
+
+                    guard let user = result?.user else { return }
+                    let data = [
+                        "email": email,
+                        "name": name,
+                        "age": age,
+                        "grade": grade,
+                        "profilePictureUrl": profileImageUrl,
+                        "profileDescription": "Edit profile to edit your profile description!",
+                        "uid": user.uid,
+                        "username": username
+                    ]
+                    Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                        print("uploading user data...")
+                        self.userSession = user
+                        self.fetchUser()
+                    }
                 }
+            }
         }
     }
     

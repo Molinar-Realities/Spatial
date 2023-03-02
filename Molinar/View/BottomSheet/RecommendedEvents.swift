@@ -14,8 +14,8 @@ struct RecommendedEvents: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
-                if viewModel.tasks.count > 0 {
-                    ForEach(viewModel.tasks) { task in
+                if viewModel.userTasks.count > 0 {
+                    ForEach(viewModel.userTasks) { task in
                         Button(action: {
                             presentingEventDetailSheet.toggle()
                         }) {
