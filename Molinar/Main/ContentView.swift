@@ -23,7 +23,7 @@ struct ContentView: View {
         Group {
             if viewModel.userSession != nil {
                 VStack(spacing: 0) {
-                    AppHeader()
+
 
 //                    Spacer().fullScreenCover(isPresented: $presentSheet) {
 //                        NavigationView {
@@ -93,6 +93,13 @@ struct ContentView: View {
                             }
                         MapboxRepresentable().environmentObject(MapboxViewModel.shared)
                             .edgesIgnoringSafeArea(.all)
+                            .overlay(alignment: .top) {
+                                VStack(spacing: 0) {
+                                    AppHeader()
+                                    Divider()
+                                    FilterLabels()
+                                }
+                            }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(0.975)], headerContent: {
                                 switch selectedIndex {
                                 case 0:
@@ -128,9 +135,7 @@ struct ContentView: View {
                                 
                             }
                             .enableAppleScrollBehavior()
-                            .customBackground(
-                                Color.white
-                            )
+                           
 
 
                     }
@@ -154,6 +159,7 @@ struct ContentView: View {
                             Spacer()
                         }
                     }
+                    .padding(.top, 4)
                     .background(.black)
                     
                 }
