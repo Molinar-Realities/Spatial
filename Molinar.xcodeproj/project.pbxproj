@@ -72,6 +72,8 @@
 		DEFA4B8B29B0311800F2FCD8 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = DEFA4B8A29B0311800F2FCD8 /* BottomSheet */; };
 		DEFA4B8E29B04BF900F2FCD8 /* FriendsBottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B8D29B04BF900F2FCD8 /* FriendsBottomTab.swift */; };
 		DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B8F29B0559A00F2FCD8 /* MiniCalendar.swift */; };
+		DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */; };
+		DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -149,6 +151,8 @@
 		DEFA4B8229B0059100F2FCD8 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
 		DEFA4B8D29B04BF900F2FCD8 /* FriendsBottomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsBottomTab.swift; sourceTree = "<group>"; };
 		DEFA4B8F29B0559A00F2FCD8 /* MiniCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCalendar.swift; sourceTree = "<group>"; };
+		DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSheet.swift; sourceTree = "<group>"; };
+		DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +244,7 @@
 		DE2F540729AACA8800805518 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DEFA4B9229B0656600F2FCD8 /* Sheet */,
 				DEFA4B9129B0613900F2FCD8 /* Profile */,
 				DEFA4B8129B0058200F2FCD8 /* Header */,
 				DE2F545B29AAE14100805518 /* BottomSheet */,
@@ -442,6 +447,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		DEFA4B9229B0656600F2FCD8 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */,
+				DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -531,6 +545,7 @@
 				DE2F546629AAE14200805518 /* SwiftUIView.swift in Sources */,
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
 				DE2F545A29AAE10700805518 /* WorkspaceScreenContent.swift in Sources */,
+				DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */,
 				DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */,
 				DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */,
 				DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */,
@@ -544,6 +559,7 @@
 				DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */,
 				DE2F541629AACE7B00805518 /* AuthViewModel.swift in Sources */,
 				DE2F53E529A9CC7A00805518 /* ContentView.swift in Sources */,
+				DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */,
 				DE2F546B29AAE16E00805518 /* HomeScreenContent.swift in Sources */,
 				DE2F546929AAE14200805518 /* NewsHeadline.swift in Sources */,
 				DE2F544E29AAE0B200805518 /* MeScreenContent.swift in Sources */,

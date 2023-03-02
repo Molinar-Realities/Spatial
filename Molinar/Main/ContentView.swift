@@ -4,7 +4,7 @@
 //
 //  Created by Matt Molinar on 2/24/23.
 //
-
+import Dispatch
 import SwiftUI
 import BottomSheet
 
@@ -18,8 +18,17 @@ struct ContentView: View {
     @State var searchText: String = ""
     @State private var isShowingTaskSheet = false
     @State private var sheetText = ""
+    @State var taskTitle = ""
     
+    enum FocusField: Hashable {
+        case title
+      }
+    
+    @FocusState private var taskNameInFocus: Bool
+
     let icons = ["globe.americas.fill", "plus.app.fill", "figure.2.arms.open" ]
+    
+   
 
     
     var body: some View {
@@ -188,6 +197,16 @@ struct ContentView: View {
                                     .foregroundColor(selectedIndex == number ? .blue : Color(UIColor.white))
 
                             }
+                            .sheet(isPresented: $isShowingTaskSheet, onDismiss: {
+                                        // Do something when the sheet is dismissed
+                                    }) {
+                                        
+                                        TaskSheet(showingSheet: $isShowingTaskSheet)
+                                            .presentationDetents([.height(140)])
+                                        
+                                    }
+                                    
+                                    
                             Spacer()
                         }
                     }
@@ -201,6 +220,7 @@ struct ContentView: View {
             }
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
