@@ -116,7 +116,7 @@ struct ContentView: View {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
                                     ScrollView(.horizontal, showsIndicators: false) {
                                         VStack {
-                                            HStack(spacing: 15) {
+                                            HStack(alignment: .top, spacing: 15) {
                                                 MiniCalendar()
                                                 VStack(alignment: .leading, spacing: 5) {
                                                     HStack {

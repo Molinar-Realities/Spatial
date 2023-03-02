@@ -83,7 +83,7 @@ struct MiniCalendar: View {
                     .frame(width: 100)
                 }
                 .opacity(showingEvents ? 1 : 0)
-                .padding(.top, 8)
+                .padding(.top, 4) // idk
                 .padding(.horizontal, 8)
                 .frame(height: eventsHeight)
 
