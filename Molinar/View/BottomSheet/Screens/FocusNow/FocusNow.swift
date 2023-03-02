@@ -42,7 +42,7 @@ struct FocusNow: View {
                                         .font(.footnote)
                                     // TO DO: Make the cards from Apple Music.
                                     Rectangle()
-                                        .frame(width: 155, height: 187)
+                                        .frame(width: 155, height: 155)
                                         .cornerRadius(10)
                                         .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
                                         .padding(.bottom, 5)

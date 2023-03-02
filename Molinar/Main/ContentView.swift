@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var scrollPosition: CGFloat = 0
     @State var bottomSheetPosition: BottomSheetPosition = .relative(0.4)
     
-    let icons = ["globe.americas.fill", "plus.circle.fill", "figure.2.arms.open" ]
+    let icons = ["globe.americas.fill", "plus.app.fill", "figure.2.arms.open" ]
 
     
     var body: some View {
@@ -113,10 +113,29 @@ struct ContentView: View {
                                         .fontWeight(.bold)
                                         .padding(.horizontal)
                                 case 2:
-                                    Text("Friends")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
+                                    HStack {
+                                        Text("Friends")
+                                            .font(.largeTitle)
+                                            .fontWeight(.bold)
                                         .padding(.horizontal)
+                                        Spacer()
+                                        Button(action: {}) {
+                                            Image(systemName: "person.crop.circle.badge.plus")
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 38, height: 38)
+                                                .padding(.horizontal)
+                                            .foregroundColor(.blue)
+                                        }
+                                        Button(action: {}) {
+                                            Image(systemName: "square.and.pencil.circle.fill")
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 38, height: 38)
+                                                .padding(.horizontal)
+                                            .foregroundColor(.blue)
+                                        }
+                                    }
                                 default:
                                     Text("Focus Now")
                                         .font(.largeTitle)
@@ -129,6 +148,8 @@ struct ContentView: View {
                                 switch selectedIndex {
                                 case 0:
                                     FocusNow()
+                                case 2:
+                                    FriendsBottomTab()
                                 default:
                                     Text("")
                                 }
