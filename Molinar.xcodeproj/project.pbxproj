@@ -82,6 +82,7 @@
 		DEFA4BA229B09BC400F2FCD8 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4BA129B09BC400F2FCD8 /* FilterButtonView.swift */; };
 		DEFA4BA529B09C9200F2FCD8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DEFA4BA429B09C9200F2FCD8 /* Kingfisher */; };
 		DEFA4BA729B09E1600F2FCD8 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4BA629B09E1600F2FCD8 /* ImagePickerView.swift */; };
+		DEFA4BA929B0B60200F2FCD8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4BA829B0B60200F2FCD8 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -168,6 +169,7 @@
 		DEFA4B9F29B09BB600F2FCD8 /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
 		DEFA4BA129B09BC400F2FCD8 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		DEFA4BA629B09E1600F2FCD8 /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		DEFA4BA829B0B60200F2FCD8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				DE2F540829AACA9700805518 /* User.swift */,
 				DE2F546F29AAE67A00805518 /* Task.swift */,
+				DEFA4BA829B0B60200F2FCD8 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				DE2F543B29AAE06A00805518 /* LocationHeader.swift in Sources */,
 				DE2F546429AAE14200805518 /* BottomSheet.swift in Sources */,
 				DE2F543E29AAE06A00805518 /* TaskCell.swift in Sources */,
+				DEFA4BA929B0B60200F2FCD8 /* Item.swift in Sources */,
 				DE2F544C29AAE0B200805518 /* EnergyGraphView.swift in Sources */,
 				DE2F544729AAE0AA00805518 /* UserCell.swift in Sources */,
 				DE2F545129AAE0BC00805518 /* NewsCell.swift in Sources */,

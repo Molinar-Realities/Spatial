@@ -11,6 +11,8 @@ import Firebase
 class ProfileViewModel: ObservableObject {
     let user: User
     @Published var userTasks = [Task]()
+    @Published var userActivity = [Task]()
+    @Published var userItems = [Item]()
     
     init(user: User) {
         self.user = user

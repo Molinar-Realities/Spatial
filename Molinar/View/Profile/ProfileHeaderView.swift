@@ -51,7 +51,6 @@ struct ProfileHeaderView: View {
                 Text(viewModel.user.grade)
                 Text("UT-Austin")
             }.padding()
-            Spacer()
             
             
         }

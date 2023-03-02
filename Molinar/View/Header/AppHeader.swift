@@ -29,7 +29,9 @@ struct AppHeader: View {
                         .onTapGesture {
                             AuthViewModel.shared.signOut()
                         }
+                    
                     Spacer()
+                        
                     Button(action: {
                         showProfile.toggle()
                     }) {
@@ -42,10 +44,10 @@ struct AppHeader: View {
                         
                     
                 }
+                .frame(height: 55)
                 .padding(.horizontal)
             }
-            .frame(height: 55)
-            .fullScreenCover(isPresented: $showProfile) {
+            .sheet(isPresented: $showProfile) {
                 ProfileView(user: user, showSheet: $showProfile)
             }
         .background(.black)
@@ -59,13 +61,13 @@ struct BlurView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIVisualEffectView {
         let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.alpha = 0.8 // Set a lower alpha value to make the blur less strong
+        blurView.alpha = 0.5 // Set a lower alpha value to make the blur less strong
         blurView.backgroundColor = .systemGray
         return blurView
     }
     
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-        uiView.alpha = 0.8 // Update alpha value in case it changes
+        uiView.alpha = 0.5 // Update alpha value in case it changes
     }
 }
 
