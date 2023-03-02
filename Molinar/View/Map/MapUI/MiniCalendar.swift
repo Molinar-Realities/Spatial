@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MiniCalendar: View {
+    @Namespace private var animation
+    @State private var eventsHeight: CGFloat = 0
+
+
     @State var showingEvents = false
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -18,6 +22,7 @@ struct MiniCalendar: View {
                 Spacer()
                 Button(action:{
                     showingEvents.toggle()
+                    eventsHeight = showingEvents ? 80 : 0 // set the height based on the desired size of the events section
                 }) {
                     Image(systemName: showingEvents ? "chevron.down" : "chevron.right")
                         .foregroundColor(Color(.systemGray))
@@ -26,9 +31,8 @@ struct MiniCalendar: View {
             }
             .frame(width: 108)
             .padding(.top, 8)
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 16)
             
-            if showingEvents {
                 VStack(spacing: 2) {
                     ForEach(0 ..< 2) { item in
                         HStack(spacing: 5) {
@@ -63,28 +67,30 @@ struct MiniCalendar: View {
                             
                         }
                     }
+                    HStack {
+                            Text("3 more...")
+                            .font(.caption2)
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 4)
+                        Spacer()
+                        
+                    }
+                    .frame(width: 100)
                 }
+                .opacity(showingEvents ? 1 : 0)
                 .padding(.top, 8)
-            .padding(.horizontal, 8)
-            } else {
-                EmptyView()
-            }
+                .padding(.horizontal, 8)
+                .frame(height: eventsHeight)
+
             
-            VStack {
-                if showingEvents {
-                    Text("3 more...")
-                    .font(.caption2)
-                    .foregroundColor(.gray)
-                    .padding(.horizontal, 8)
-                .padding(.bottom, 4)
-                } else {
-                    EmptyView()
-                }
-            }
+            
+            
             
         }
         .background(.white)
         .cornerRadius(10)
+        .animation(.easeInOut(duration: 0.3), value: eventsHeight) // add the animation modifier
+
         
     }
 }
