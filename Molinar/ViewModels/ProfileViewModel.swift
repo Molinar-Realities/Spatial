@@ -1,34 +1,21 @@
 //
-//  TasksViewModel.swift
+//  ProfileViewModel.swift
 //  Molinar
 //
-//  Created by Matt Molinar on 2/25/23.
+//  Created by Matt Molinar on 3/2/23.
 //
 
 import SwiftUI
-import Firebase 
+import Firebase
 
-class TasksViewModel: ObservableObject {
+class ProfileViewModel: ObservableObject {
+    let user: User
     @Published var userTasks = [Task]()
     
-    init() {
+    init(user: User) {
+        self.user = user
         fetchUserTasks()
-    }
-    
-    
-    func fetchTasks() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         
-        let query = COLLECTION_TASKS
-        
-        query.addSnapshotListener { snapshot, error in
-            guard let changes = snapshot?.documentChanges else { return }
-            
-            changes.forEach { change in
-                let data = change.document.data()
-                self.userTasks.append(Task(dictionary: data))
-            }
-        }
     }
     
     func fetchUserTasks() {
@@ -45,3 +32,5 @@ class TasksViewModel: ObservableObject {
         }
     }
 }
+
+

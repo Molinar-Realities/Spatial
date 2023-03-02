@@ -75,6 +75,7 @@
 		DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */; };
 		DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */; };
 		DEFA4B9829B08E6E00F2FCD8 /* BigCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */; };
+		DEFA4B9A29B097DC00F2FCD8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9929B097DC00F2FCD8 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -155,6 +156,7 @@
 		DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSheet.swift; sourceTree = "<group>"; };
 		DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSheet.swift; sourceTree = "<group>"; };
 		DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCalendar.swift; sourceTree = "<group>"; };
+		DEFA4B9929B097DC00F2FCD8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				DE2F541529AACE7B00805518 /* AuthViewModel.swift */,
 				DE2F542729AADDC300805518 /* MapboxViewModel.swift */,
 				DE2F542C29AADFBF00805518 /* BottomSheetViewModel.swift */,
+				DEFA4B9929B097DC00F2FCD8 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				DE2F545929AAE10700805518 /* WorkspaceView.swift in Sources */,
 				DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */,
 				DE2F543D29AAE06A00805518 /* ProjectsSectionHeader.swift in Sources */,
+				DEFA4B9A29B097DC00F2FCD8 /* ProfileViewModel.swift in Sources */,
 				DE2F542F29AADFFE00805518 /* RecommendedSheetView.swift in Sources */,
 				DE2F547329AAE90300805518 /* Constants.swift in Sources */,
 				DE2F545529AAE0E700805518 /* Icons.swift in Sources */,
