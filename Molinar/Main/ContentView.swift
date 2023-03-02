@@ -136,7 +136,7 @@ struct ContentView: View {
                                                 
                                                 VStack(alignment: .leading, spacing: 5) {
                                                     HStack {
-                                                        Text("Health")
+                                                        Text("Fitness")
                                                             .font(.subheadline)
                                                     }
                                                     .padding(.top, 8)
@@ -167,21 +167,7 @@ struct ContentView: View {
                                                 .background(.white)
                                                 .cornerRadius(20)
                                                 
-                                                VStack(alignment: .leading, spacing: 5) {
-                                                    HStack {
-                                                        Text("Bored")
-                                                            .font(.subheadline)
-                                                    }
-                                                    .padding(.top, 8)
-                                                    .padding(.horizontal, 16)
-                                                    
-                                                    VStack {
-                                                        
-                                                    }
-                                                    
-                                                }
-                                                .background(.white)
-                                                .cornerRadius(20)
+                                                
                                                 
                                                 Spacer()
                                             }
