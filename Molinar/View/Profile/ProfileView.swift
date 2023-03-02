@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var viewModel: ProfileViewModel
+    private let user: User
+    @ObservedObject private var viewModel: ProfileViewModel
+    @Binding var showSheet: Bool
+    
+    init(user: User, showSheet: Binding<Bool>) {
+          self.user = user
+          self.viewModel = ProfileViewModel(user: user)
+          self._showSheet = showSheet
+      }
 
     var body: some View {
         VStack {
-            ProfileHeaderView(viewModel: viewModel)
+            ProfileHeaderView(viewModel: viewModel, showSheet: $showSheet)
         }
     }
 }

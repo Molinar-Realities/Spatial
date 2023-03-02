@@ -20,6 +20,12 @@ struct ContentView: View {
     @State private var sheetText = ""
     @State var taskTitle = ""
     
+    let fakeData = ["email": "fake@email.com",
+                    "username": "error",
+                    "name": "error",
+                    "profileImageUrl": "error",
+                    "uid": "error"]
+    
     enum FocusField: Hashable {
         case title
       }
@@ -107,7 +113,7 @@ struct ContentView: View {
                             .edgesIgnoringSafeArea(.all)
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
-                                    AppHeader()
+                                    AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
                                     Divider()
 //                                    FilterLabels()
                                     HStack {

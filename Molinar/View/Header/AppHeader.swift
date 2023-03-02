@@ -9,35 +9,48 @@ import SwiftUI
 import Kingfisher
 
 struct AppHeader: View {
-    let user: User
-    @ObservedObject var viewModel: ProfileViewModel
+    private let user: User
+    @ObservedObject private var viewModel: ProfileViewModel
+    @State var showProfile = false
+    
+    init(user: User) {
+        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
+    }
 
     var body: some View {
         
-        ZStack {
-            
-            HStack {
-                Image("AppLogo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 38, height: 38)
-                Spacer()
-                NavigationView {
-                    NavigationLink(destination: ProfileView(viewModel: viewModel)) {
+            ZStack {
+                HStack {
+                    Image("AppLogo")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 38, height: 38)
+                        .onTapGesture {
+                            AuthViewModel.shared.signOut()
+                        }
+                    Spacer()
+                    Button(action: {
+                        showProfile.toggle()
+                    }) {
                         KFImage(URL(string: viewModel.user.profilePictureUrl))
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 120, height: 120)
-                            .clipShape(Circle())
-                            .shadow(color: .black, radius: 3, x:0.0, y:0.0)
+                            .frame(width: 38, height: 38)
+                        .clipShape(Circle())
                     }
+                        
+                    
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
-        }
-        .frame(height: 55)
+            .frame(height: 55)
+            .fullScreenCover(isPresented: $showProfile) {
+                ProfileView(user: user, showSheet: $showProfile)
+            }
         .background(.black)
-    }
+        }
+    
 }
 
 

@@ -10,8 +10,27 @@ import Kingfisher
 
 struct ProfileHeaderView: View {
     let viewModel: ProfileViewModel
+    @Binding var showSheet: Bool 
     var body: some View {
         VStack {
+            HStack {
+                Button(action: {
+                    showSheet.toggle()
+                }) {
+                    Image(systemName: "x.circle.fill")
+                        .foregroundColor(.red)
+                }
+                Spacer()
+                Text(viewModel.user.username)
+                Spacer()
+                Button(action: {
+                    showSheet.toggle()
+                }) {
+                    Image(systemName: "x.circle.fill")
+                        .foregroundColor(.red)
+                }.opacity(0)
+            }
+            .padding(.horizontal)
             KFImage(URL(string: viewModel.user.profilePictureUrl))
                 .resizable()
                 .scaledToFill()
@@ -32,8 +51,8 @@ struct ProfileHeaderView: View {
                 Text(viewModel.user.grade)
                 Text("UT-Austin")
             }.padding()
+            Spacer()
             
-                .navigationTitle(viewModel.user.username)
             
         }
     }
