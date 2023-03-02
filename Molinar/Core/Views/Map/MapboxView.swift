@@ -47,6 +47,7 @@ class MapboxView: UIViewController {
 
 struct MapboxRepresentable: UIViewControllerRepresentable {
     @EnvironmentObject var mapboxViewModel: MapboxViewModel
+    let locationManager = LocationManager()
 
     func makeUIViewController(context: Context) -> MapboxView {
         return mapboxViewModel.mapboxView
