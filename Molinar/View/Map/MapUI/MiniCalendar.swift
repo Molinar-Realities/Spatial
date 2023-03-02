@@ -19,6 +19,7 @@ struct MiniCalendar: View {
             HStack {
                 Text("Calendar")
                     .font(.headline)
+                
                 Spacer()
                 Button(action:{
                     showingEvents.toggle()
@@ -32,6 +33,10 @@ struct MiniCalendar: View {
             .frame(width: 108)
             .padding(.top, 8)
             .padding(.horizontal, 16)
+            .onTapGesture {
+                showingEvents.toggle()
+                eventsHeight = showingEvents ? 80 : 0 // set the height based on the desired size of the events section
+            }
             
                 VStack(spacing: 2) {
                     ForEach(0 ..< 2) { item in
