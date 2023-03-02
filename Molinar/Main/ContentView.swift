@@ -98,7 +98,12 @@ struct ContentView: View {
                                 VStack(spacing: 0) {
                                     AppHeader()
                                     Divider()
-                                    FilterLabels()
+//                                    FilterLabels()
+                                    HStack {
+                                        MiniCalendar()
+                                        Spacer()
+                                    }
+                                    .padding()
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(0.975)], headerContent: {
