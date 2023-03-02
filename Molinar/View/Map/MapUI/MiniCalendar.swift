@@ -18,14 +18,14 @@ struct MiniCalendar: View {
             // calendar header
             HStack {
                 Text("Calendar")
-                    .font(.headline)
+                    .font(.subheadline)
                 
                 Spacer()
                 Button(action:{
                     showingEvents.toggle()
                     eventsHeight = showingEvents ? 80 : 0 // set the height based on the desired size of the events section
                 }) {
-                    Image(systemName: showingEvents ? "chevron.down" : "chevron.right")
+                    Image(systemName: showingEvents ? "chevron.up" : "chevron.down")
                         .foregroundColor(Color(.systemGray))
                         .fontWeight(.bold)
                 }
@@ -93,7 +93,7 @@ struct MiniCalendar: View {
             
         }
         .background(.white)
-        .cornerRadius(10)
+        .cornerRadius(20)
         .animation(.easeInOut(duration: 0.3), value: eventsHeight) // add the animation modifier
 
         

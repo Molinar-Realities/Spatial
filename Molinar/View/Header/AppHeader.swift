@@ -27,11 +27,11 @@ struct AppHeader: View {
                         .scaledToFill()
                         .frame(width: 38, height: 38)
                         .onTapGesture {
-                            AuthViewModel.shared.signOut()
                         }
                     
                     Spacer()
-                        
+                    Divider()
+                    .padding(.vertical, 8)
                     Button(action: {
                         showProfile.toggle()
                     }) {
@@ -50,7 +50,9 @@ struct AppHeader: View {
             .sheet(isPresented: $showProfile) {
                 ProfileView(user: user, showSheet: $showProfile)
             }
-        .background(.black)
+        .background(.white)
+        .cornerRadius(55/2)
+        .padding(.horizontal)
         }
     
 }

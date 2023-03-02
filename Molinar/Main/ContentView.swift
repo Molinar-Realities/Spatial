@@ -114,13 +114,82 @@ struct ContentView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-                                    Divider()
-//                                    FilterLabels()
-                                    HStack {
-                                        MiniCalendar()
-                                        Spacer()
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        VStack {
+                                            HStack(spacing: 15) {
+                                                MiniCalendar()
+                                                VStack(alignment: .leading, spacing: 5) {
+                                                    HStack {
+                                                        Text("Tasks")
+                                                            .font(.subheadline)
+                                                    }
+                                                    .padding(.top, 8)
+                                                    .padding(.horizontal, 16)
+                                                    
+                                                    VStack {
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                .background(.white)
+                                                .cornerRadius(20)
+                                                
+                                                VStack(alignment: .leading, spacing: 5) {
+                                                    HStack {
+                                                        Text("Health")
+                                                            .font(.subheadline)
+                                                    }
+                                                    .padding(.top, 8)
+                                                    .padding(.horizontal, 16)
+                                                    
+                                                    VStack {
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                .background(.white)
+                                                .cornerRadius(20)
+                                                
+                                                
+                                                VStack(alignment: .leading, spacing: 5) {
+                                                    HStack {
+                                                        Text("Energy")
+                                                            .font(.subheadline)
+                                                    }
+                                                    .padding(.top, 8)
+                                                    .padding(.horizontal, 16)
+                                                    
+                                                    VStack {
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                .background(.white)
+                                                .cornerRadius(20)
+                                                
+                                                VStack(alignment: .leading, spacing: 5) {
+                                                    HStack {
+                                                        Text("Bored")
+                                                            .font(.subheadline)
+                                                    }
+                                                    .padding(.top, 8)
+                                                    .padding(.horizontal, 16)
+                                                    
+                                                    VStack {
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                .background(.white)
+                                                .cornerRadius(20)
+                                                
+                                                Spacer()
+                                            }
+                                            .padding()
+                                            Spacer()
+                                                .fixedSize()
+                                        }
                                     }
-                                    .padding()
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(0.975)], headerContent: {
