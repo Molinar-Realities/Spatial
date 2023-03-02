@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var scrollPosition: CGFloat = 0
     @State var bottomSheetPosition: BottomSheetPosition = .relative(0.4)
     @State var searchText: String = ""
+    @State private var isShowingTaskSheet = false
+    @State private var sheetText = ""
     
     let icons = ["globe.americas.fill", "plus.app.fill", "figure.2.arms.open" ]
 
@@ -169,7 +171,13 @@ struct ContentView: View {
                             Spacer()
                             Button(action: {
                                 if number == 1 {
-                                    presentSheet.toggle()
+                                    isShowingTaskSheet.toggle()
+                                    
+                                    // Generate haptic feedback
+                                    let generator = UIImpactFeedbackGenerator(style: .light)
+                                    generator.prepare()
+                                    generator.impactOccurred()
+                                    
                                 } else {
                                     self.selectedIndex = number
 

@@ -16,6 +16,10 @@ struct AddTaskSheet: View {
     @State var deadlineType = 1
     @State private var startDate = Date()
     @Binding var showAddTaskSheet: Bool
+    @State private var durationInput = ""
+
+  
+
     
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
@@ -63,21 +67,11 @@ struct AddTaskSheet: View {
                 TextField("Enter task name", text: $taskName)
                 Divider()
                 
-                TextField("Enter duration", text: Binding(
-                    get: {
-                        let minutes = taskDuration / 60
-                        if minutes < 60 {
-                            return "\(minutes) min"
-                        } else {
-                            return "\(minutes / 60) hr \(minutes % 60) min"
-                        }
-                    },
-                    set: { newValue in
-                        if let seconds = convertToSeconds(newValue) {
-                            taskDuration = seconds
-                        }
+                TextField("Enter duration", text: $durationInput, onCommit: {
+                    if let seconds = convertToSeconds(durationInput) {
+                        taskDuration = seconds
                     }
-                ))
+                })
 
 
                 Divider()

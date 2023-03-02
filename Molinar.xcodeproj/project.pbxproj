@@ -240,6 +240,7 @@
 		DE2F540729AACA8800805518 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DEFA4B9129B0613900F2FCD8 /* Profile */,
 				DEFA4B8129B0058200F2FCD8 /* Header */,
 				DE2F545B29AAE14100805518 /* BottomSheet */,
 				DE2F545629AAE10700805518 /* Workspace */,
@@ -432,6 +433,13 @@
 				DEFA4B8D29B04BF900F2FCD8 /* FriendsBottomTab.swift */,
 			);
 			path = Friends;
+			sourceTree = "<group>";
+		};
+		DEFA4B9129B0613900F2FCD8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
