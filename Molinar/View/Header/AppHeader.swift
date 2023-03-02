@@ -18,9 +18,11 @@ struct AppHeader: View {
                     .scaledToFill()
                     .frame(width: 38, height: 38)
                 Spacer()
-                Circle()
-                    .frame(width: 38, height: 38)
+                Button(action:{}) {
+                    Circle()
+                        .frame(width: 38, height: 38)
                     .foregroundColor(.white)
+                }
             }
             .padding(.horizontal)
         }

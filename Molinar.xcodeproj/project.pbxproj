@@ -74,6 +74,7 @@
 		DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B8F29B0559A00F2FCD8 /* MiniCalendar.swift */; };
 		DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */; };
 		DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */; };
+		DEFA4B9829B08E6E00F2FCD8 /* BigCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +154,7 @@
 		DEFA4B8F29B0559A00F2FCD8 /* MiniCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCalendar.swift; sourceTree = "<group>"; };
 		DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSheet.swift; sourceTree = "<group>"; };
 		DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSheet.swift; sourceTree = "<group>"; };
+		DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCalendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +454,7 @@
 			children = (
 				DEFA4B9329B073C300F2FCD8 /* TaskSheet.swift */,
 				DEFA4B9529B07D0E00F2FCD8 /* ScheduleSheet.swift */,
+				DEFA4B9729B08E6E00F2FCD8 /* BigCalendar.swift */,
 			);
 			path = Sheet;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */,
 				DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */,
 				DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */,
+				DEFA4B9829B08E6E00F2FCD8 /* BigCalendar.swift in Sources */,
 				DEFA4B8E29B04BF900F2FCD8 /* FriendsBottomTab.swift in Sources */,
 				DE2F541E29AAD31D00805518 /* CustomTextField.swift in Sources */,
 				DE2F542B29AADDE800805518 /* FilterLabels.swift in Sources */,

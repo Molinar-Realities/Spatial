@@ -139,7 +139,7 @@ struct ContentView: View {
                                             Spacer()
                                             
                                             Button(action: {}) {
-                                                Image(systemName: "square.and.pencil.circle.fill")
+                                                Image(systemName: "plus.circle.fill")
                                                     .resizable()
                                                     .scaledToFill()
                                                     .frame(width: 38, height: 38)
