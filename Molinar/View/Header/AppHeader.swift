@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct AppHeader: View {
+    let user: User
+    @ObservedObject var viewModel: ProfileViewModel
+
     var body: some View {
         
         ZStack {
@@ -18,10 +22,15 @@ struct AppHeader: View {
                     .scaledToFill()
                     .frame(width: 38, height: 38)
                 Spacer()
-                Button(action:{}) {
-                    Circle()
-                        .frame(width: 38, height: 38)
-                    .foregroundColor(.white)
+                NavigationView {
+                    NavigationLink(destination: ProfileView(viewModel: viewModel)) {
+                        KFImage(URL(string: viewModel.user.profilePictureUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .clipShape(Circle())
+                            .shadow(color: .black, radius: 3, x:0.0, y:0.0)
+                    }
                 }
             }
             .padding(.horizontal)
@@ -31,11 +40,7 @@ struct AppHeader: View {
     }
 }
 
-struct AppHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        AppHeader()
-    }
-}
+
 
 struct BlurView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIVisualEffectView {
