@@ -33,82 +33,14 @@ struct ContentView: View {
     @FocusState private var taskNameInFocus: Bool
 
     let icons = ["globe.americas.fill", "plus.app.fill", "figure.2.arms.open" ]
-    
-   
 
-    
     var body: some View {
         Group {
             if viewModel.userSession != nil {
                 VStack(spacing: 0) {
 
-
-//                    Spacer().fullScreenCover(isPresented: $presentSheet) {
-//                        NavigationView {
-//                            RecommendedSheetView(presented: $presentSheet, selectedIndex: $selectedIndex)
-//
-//                        }
-//                    }
-
-//                    }
-//                    TabView(selection: $selectedIndex) {
-//                        NowView(presentingEventDetailSheet: $presentSheet, scrollPosition: $scrollPosition).environmentObject(BottomSheetViewModel.shared)
-//
-//                            .onTapGesture {
-//                                                self.selectedIndex = 0
-//                                            }
-//                            .tabItem {
-//                                Label("Focus Now", systemImage: "globe.americas.fill")
-//                            }
-//
-//                            .tag(0)
-//
-//
-//
-//
-//                        NowView(presentingEventDetailSheet: $presentSheet, scrollPosition: $scrollPosition
-//                        ).environmentObject(BottomSheetViewModel.shared)
-//
-//
-//                            .onTapGesture {
-//                                                self.selectedIndex = 1
-//                                viewModel.signOut()
-//                                            }
-//                            .environmentObject(BottomSheetViewModel.shared)
-//                            .tabItem {
-//                                Image("TabMiddleIcon")
-//                                    .resizable()
-//
-//                            }
-//                            .tag(1)
-//
-//
-//
-//                        FriendView(presentingEventDetailSheet: $presentSheet)
-//                            .environmentObject(BottomSheetViewModel.shared )
-//                            .tabItem {
-//                                Label("Friends", systemImage: "figure.2.arms.open")
-//                            }
-//                            .tag(2)
-//
-//
-//
-//                    }
-//
-//                    .onChange(of: selectedIndex) { value in
-//                        if self.selectedIndex == 1 {
-//                            presentSheet.toggle()
-//
-//                        }
-//                            }
-                    
                     // BEGIN
                     ZStack {
-                        Spacer()
-                            .fullScreenCover(isPresented: $presentSheet) {
-                                AddTaskSheet( viewModel: UploadTaskViewModel(), showAddTaskSheet: $presentSheet)
-                                
-                            }
                         MapboxRepresentable().environmentObject(MapboxViewModel.shared)
                             .edgesIgnoringSafeArea(.all)
                             .overlay(alignment: .top) {

@@ -37,23 +37,9 @@
 		DE2F542B29AADDE800805518 /* FilterLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F542A29AADDE800805518 /* FilterLabels.swift */; };
 		DE2F542D29AADFBF00805518 /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F542C29AADFBF00805518 /* BottomSheetViewModel.swift */; };
 		DE2F542F29AADFFE00805518 /* RecommendedSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F542E29AADFFE00805518 /* RecommendedSheetView.swift */; };
-		DE2F543A29AAE06A00805518 /* AddTaskSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F543429AAE06A00805518 /* AddTaskSheet.swift */; };
-		DE2F543B29AAE06A00805518 /* LocationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F543529AAE06A00805518 /* LocationHeader.swift */; };
-		DE2F543C29AAE06A00805518 /* PickerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F543629AAE06A00805518 /* PickerSectionView.swift */; };
-		DE2F543D29AAE06A00805518 /* ProjectsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F543729AAE06A00805518 /* ProjectsSectionHeader.swift */; };
-		DE2F543E29AAE06A00805518 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F543829AAE06A00805518 /* TaskCell.swift */; };
-		DE2F543F29AAE06A00805518 /* FutureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F543929AAE06A00805518 /* FutureView.swift */; };
 		DE2F544229AAE07F00805518 /* NowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F544129AAE07E00805518 /* NowView.swift */; };
-		DE2F544629AAE0AA00805518 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F544429AAE0AA00805518 /* FriendView.swift */; };
-		DE2F544729AAE0AA00805518 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F544529AAE0AA00805518 /* UserCell.swift */; };
-		DE2F544C29AAE0B200805518 /* EnergyGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F544929AAE0B200805518 /* EnergyGraphView.swift */; };
-		DE2F544D29AAE0B200805518 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F544A29AAE0B200805518 /* MeView.swift */; };
-		DE2F544E29AAE0B200805518 /* MeScreenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F544B29AAE0B200805518 /* MeScreenContent.swift */; };
-		DE2F545129AAE0BC00805518 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545029AAE0BC00805518 /* NewsCell.swift */; };
 		DE2F545329AAE0E000805518 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545229AAE0DF00805518 /* Extensions.swift */; };
 		DE2F545529AAE0E700805518 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545429AAE0E700805518 /* Icons.swift */; };
-		DE2F545929AAE10700805518 /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545729AAE10700805518 /* WorkspaceView.swift */; };
-		DE2F545A29AAE10700805518 /* WorkspaceScreenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545829AAE10700805518 /* WorkspaceScreenContent.swift */; };
 		DE2F546329AAE14200805518 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545C29AAE14100805518 /* SearchBar.swift */; };
 		DE2F546429AAE14200805518 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545D29AAE14100805518 /* BottomSheet.swift */; };
 		DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F545E29AAE14100805518 /* ScheduleHeadline.swift */; };
@@ -66,6 +52,8 @@
 		DE2F547029AAE67A00805518 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546F29AAE67A00805518 /* Task.swift */; };
 		DE2F547329AAE90300805518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547229AAE90300805518 /* Constants.swift */; };
 		DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */; };
+		DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA718F829B1427E000DD92C /* LocationManager.swift */; };
+		DEA7190929B18C53000DD92C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA7190829B18C53000DD92C /* LocationSearchView.swift */; };
 		DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */; };
 		DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */; };
 		DEFA4B8329B0059100F2FCD8 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B8229B0059100F2FCD8 /* AppHeader.swift */; };
@@ -126,23 +114,9 @@
 		DE2F542A29AADDE800805518 /* FilterLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterLabels.swift; sourceTree = "<group>"; };
 		DE2F542C29AADFBF00805518 /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
 		DE2F542E29AADFFE00805518 /* RecommendedSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedSheetView.swift; sourceTree = "<group>"; };
-		DE2F543429AAE06A00805518 /* AddTaskSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskSheet.swift; sourceTree = "<group>"; };
-		DE2F543529AAE06A00805518 /* LocationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHeader.swift; sourceTree = "<group>"; };
-		DE2F543629AAE06A00805518 /* PickerSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSectionView.swift; sourceTree = "<group>"; };
-		DE2F543729AAE06A00805518 /* ProjectsSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsSectionHeader.swift; sourceTree = "<group>"; };
-		DE2F543829AAE06A00805518 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		DE2F543929AAE06A00805518 /* FutureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureView.swift; sourceTree = "<group>"; };
 		DE2F544129AAE07E00805518 /* NowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowView.swift; sourceTree = "<group>"; };
-		DE2F544429AAE0AA00805518 /* FriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
-		DE2F544529AAE0AA00805518 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		DE2F544929AAE0B200805518 /* EnergyGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyGraphView.swift; sourceTree = "<group>"; };
-		DE2F544A29AAE0B200805518 /* MeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
-		DE2F544B29AAE0B200805518 /* MeScreenContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeScreenContent.swift; sourceTree = "<group>"; };
-		DE2F545029AAE0BC00805518 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		DE2F545229AAE0DF00805518 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DE2F545429AAE0E700805518 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		DE2F545729AAE10700805518 /* WorkspaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
-		DE2F545829AAE10700805518 /* WorkspaceScreenContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkspaceScreenContent.swift; sourceTree = "<group>"; };
 		DE2F545C29AAE14100805518 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DE2F545D29AAE14100805518 /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		DE2F545E29AAE14100805518 /* ScheduleHeadline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleHeadline.swift; sourceTree = "<group>"; };
@@ -155,6 +129,8 @@
 		DE2F546F29AAE67A00805518 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DE2F547229AAE90300805518 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTaskViewModel.swift; sourceTree = "<group>"; };
+		DEA718F829B1427E000DD92C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		DEA7190829B18C53000DD92C /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNow.swift; sourceTree = "<group>"; };
 		DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNow.swift; sourceTree = "<group>"; };
 		DEFA4B8229B0059100F2FCD8 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
@@ -218,13 +194,12 @@
 		DE2F53E129A9CC7A00805518 /* Molinar */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F547129AAE8B800805518 /* Util */,
+				DEA718F529B14212000DD92C /* Managers */,
+				DEA718F429B141F4000DD92C /* App */,
 				DE2F542229AADB3B00805518 /* GoogleService-Info.plist */,
-				DE2F542129AAD45300805518 /* Main */,
-				DE2F540729AACA8800805518 /* View */,
-				DE2F540629AACA8300805518 /* Model */,
-				DE2F540529AACA7600805518 /* ViewModels */,
-				DE2F53E229A9CC7A00805518 /* MolinarApp.swift */,
+				DEA718F329B141DB000DD92C /* Core */,
+				DE2F547129AAE8B800805518 /* Extensions */,
+				DE2F540629AACA8300805518 /* Models */,
 				DE2F53E629A9CC7D00805518 /* Assets.xcassets */,
 				DE2F53E829A9CC7D00805518 /* Preview Content */,
 			);
@@ -251,34 +226,30 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		DE2F540629AACA8300805518 /* Model */ = {
+		DE2F540629AACA8300805518 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DE2F540829AACA9700805518 /* User.swift */,
 				DE2F546F29AAE67A00805518 /* Task.swift */,
 				DEFA4BA829B0B60200F2FCD8 /* Item.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		DE2F540729AACA8800805518 /* View */ = {
+		DE2F540729AACA8800805518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F542129AAD45300805518 /* Main */,
 				DEFA4B9229B0656600F2FCD8 /* Sheet */,
 				DEFA4B9129B0613900F2FCD8 /* Profile */,
 				DEFA4B8129B0058200F2FCD8 /* Header */,
 				DE2F545B29AAE14100805518 /* BottomSheet */,
-				DE2F545629AAE10700805518 /* Workspace */,
-				DE2F544F29AAE0BC00805518 /* News */,
-				DE2F544829AAE0B200805518 /* Me */,
-				DE2F544329AAE0AA00805518 /* Friends */,
 				DE2F544029AAE07E00805518 /* Now */,
-				DE2F543229AAE06A00805518 /* Schedule */,
 				DE2F542429AADCFF00805518 /* Map */,
 				DE2F541C29AAD31000805518 /* Components */,
 				DE2F541729AACF6F00805518 /* Authentication */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DE2F541729AACF6F00805518 /* Authentication */ = {
@@ -330,69 +301,12 @@
 			path = MapUI;
 			sourceTree = "<group>";
 		};
-		DE2F543229AAE06A00805518 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F543329AAE06A00805518 /* Tasks */,
-				DE2F543729AAE06A00805518 /* ProjectsSectionHeader.swift */,
-				DE2F543829AAE06A00805518 /* TaskCell.swift */,
-				DE2F543929AAE06A00805518 /* FutureView.swift */,
-			);
-			path = Schedule;
-			sourceTree = "<group>";
-		};
-		DE2F543329AAE06A00805518 /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F543429AAE06A00805518 /* AddTaskSheet.swift */,
-				DE2F543529AAE06A00805518 /* LocationHeader.swift */,
-				DE2F543629AAE06A00805518 /* PickerSectionView.swift */,
-			);
-			path = Tasks;
-			sourceTree = "<group>";
-		};
 		DE2F544029AAE07E00805518 /* Now */ = {
 			isa = PBXGroup;
 			children = (
 				DE2F544129AAE07E00805518 /* NowView.swift */,
 			);
 			path = Now;
-			sourceTree = "<group>";
-		};
-		DE2F544329AAE0AA00805518 /* Friends */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F544429AAE0AA00805518 /* FriendView.swift */,
-				DE2F544529AAE0AA00805518 /* UserCell.swift */,
-			);
-			path = Friends;
-			sourceTree = "<group>";
-		};
-		DE2F544829AAE0B200805518 /* Me */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F544929AAE0B200805518 /* EnergyGraphView.swift */,
-				DE2F544A29AAE0B200805518 /* MeView.swift */,
-				DE2F544B29AAE0B200805518 /* MeScreenContent.swift */,
-			);
-			path = Me;
-			sourceTree = "<group>";
-		};
-		DE2F544F29AAE0BC00805518 /* News */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F545029AAE0BC00805518 /* NewsCell.swift */,
-			);
-			path = News;
-			sourceTree = "<group>";
-		};
-		DE2F545629AAE10700805518 /* Workspace */ = {
-			isa = PBXGroup;
-			children = (
-				DE2F545729AAE10700805518 /* WorkspaceView.swift */,
-				DE2F545829AAE10700805518 /* WorkspaceScreenContent.swift */,
-			);
-			path = Workspace;
 			sourceTree = "<group>";
 		};
 		DE2F545B29AAE14100805518 /* BottomSheet */ = {
@@ -419,12 +333,70 @@
 			path = Tasks;
 			sourceTree = "<group>";
 		};
-		DE2F547129AAE8B800805518 /* Util */ = {
+		DE2F547129AAE8B800805518 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				DE2F547229AAE90300805518 /* Constants.swift */,
 			);
-			path = Util;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DEA718F329B141DB000DD92C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DEA7190529B18BD3000DD92C /* LocationSearch */,
+				DEA7190429B18BB6000DD92C /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DEA718F429B141F4000DD92C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F53E229A9CC7A00805518 /* MolinarApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DEA718F529B14212000DD92C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DEA718F829B1427E000DD92C /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DEA7190429B18BB6000DD92C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F540729AACA8800805518 /* Views */,
+				DE2F540529AACA7600805518 /* ViewModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DEA7190529B18BD3000DD92C /* LocationSearch */ = {
+			isa = PBXGroup;
+			children = (
+				DEA7190729B18BF2000DD92C /* ViewModel */,
+				DEA7190629B18BEC000DD92C /* Views */,
+			);
+			path = LocationSearch;
+			sourceTree = "<group>";
+		};
+		DEA7190629B18BEC000DD92C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEA7190829B18C53000DD92C /* LocationSearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEA7190729B18BF2000DD92C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DEFA4B7B29AFEF0600F2FCD8 /* Screens */ = {
@@ -567,24 +539,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE2F543C29AAE06A00805518 /* PickerSectionView.swift in Sources */,
 				DE2F545329AAE0E000805518 /* Extensions.swift in Sources */,
 				DE2F546729AAE14200805518 /* RecommendedEvents.swift in Sources */,
 				DE2F546629AAE14200805518 /* SwiftUIView.swift in Sources */,
 				DEFA4BA729B09E1600F2FCD8 /* ImagePickerView.swift in Sources */,
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
-				DE2F545A29AAE10700805518 /* WorkspaceScreenContent.swift in Sources */,
+				DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */,
 				DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */,
 				DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */,
 				DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */,
 				DEFA4B9E29B09BA300F2FCD8 /* ProfileHeaderView.swift in Sources */,
+				DEA7190929B18C53000DD92C /* LocationSearchView.swift in Sources */,
 				DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */,
 				DEFA4B9829B08E6E00F2FCD8 /* BigCalendar.swift in Sources */,
 				DEFA4B8E29B04BF900F2FCD8 /* FriendsBottomTab.swift in Sources */,
 				DE2F541E29AAD31D00805518 /* CustomTextField.swift in Sources */,
 				DE2F542B29AADDE800805518 /* FilterLabels.swift in Sources */,
 				DE2F546329AAE14200805518 /* SearchBar.swift in Sources */,
-				DE2F543F29AAE06A00805518 /* FutureView.swift in Sources */,
 				DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */,
 				DE2F546829AAE14200805518 /* Handle.swift in Sources */,
 				DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */,
@@ -593,22 +564,16 @@
 				DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */,
 				DE2F546B29AAE16E00805518 /* HomeScreenContent.swift in Sources */,
 				DE2F546929AAE14200805518 /* NewsHeadline.swift in Sources */,
-				DE2F544E29AAE0B200805518 /* MeScreenContent.swift in Sources */,
-				DE2F544629AAE0AA00805518 /* FriendView.swift in Sources */,
 				DE2F53E329A9CC7A00805518 /* MolinarApp.swift in Sources */,
-				DE2F545929AAE10700805518 /* WorkspaceView.swift in Sources */,
 				DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */,
-				DE2F543D29AAE06A00805518 /* ProjectsSectionHeader.swift in Sources */,
 				DEFA4B9A29B097DC00F2FCD8 /* ProfileViewModel.swift in Sources */,
 				DEFA4BA029B09BB600F2FCD8 /* ProfileActionButtonView.swift in Sources */,
 				DE2F542F29AADFFE00805518 /* RecommendedSheetView.swift in Sources */,
 				DE2F547329AAE90300805518 /* Constants.swift in Sources */,
 				DE2F545529AAE0E700805518 /* Icons.swift in Sources */,
 				DEFA4BA229B09BC400F2FCD8 /* FilterButtonView.swift in Sources */,
-				DE2F544D29AAE0B200805518 /* MeView.swift in Sources */,
 				DE2F544229AAE07F00805518 /* NowView.swift in Sources */,
 				DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */,
-				DE2F543A29AAE06A00805518 /* AddTaskSheet.swift in Sources */,
 				DE2F542D29AADFBF00805518 /* BottomSheetViewModel.swift in Sources */,
 				DE2F541929AACF7D00805518 /* LoginView.swift in Sources */,
 				DEFA4B9C29B09B0D00F2FCD8 /* ProfileView.swift in Sources */,
@@ -616,13 +581,8 @@
 				DE2F542629AADD2700805518 /* MapboxView.swift in Sources */,
 				DE2F547029AAE67A00805518 /* Task.swift in Sources */,
 				DEFA4B8329B0059100F2FCD8 /* AppHeader.swift in Sources */,
-				DE2F543B29AAE06A00805518 /* LocationHeader.swift in Sources */,
 				DE2F546429AAE14200805518 /* BottomSheet.swift in Sources */,
-				DE2F543E29AAE06A00805518 /* TaskCell.swift in Sources */,
 				DEFA4BA929B0B60200F2FCD8 /* Item.swift in Sources */,
-				DE2F544C29AAE0B200805518 /* EnergyGraphView.swift in Sources */,
-				DE2F544729AAE0AA00805518 /* UserCell.swift in Sources */,
-				DE2F545129AAE0BC00805518 /* NewsCell.swift in Sources */,
 				DE2F540929AACA9700805518 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +715,7 @@
 				DEVELOPMENT_TEAM = F88F3V85M7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate step-by-step tasks, show your location on the map, and increase security of friend requests.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -784,6 +745,7 @@
 				DEVELOPMENT_TEAM = F88F3V85M7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate step-by-step tasks, show your location on the map, and increase security of friend requests.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
