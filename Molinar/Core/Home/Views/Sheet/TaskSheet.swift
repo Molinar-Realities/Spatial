@@ -82,6 +82,7 @@ struct TaskSheet: View {
                             .frame(width: 28, height: 28)
                             .padding(.horizontal)
                     }
+                    .disabled(taskTitle.isEmpty)
                 }
                 .padding(.leading)
 
