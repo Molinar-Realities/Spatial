@@ -32,10 +32,12 @@ struct ScheduleSheet: View {
                 Text("Schedule")
                     .fontWeight(.bold)
                 Spacer()
-                Button(action: {}) {
-                    Text("Cancel")
+                Button(action: {
+                    showingSheet.toggle()
+                }) {
+                    Text("Done")
                 }
-                .opacity(0)
+
             }
             
             HStack {

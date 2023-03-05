@@ -19,6 +19,8 @@ struct ContentView: View {
     @State private var isShowingTaskSheet = false
     @State private var sheetText = ""
     @State var taskTitle = ""
+    @State private var currentPresentationDetent: PresentationDetent = .height(140)
+    @State var presentationDetents: [PresentationDetent] = [.height(140)]
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -192,12 +194,16 @@ struct ContentView: View {
                             }
                             .sheet(isPresented: $isShowingTaskSheet, onDismiss: {
                                         // Do something when the sheet is dismissed
+                                presentationDetents = [.height(140)]
                                     }) {
                                         
-                                        TaskSheet(showingSheet: $isShowingTaskSheet)
-                                            .presentationDetents([.height(140)])
+                                        TaskSheet(showingSheet: $isShowingTaskSheet, presentationDetents: $presentationDetents)
+                                            .presentationDetents(Set<PresentationDetent>(presentationDetents))
                                         
                                     }
+                            
+                           
+                            
                                     
                                     
                             Spacer()

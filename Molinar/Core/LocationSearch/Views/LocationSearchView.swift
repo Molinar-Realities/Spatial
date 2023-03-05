@@ -10,12 +10,29 @@ import SwiftUI
 struct LocationSearchView: View {
     @State var taskLocationText = ""
     @StateObject var viewModel = LocationSearchViewModel()
+    @FocusState private var locationFieldInFocus: Bool
+    @Binding var showLocationSearch: Bool
+
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Button(action: {
+                withAnimation(.spring()) {
+                    showLocationSearch.toggle()
+                }
+            }) {
+                Text("Cancel")
+            }
+            .padding()
             TextField("Where at?", text: $viewModel.queryFragment)
+                .focused($locationFieldInFocus)
                 .padding(.horizontal)
-                .padding(.top, 64)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        print("DEBUG: Async ran.")
+                        locationFieldInFocus = true
+                  }
+                }
             Divider()
                 .padding(.vertical)
             
@@ -23,6 +40,13 @@ struct LocationSearchView: View {
                 VStack(alignment: .leading) {
                     ForEach(viewModel.results, id: \.self) { result in
                         LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
+                            .onTapGesture {
+                                // Generate haptic feedback
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.prepare()
+                                generator.impactOccurred()
+                                showLocationSearch.toggle()
+                            }
                         
                     }
                 }
@@ -34,6 +58,6 @@ struct LocationSearchView: View {
 
 struct LocationSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearchView()
+        LocationSearchView(showLocationSearch: .constant(true))
     }
 }
