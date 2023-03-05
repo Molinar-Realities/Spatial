@@ -52,6 +52,7 @@
 		DE2F547029AAE67A00805518 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F546F29AAE67A00805518 /* Task.swift */; };
 		DE2F547329AAE90300805518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547229AAE90300805518 /* Constants.swift */; };
 		DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */; };
+		DE744C3829B42336003B020D /* locationPuck.glb in Resources */ = {isa = PBXBuildFile; fileRef = DE744C3729B422FB003B020D /* locationPuck.glb */; };
 		DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA718F829B1427E000DD92C /* LocationManager.swift */; };
 		DEA7190929B18C53000DD92C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA7190829B18C53000DD92C /* LocationSearchView.swift */; };
 		DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */; };
@@ -129,6 +130,7 @@
 		DE2F546F29AAE67A00805518 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DE2F547229AAE90300805518 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTaskViewModel.swift; sourceTree = "<group>"; };
+		DE744C3729B422FB003B020D /* locationPuck.glb */ = {isa = PBXFileReference; lastKnownFileType = file; path = locationPuck.glb; sourceTree = "<group>"; };
 		DEA718F829B1427E000DD92C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DEA7190829B18C53000DD92C /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNow.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		DE2F53E129A9CC7A00805518 /* Molinar */ = {
 			isa = PBXGroup;
 			children = (
+				DE744C3529B41F1A003B020D /* BlenderModels */,
 				DEA718F529B14212000DD92C /* Managers */,
 				DEA718F429B141F4000DD92C /* App */,
 				DE2F542229AADB3B00805518 /* GoogleService-Info.plist */,
@@ -339,6 +342,14 @@
 				DE2F547229AAE90300805518 /* Constants.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE744C3529B41F1A003B020D /* BlenderModels */ = {
+			isa = PBXGroup;
+			children = (
+				DE744C3729B422FB003B020D /* locationPuck.glb */,
+			);
+			path = BlenderModels;
 			sourceTree = "<group>";
 		};
 		DEA718F329B141DB000DD92C /* Core */ = {
@@ -526,6 +537,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE744C3829B42336003B020D /* locationPuck.glb in Resources */,
 				DE2F53EA29A9CC7D00805518 /* Preview Assets.xcassets in Resources */,
 				DE2F542329AADB3B00805518 /* GoogleService-Info.plist in Resources */,
 				DE2F53E729A9CC7D00805518 /* Assets.xcassets in Resources */,
