@@ -42,6 +42,7 @@ struct LocationSearchView: View {
                         LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
                             .onTapGesture {
                                 // Generate haptic feedback
+                                viewModel.selectLocation(result.title)
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.prepare()
                                 generator.impactOccurred()
