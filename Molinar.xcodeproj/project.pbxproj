@@ -53,6 +53,8 @@
 		DE2F547329AAE90300805518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547229AAE90300805518 /* Constants.swift */; };
 		DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */; };
 		DE744C3829B42336003B020D /* locationPuck.glb in Resources */ = {isa = PBXBuildFile; fileRef = DE744C3729B422FB003B020D /* locationPuck.glb */; };
+		DE744C3A29B46102003B020D /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE744C3929B46102003B020D /* LocationSearchResultCell.swift */; };
+		DE744C3C29B4629B003B020D /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE744C3B29B4629B003B020D /* LocationSearchViewModel.swift */; };
 		DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA718F829B1427E000DD92C /* LocationManager.swift */; };
 		DEA7190929B18C53000DD92C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA7190829B18C53000DD92C /* LocationSearchView.swift */; };
 		DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */; };
@@ -131,6 +133,8 @@
 		DE2F547229AAE90300805518 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE2F547429AAE97E00805518 /* UploadTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTaskViewModel.swift; sourceTree = "<group>"; };
 		DE744C3729B422FB003B020D /* locationPuck.glb */ = {isa = PBXFileReference; lastKnownFileType = file; path = locationPuck.glb; sourceTree = "<group>"; };
+		DE744C3929B46102003B020D /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
+		DE744C3B29B4629B003B020D /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		DEA718F829B1427E000DD92C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DEA7190829B18C53000DD92C /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNow.swift; sourceTree = "<group>"; };
@@ -399,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				DEA7190829B18C53000DD92C /* LocationSearchView.swift */,
+				DE744C3929B46102003B020D /* LocationSearchResultCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 		DEA7190729B18BF2000DD92C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DE744C3B29B4629B003B020D /* LocationSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
 				DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */,
 				DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */,
+				DE744C3A29B46102003B020D /* LocationSearchResultCell.swift in Sources */,
 				DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */,
 				DE2F546529AAE14200805518 /* ScheduleHeadline.swift in Sources */,
 				DEFA4B9E29B09BA300F2FCD8 /* ProfileHeaderView.swift in Sources */,
@@ -576,6 +583,7 @@
 				DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */,
 				DE2F546B29AAE16E00805518 /* HomeScreenContent.swift in Sources */,
 				DE2F546929AAE14200805518 /* NewsHeadline.swift in Sources */,
+				DE744C3C29B4629B003B020D /* LocationSearchViewModel.swift in Sources */,
 				DE2F53E329A9CC7A00805518 /* MolinarApp.swift in Sources */,
 				DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */,
 				DEFA4B9A29B097DC00F2FCD8 /* ProfileViewModel.swift in Sources */,

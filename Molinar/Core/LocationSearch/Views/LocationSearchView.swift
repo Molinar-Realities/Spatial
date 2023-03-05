@@ -8,9 +8,26 @@
 import SwiftUI
 
 struct LocationSearchView: View {
+    @State var taskLocationText = ""
+    @StateObject var viewModel = LocationSearchViewModel()
+    
     var body: some View {
         VStack {
-            Text("hi")
+            TextField("Where at?", text: $viewModel.queryFragment)
+                .padding(.horizontal)
+                .padding(.top, 64)
+            Divider()
+                .padding(.vertical)
+            
+            ScrollView {
+                VStack(alignment: .leading) {
+                    ForEach(viewModel.results, id: \.self) { result in
+                        LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
+                        
+                    }
+                }
+            }
+            
         }
     }
 }

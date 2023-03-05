@@ -16,6 +16,8 @@ struct TaskSheet: View {
     @State private var selectedDate = Date()
     @State var showDueDate = false
     @State var deadline = Date()
+    @State var locationText = ""
+    @State var showLocationSearch = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -32,10 +34,21 @@ struct TaskSheet: View {
                         print(taskNameInFocus)
                   }
                 }
-            TextField("Description", text: $description)
+            TextField("Where at?", text: $locationText)
                 .textFieldStyle(.plain)
                 .padding(.horizontal)
                 .cornerRadius(10)
+                .onTapGesture {
+                    showLocationSearch.toggle()
+                }
+                .sheet(isPresented: $showLocationSearch) {
+                    LocationSearchView()
+                }
+            
+//            TextField("Notes", text: $description)
+//                .textFieldStyle(.plain)
+//                .padding(.horizontal)
+//                .cornerRadius(10)
             Divider()
             HStack {
                 Button(action: {
