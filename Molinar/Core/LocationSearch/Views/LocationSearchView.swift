@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocationSearchView: View {
     @State var taskLocationText = ""
-    @StateObject var viewModel = LocationSearchViewModel()
+    @EnvironmentObject var viewModel: LocationSearchViewModel
     @FocusState private var locationFieldInFocus: Bool
     @Binding var showLocationSearch: Bool
 

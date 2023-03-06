@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FocusNow: View {
+    @StateObject var viewModel = TasksViewModel()
+
     
     var body: some View {
       
@@ -35,17 +37,33 @@ struct FocusNow: View {
                                 .frame(width: 10, height: 187)
                                 .foregroundColor(.clear)
                             // HACK
-                            ForEach(0 ..< 5) { item in
+                            ForEach(viewModel.userTasks) { task in
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text("From Tasks")
                                         .foregroundColor(.gray)
                                         .font(.footnote)
                                     // TO DO: Make the cards from Apple Music.
-                                    Rectangle()
-                                        .frame(width: 155, height: 155)
-                                        .cornerRadius(10)
-                                        .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Image("study")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 155, height: 155)
+                                            .cornerRadius(10)
+                                            .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
                                         .padding(.bottom, 5)
+                                        Text(task.title)
+                                            .frame(width: 155, alignment: .leading)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                        Text(task.locationTitle)
+                                            .frame(width: 155, alignment: .leading)
+                                            .foregroundColor(.gray)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                    }
+                                        
+                                        
+                                    
 
 
                                 }

@@ -20,7 +20,7 @@ struct TaskSheet: View {
     @State var locationText = ""
     @Binding var presentationDetents: [PresentationDetent]
     @State var showLocationSearch = false
-    @StateObject var viewModel = LocationSearchViewModel()
+    @EnvironmentObject var viewModel: LocationSearchViewModel
     @StateObject var taskUpload = UploadTaskViewModel()
 
     
@@ -76,7 +76,8 @@ struct TaskSheet: View {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
-                        taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078))
+                        taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location")
+                        viewModel.queryFragment = ""
                         showingSheet.toggle()
                     }) {
                         Image(systemName: "arrow.up.circle.fill")

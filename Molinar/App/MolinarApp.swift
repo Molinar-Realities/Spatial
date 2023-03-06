@@ -21,11 +21,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct MolinarApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    @StateObject var locationViewModel = LocationSearchViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(AuthViewModel.shared)
                 .environmentObject(BottomSheetViewModel.shared)
+                .environmentObject(locationViewModel)
 
         }
     }
