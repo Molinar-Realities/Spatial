@@ -14,6 +14,7 @@ struct Task: Identifiable {
     let uid: String
     let title: String
     let coordinate: CLLocationCoordinate2D
+    let locationTitle: String
     
     
     
@@ -23,5 +24,6 @@ struct Task: Identifiable {
         self.uid = dictionary["uid"] as? String ?? ""
         self.title = dictionary["title"] as? String ?? ""
         self.coordinate = dictionary["coordinate"] as? CLLocationCoordinate2D ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078)
+        self.locationTitle = dictionary["locationTitle"] as? String ?? "Unknown Location"
     }
 }
