@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Dispatch
+import CoreLocation
 
 struct TaskSheet: View {
     @State private var taskTitle = ""
@@ -20,6 +21,7 @@ struct TaskSheet: View {
     @Binding var presentationDetents: [PresentationDetent]
     @State var showLocationSearch = false
     @StateObject var viewModel = LocationSearchViewModel()
+    @StateObject var taskUpload = UploadTaskViewModel()
 
     
     var body: some View {
@@ -74,6 +76,7 @@ struct TaskSheet: View {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
+                        taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078))
                         showingSheet.toggle()
                     }) {
                         Image(systemName: "arrow.up.circle.fill")

@@ -7,13 +7,14 @@
 
 import Firebase
 import SwiftUI
+import CoreLocation
 
 class UploadTaskViewModel: ObservableObject {
-    func uploadTask(title: String, description: String, priority: String, duration: Int) {
+    func uploadTask(title: String, coordinate: CLLocationCoordinate2D) {
         guard let user = AuthViewModel.shared.user else { return }
         let docRef = COLLECTION_TASKS.document()
         
-        let data: [String: Any] = ["uid": user.id, "title": title, "fullname": user.name, "username": user.username, "id": docRef.documentID, "description": description, "duration": duration, "priority": priority]
+        let data: [String: Any] = ["uid": user.id, "title": title, "id": docRef.documentID, "coordinate": [coordinate.latitude, coordinate.longitude]]
         
         docRef.setData(data) { _ in
             print("DEBUG: Successfully uploaded task")
