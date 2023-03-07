@@ -8,6 +8,7 @@
 import SwiftUI
 import Dispatch
 import CoreLocation
+import UserNotifications
 
 struct TaskSheet: View {
     @State private var taskTitle = ""
@@ -23,6 +24,23 @@ struct TaskSheet: View {
     @EnvironmentObject var viewModel: LocationSearchViewModel
     @StateObject var taskUpload = UploadTaskViewModel()
     @StateObject var locationManager = LocationManager()
+    
+    func scheduleReminder(for task: Task) {
+        let content = UNMutableNotificationContent()
+        content.title = "Task Reminder"
+        content.body = "Your task '\(task.title)' is due in 30 minutes."
+        content.sound = UNNotificationSound.default
+        
+        let dueDate = task.dueDate
+        let reminderDate = dueDate.addingTimeInterval(-30 * 60) // Subtract 30 minutes from the due date
+        
+        let reminderTime = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminderDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: task.id, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
+
 
 
     
@@ -78,6 +96,7 @@ struct TaskSheet: View {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
+                        scheduleReminder(for: Task(dictionary: ["dueDate": deadline, "title": taskTitle, "id": UUID().uuidString]))
                         taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location", dueDate: deadline, locationCreatedAt:  locationManager.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 0, longitude: 0))
                         viewModel.queryFragment = ""
                         showingSheet.toggle()
