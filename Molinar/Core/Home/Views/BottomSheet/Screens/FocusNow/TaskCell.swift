@@ -39,11 +39,15 @@ struct TaskCell: View {
                             }
 //                            .opacity(completed ? 0.5 : 1)
                             .animation(.easeInOut(duration: 0.3))
-                Text("title")
-                    .strikethrough(completed ? true : false)
+                VStack(alignment: .leading) {
+                    Text("title")
+                        .strikethrough(completed ? true : false)
 
-                    .opacity(completed ? 0.5 : 1)
-                                    .animation(.easeInOut(duration: 0.3))
+                        .opacity(completed ? 0.5 : 1)
+                    .animation(.easeInOut(duration: 0.3))
+                    Text("123 Main St, Austin TX 78705")
+                        .foregroundColor(.gray)
+                }
                 Spacer()
                 Text(dueDate.isToday ? dueDate.toString(dateFormat: "h:mm a") : dueDate.toString(dateFormat: "MMM d"))
                     .opacity(completed ? 0.5 : 1)
