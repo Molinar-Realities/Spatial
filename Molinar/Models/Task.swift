@@ -31,5 +31,6 @@ struct Task: Identifiable {
         self.locationTitle = dictionary["locationTitle"] as? String ?? "Unknown Location"
         self.dueDate = dictionary["dueDate"] as? Date ?? Date()
         self.completed = dictionary["completed"] as? Bool ?? false
+        
     }
 }

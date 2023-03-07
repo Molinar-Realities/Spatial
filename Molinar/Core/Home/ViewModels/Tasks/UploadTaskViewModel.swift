@@ -10,12 +10,12 @@ import SwiftUI
 import CoreLocation
 
 class UploadTaskViewModel: ObservableObject {
-    func uploadTask(title: String, coordinate: CLLocationCoordinate2D, locationTitle: String) {
+    func uploadTask(title: String, coordinate: CLLocationCoordinate2D, locationTitle: String, dueDate: Date) {
         guard let user = AuthViewModel.shared.user else { return }
         let docRef = COLLECTION_TASKS.document()
         print("DEBUG: from within upload task locationTitle: \(locationTitle)")
         
-        let data: [String: Any] = ["uid": user.id, "title": title, "id": docRef.documentID, "coordinate": [coordinate.latitude, coordinate.longitude], "locationTitle": locationTitle]
+        let data: [String: Any] = ["uid": user.id, "title": title, "id": docRef.documentID, "coordinate": [coordinate.latitude, coordinate.longitude], "locationTitle": locationTitle, "dueDate": dueDate, "completed": false]
         
         docRef.setData(data) { _ in
             print("DEBUG: Successfully uploaded task")
