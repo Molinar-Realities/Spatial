@@ -47,6 +47,8 @@ struct TaskCell: View {
                     .animation(.easeInOut(duration: 0.3))
                     Text("123 Main St, Austin TX 78705")
                         .foregroundColor(.gray)
+                        .strikethrough(completed ? true : false)
+
                 }
                 Spacer()
                 Text(dueDate.isToday ? dueDate.toString(dateFormat: "h:mm a") : dueDate.toString(dateFormat: "MMM d"))

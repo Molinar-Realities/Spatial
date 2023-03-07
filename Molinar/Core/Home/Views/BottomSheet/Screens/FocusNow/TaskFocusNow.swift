@@ -39,7 +39,7 @@ struct TaskFocusNow: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 5) {
                     //Header
-                        Text("Your Projects")
+                        Text("Your Tasks")
                             .font(.headline)
                             .padding(.leading)
                         .fontWeight(.bold)
@@ -48,80 +48,11 @@ struct TaskFocusNow: View {
                             .fontWeight(.bold)
                     }
                     
-                    // ScrollView for cards
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            // HACK
-                            Rectangle()
-                                .frame(width: 10, height: 187)
-                                .foregroundColor(.clear)
-                            // HACK
-                            ForEach(0 ..< 5) { item in
-                                VStack(alignment: .leading, spacing: 2) {
-                                    // TO DO: Make the cards from Apple Music.
-                                    Rectangle()
-                                        .frame(width: 170, height: 170)
-                                        .cornerRadius(10)
-                                        .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
-                                        .padding(.bottom, 5)
-                                    Text("Work")
-                                        .frame(width: 170, alignment: .leading)
-                                        .lineLimit(1)
-                                        .truncationMode(.tail)
-                                    Text("Number of tasks")
-                                        .frame(width: 170, alignment: .leading)
-                                        .foregroundColor(.gray)
-                                        .lineLimit(1)
-                                        .truncationMode(.tail)
-                                }
-                            }
-                            // HACK
-                            Rectangle()
-                                .frame(width: 10, height: 187)
-                                .foregroundColor(.clear)
-                            // HACK
-                        }
-                    }
-                    .edgesIgnoringSafeArea(.horizontal)
+                    TasksList()
+                    
                 }
                 
-                // ScrollView for cards
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        // HACK
-                        Rectangle()
-                            .frame(width: 10, height: 187)
-                            .foregroundColor(.clear)
-                        // HACK
-                        ForEach(0 ..< 5) { item in
-                            VStack(alignment: .leading, spacing: 2) {
-                                // TO DO: Make the cards from Apple Music.
-                                Rectangle()
-                                    .frame(width: 170, height: 170)
-                                    .cornerRadius(10)
-                                    .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
-                                    .padding(.bottom, 5)
-                                Text("Work")
-                                    .frame(width: 170, alignment: .leading)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-                                Text("Number of tasks")
-                                    .frame(width: 170, alignment: .leading)
-                                    .foregroundColor(.gray)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-
-
-                            }
-                        }
-                        // HACK
-                        Rectangle()
-                            .frame(width: 10, height: 187)
-                            .foregroundColor(.clear)
-                        // HACK
-                    }
-                }
-                .edgesIgnoringSafeArea(.horizontal)
+               
                 
                 
                 
