@@ -17,7 +17,7 @@ class UploadTaskViewModel: ObservableObject {
         
         var createdAt = Date()
         
-        let data: [String: Any] = ["uid": user.id, "title": title, "id": docRef.documentID, "coordinate": [coordinate.latitude, coordinate.longitude], "locationTitle": locationTitle, "dueDate": dueDate, "completed": false, "locationCreatedAt": locationCreatedAt, "createdAt": createdAt]
+        let data: [String: Any] = ["uid": user.id, "title": title, "id": docRef.documentID, "coordinate": [coordinate.latitude, coordinate.longitude], "locationTitle": locationTitle, "dueDate": dueDate, "completed": false, "locationCreatedAt": [locationCreatedAt.latitude, locationCreatedAt.longitude], "createdAt": createdAt]
         
         docRef.setData(data) { _ in
             print("DEBUG: Successfully uploaded task")
