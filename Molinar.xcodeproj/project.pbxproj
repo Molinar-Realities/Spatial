@@ -57,6 +57,9 @@
 		DE744C3C29B4629B003B020D /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE744C3B29B4629B003B020D /* LocationSearchViewModel.swift */; };
 		DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA718F829B1427E000DD92C /* LocationManager.swift */; };
 		DEA7190929B18C53000DD92C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA7190829B18C53000DD92C /* LocationSearchView.swift */; };
+		DEA8B4B729B6B1CF00CACBDD /* TaskFocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8B4B629B6B1CF00CACBDD /* TaskFocusNow.swift */; };
+		DEA8B4B929B6C8B200CACBDD /* TasksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8B4B829B6C8B200CACBDD /* TasksList.swift */; };
+		DEA8B4BB29B6C90700CACBDD /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8B4BA29B6C90700CACBDD /* TaskCell.swift */; };
 		DEFA4B7D29AFEF2B00F2FCD8 /* FocusNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */; };
 		DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */; };
 		DEFA4B8329B0059100F2FCD8 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B8229B0059100F2FCD8 /* AppHeader.swift */; };
@@ -137,6 +140,9 @@
 		DE744C3B29B4629B003B020D /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		DEA718F829B1427E000DD92C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DEA7190829B18C53000DD92C /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		DEA8B4B629B6B1CF00CACBDD /* TaskFocusNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFocusNow.swift; sourceTree = "<group>"; };
+		DEA8B4B829B6C8B200CACBDD /* TasksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksList.swift; sourceTree = "<group>"; };
+		DEA8B4BA29B6C90700CACBDD /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNow.swift; sourceTree = "<group>"; };
 		DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNow.swift; sourceTree = "<group>"; };
 		DEFA4B8229B0059100F2FCD8 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
@@ -430,6 +436,9 @@
 			children = (
 				DEFA4B7C29AFEF2B00F2FCD8 /* FocusNow.swift */,
 				DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */,
+				DEA8B4B629B6B1CF00CACBDD /* TaskFocusNow.swift */,
+				DEA8B4B829B6C8B200CACBDD /* TasksList.swift */,
+				DEA8B4BA29B6C90700CACBDD /* TaskCell.swift */,
 			);
 			path = FocusNow;
 			sourceTree = "<group>";
@@ -557,10 +566,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA8B4B929B6C8B200CACBDD /* TasksList.swift in Sources */,
 				DE2F545329AAE0E000805518 /* Extensions.swift in Sources */,
 				DE2F546729AAE14200805518 /* RecommendedEvents.swift in Sources */,
 				DE2F546629AAE14200805518 /* SwiftUIView.swift in Sources */,
 				DEFA4BA729B09E1600F2FCD8 /* ImagePickerView.swift in Sources */,
+				DEA8B4B729B6B1CF00CACBDD /* TaskFocusNow.swift in Sources */,
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
 				DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */,
 				DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */,
@@ -599,6 +610,7 @@
 				DEFA4B9C29B09B0D00F2FCD8 /* ProfileView.swift in Sources */,
 				DE2F542829AADDC300805518 /* MapboxViewModel.swift in Sources */,
 				DE2F542629AADD2700805518 /* MapboxView.swift in Sources */,
+				DEA8B4BB29B6C90700CACBDD /* TaskCell.swift in Sources */,
 				DE2F547029AAE67A00805518 /* Task.swift in Sources */,
 				DEFA4B8329B0059100F2FCD8 /* AppHeader.swift in Sources */,
 				DE2F546429AAE14200805518 /* BottomSheet.swift in Sources */,

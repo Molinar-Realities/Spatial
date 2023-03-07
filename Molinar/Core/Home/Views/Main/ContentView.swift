@@ -21,6 +21,7 @@ struct ContentView: View {
     @State var taskTitle = ""
     @State private var currentPresentationDetent: PresentationDetent = .height(140)
     @State var presentationDetents: [PresentationDetent] = [.height(140)]
+    @State var shouldShowDragIndicator = true
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -112,38 +113,53 @@ struct ContentView: View {
                                     }
                                 }
                             }
-                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(0.975)], headerContent: {
+                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
                                 switch selectedIndex {
                                 case 0:
-                                    Text("Focus Now")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
-                                        .padding(.horizontal)
+                                    if !shouldShowDragIndicator {
+//                                        withAnimation(.spring()) {
+                                            AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
+//                                        }
+                                    } else {
+                                        Text("Focus Now")
+                                            .font(.largeTitle)
+                                            .fontWeight(.bold)
+                                            .padding(.horizontal)
+                                    }
+                                    
                                 case 1:
+                                    
                                     Text("Create")
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
                                         .padding(.horizontal)
                                 case 2:
-                                    VStack {
-                                        HStack {
-                                            Text("Friends")
-                                                .font(.largeTitle)
-                                                .fontWeight(.bold)
-                                            .padding(.horizontal)
-                                            Spacer()
-                                            
-                                            Button(action: {}) {
-                                                Image(systemName: "plus.circle.fill")
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 38, height: 38)
-                                                    .padding(.horizontal)
-                                                .foregroundColor(.blue)
+                                    if !shouldShowDragIndicator {
+//                                        withAnimation(.spring()) {
+                                            AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
+//                                        }
+                                    } else {
+                                        VStack {
+                                            HStack {
+                                                Text("Friends")
+                                                    .font(.largeTitle)
+                                                    .fontWeight(.bold)
+                                                .padding(.horizontal)
+                                                Spacer()
+                                                
+                                                Button(action: {}) {
+                                                    Image(systemName: "plus.circle.fill")
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .frame(width: 38, height: 38)
+                                                        .padding(.horizontal)
+                                                    .foregroundColor(.blue)
+                                                }
                                             }
+                                            
                                         }
-                                        
                                     }
+                                    
                                 default:
                                     Text("Focus Now")
                                         .font(.largeTitle)
@@ -155,7 +171,7 @@ struct ContentView: View {
                                 
                                 switch selectedIndex {
                                 case 0:
-                                    FocusNow()
+                                    TaskFocusNow()
                                 case 2:
                                     FriendsBottomTab(searchText: $searchText, bottomSheetPosition: $bottomSheetPosition)
                                 default:
@@ -163,8 +179,12 @@ struct ContentView: View {
                                 }
                                 
                             }
+                            .showDragIndicator(shouldShowDragIndicator)
                             .enableAppleScrollBehavior()
                             .customBackground(.white)
+                            .onChange(of: bottomSheetPosition) { position in
+                                shouldShowDragIndicator = position != .relativeTop(1.0)
+                                        }
                            
 
 
