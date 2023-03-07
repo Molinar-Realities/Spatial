@@ -76,7 +76,7 @@ struct TaskSheet: View {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
-                        taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location")
+                        taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location", dueDate: deadline)
                         viewModel.queryFragment = ""
                         showingSheet.toggle()
                     }) {

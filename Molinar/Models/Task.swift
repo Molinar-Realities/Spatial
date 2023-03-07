@@ -17,6 +17,10 @@ struct Task: Identifiable {
     let locationTitle: String
     let dueDate: Date
     var completed: Bool
+    var locationCreatedAt: CLLocationCoordinate2D
+    var createdAt: Date
+    var projectId: String
+    var orderInProject: Int
 
 
     
@@ -31,6 +35,9 @@ struct Task: Identifiable {
         self.locationTitle = dictionary["locationTitle"] as? String ?? "Unknown Location"
         self.dueDate = dictionary["dueDate"] as? Date ?? Date()
         self.completed = dictionary["completed"] as? Bool ?? false
-        
+        self.locationCreatedAt = dictionary["locationCreatedAt"] as? CLLocationCoordinate2D ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078)
+        self.createdAt = dictionary["createdAt"] as? Date ?? Date()
+        self.projectId = dictionary["projectId"] as? String ?? "1"
+        self.orderInProject = dictionary["projectId"] as? Int ?? 0
     }
 }
