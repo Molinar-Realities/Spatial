@@ -29,7 +29,7 @@ struct ScheduleSheet: View {
                     Text("Cancel")
                 }
                 Spacer()
-                Text("Schedule")
+                Text("When will you do this?")
                     .fontWeight(.bold)
                 Spacer()
                 Button(action: {
@@ -42,7 +42,7 @@ struct ScheduleSheet: View {
             
             HStack {
                 DatePicker(
-                        "Deadline",
+                        "Schedule for:",
                          selection: $deadline,
                          in: dateRange,
                          displayedComponents: [.date, .hourAndMinute]
