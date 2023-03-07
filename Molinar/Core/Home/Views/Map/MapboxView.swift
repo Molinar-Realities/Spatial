@@ -28,12 +28,6 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         
         
         
-
-        
-//        let centerCoordinate = CLLocationCoordinate2D(latitude: 30.280, longitude: -97.735)
-        
-        
-        
         
        
         let cameraOptions = CameraOptions(center: CLLocationCoordinate2D(latitude: locationManager.location!.coordinate.latitude, longitude: locationManager.location!.coordinate.longitude),
