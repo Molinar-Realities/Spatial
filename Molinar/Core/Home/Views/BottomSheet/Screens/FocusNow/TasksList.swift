@@ -10,8 +10,11 @@ import SwiftUI
 struct TasksList: View {
     @EnvironmentObject var viewModel: TasksViewModel
     var sortedTasks: [Task] {
-        viewModel.userTasks.sorted { $0.dueDate < $1.dueDate }
+        viewModel.userTasks
+            .filter { Calendar.current.isDateInToday($0.dueDate) }
+            .sorted { $0.dueDate < $1.dueDate }
     }
+
     var body: some View {
         VStack {
             ForEach(sortedTasks) { task in

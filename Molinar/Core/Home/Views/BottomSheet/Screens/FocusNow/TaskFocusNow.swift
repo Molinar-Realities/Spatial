@@ -39,7 +39,7 @@ struct TaskFocusNow: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 5) {
                     //Header
-                        Text("Your Tasks")
+                        Text("Today's Agenda")
                             .font(.headline)
                             .padding(.leading)
                         .fontWeight(.bold)
@@ -82,11 +82,6 @@ struct RecommendedTasks: View {
                     VStack(alignment: .leading, spacing: 10) {
                         // TO DO: Make the cards from Apple Music.
                         FeaturedCard(task: task)
-                        
-                        
-                        
-                        
-                        
                     }
                 }
                 // HACK

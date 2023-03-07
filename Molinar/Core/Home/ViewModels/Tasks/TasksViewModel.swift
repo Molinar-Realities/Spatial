@@ -10,30 +10,34 @@ import Firebase
 
 class TasksViewModel: ObservableObject {
     @Published var userTasks = [Task]()
+    @Published var isLoading = false
     
     init() {
         fetchUserTasks()
     }
     
-    
-    
-    
     func fetchUserTasks() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        isLoading = true
+        
+        guard let uid = AuthViewModel.shared.userSession?.uid else {
+            isLoading = false
+            return
+        }
         
         Firestore.firestore().collection("tasks").whereField("uid", isEqualTo: uid).addSnapshotListener { snapshot, error in
-            guard let changes = snapshot?.documentChanges else { return }
+            guard let changes = snapshot?.documentChanges else {
+                self.isLoading = false
+                return
+            }
             
             changes.forEach { change in
                 let data = change.document.data()
                 let taskId = data["id"] as! String
                 let taskIndex = self.userTasks.firstIndex(where: { $0.id == taskId })
                 
-                // Not sure why task already exists.
                 if let index = taskIndex {
                     print("DEBUG: Task already exists.")
                 } else {
-                    // Add new task
                     var data = change.document.data()
                     let timestamp = data["dueDate"] as! Timestamp
                     var date = timestamp.dateValue()
@@ -42,7 +46,7 @@ class TasksViewModel: ObservableObject {
                 }
             }
             
+            self.isLoading = false
         }
     }
-
 }
