@@ -8,11 +8,13 @@
 import CoreLocation
 
 
-class LocationManager: NSObject, ObservableObject {
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
+    @Published var currentLocation: CLLocation?
 
     override init() {
         super.init()
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -33,11 +35,12 @@ class LocationManager: NSObject, ObservableObject {
         guard location.horizontalAccuracy > 0 else { return }
         
         // Do something with the updated location data
-        print("Updated Location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+//        print("Updated Location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+        currentLocation = location
     }
 
-    func getCurrentLocation() -> CLLocation? {
-        return locationManager.location
+    func getCurrentLocation() -> CLLocationCoordinate2D? {
+        return locationManager.location?.coordinate
     }
 }
 
