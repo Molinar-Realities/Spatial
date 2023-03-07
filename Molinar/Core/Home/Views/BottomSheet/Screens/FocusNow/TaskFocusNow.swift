@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TaskFocusNow: View {
-    
+    @EnvironmentObject var tasksViewModel: TasksViewModel
+
     var body: some View {
       
         // Main VStack
@@ -23,7 +24,6 @@ struct TaskFocusNow: View {
 
                 VStack(alignment: .leading, spacing: 5) {
                     // Header for Tasks from Calendar
-                    Spacer()
                     Text("Recommended")
                         .font(.headline)
                         .padding(.horizontal)
@@ -68,7 +68,7 @@ struct TaskFocusNow_Previews: PreviewProvider {
 }
 
 struct RecommendedTasks: View {
-    @StateObject var viewModel = TasksViewModel()
+    @EnvironmentObject var viewModel: TasksViewModel
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {

@@ -16,20 +16,7 @@ class TasksViewModel: ObservableObject {
     }
     
     
-    func fetchTasks() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
-        
-        let query = COLLECTION_TASKS
-        
-        query.addSnapshotListener { snapshot, error in
-            guard let changes = snapshot?.documentChanges else { return }
-            
-            changes.forEach { change in
-                let data = change.document.data()
-                self.userTasks.append(Task(dictionary: data))
-            }
-        }
-    }
+    
     
     func fetchUserTasks() {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
@@ -39,9 +26,23 @@ class TasksViewModel: ObservableObject {
             
             changes.forEach { change in
                 let data = change.document.data()
-                self.userTasks.append(Task(dictionary: data))
+                let taskId = data["id"] as! String
+                let taskIndex = self.userTasks.firstIndex(where: { $0.id == taskId })
+                
+                // Not sure why task already exists.
+                if let index = taskIndex {
+                    print("DEBUG: Task already exists.")
+                } else {
+                    // Add new task
+                    var data = change.document.data()
+                    let timestamp = data["dueDate"] as! Timestamp
+                    var date = timestamp.dateValue()
+                    data["dueDate"] = date
+                    self.userTasks.append(Task(dictionary: data))
+                }
             }
             
         }
     }
+
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FocusNow: View {
-    @StateObject var viewModel = TasksViewModel()
 
     
     var body: some View {
@@ -37,7 +36,7 @@ struct FocusNow: View {
                                 .frame(width: 10, height: 187)
                                 .foregroundColor(.clear)
                             // HACK
-                            ForEach(viewModel.userTasks) { task in
+                            ForEach(0..<10) { task in
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text("From Tasks")
                                         .foregroundColor(.gray)
@@ -51,11 +50,11 @@ struct FocusNow: View {
                                             .cornerRadius(10)
                                             .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
                                         .padding(.bottom, 5)
-                                        Text(task.title)
+                                        Text("hi")
                                             .frame(width: 155, alignment: .leading)
                                             .lineLimit(1)
                                             .truncationMode(.tail)
-                                        Text(task.locationTitle)
+                                        Text("hi")
                                             .frame(width: 155, alignment: .leading)
                                             .foregroundColor(.gray)
                                             .lineLimit(1)

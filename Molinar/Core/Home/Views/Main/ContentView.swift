@@ -11,6 +11,8 @@ import BottomSheet
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var bottomSheetViewModel: BottomSheetViewModel
+    @EnvironmentObject var tasksViewModel: TasksViewModel
+
     @State var selectedIndex = 0
     @State var presentSheet = false
     @State private var scrollPosition: CGFloat = 0
@@ -172,6 +174,7 @@ struct ContentView: View {
                                 switch selectedIndex {
                                 case 0:
                                     TaskFocusNow()
+                                        .environmentObject(tasksViewModel)
                                 case 2:
                                     FriendsBottomTab(searchText: $searchText, bottomSheetPosition: $bottomSheetPosition)
                                 default:
