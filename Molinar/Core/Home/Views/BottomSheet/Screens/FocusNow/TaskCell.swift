@@ -10,9 +10,11 @@ import Dispatch
 
 struct TaskCell: View {
     @State private var isAnimatingCheckmark = false
-    @State var completed = false
     @State var removed = false
-    @State var dueDate = Date()
+    @State var completed = false
+    var dueDate: Date
+    var title: String
+    var location: String
     
     var body: some View {
         VStack {
@@ -40,12 +42,12 @@ struct TaskCell: View {
 //                            .opacity(completed ? 0.5 : 1)
                             .animation(.easeInOut(duration: 0.3))
                 VStack(alignment: .leading) {
-                    Text("title")
+                    Text(title)
                         .strikethrough(completed ? true : false)
 
                         .opacity(completed ? 0.5 : 1)
                     .animation(.easeInOut(duration: 0.3))
-                    Text("123 Main St, Austin TX 78705")
+                    Text(location)
                         .foregroundColor(.gray)
                         .strikethrough(completed ? true : false)
 
@@ -63,6 +65,6 @@ struct TaskCell: View {
 
 struct TaskCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskCell()
+        TaskCell(dueDate: Date(), title: "hi", location: "123 main st")
     }
 }

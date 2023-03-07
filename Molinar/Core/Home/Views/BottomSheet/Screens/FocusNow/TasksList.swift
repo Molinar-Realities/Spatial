@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct TasksList: View {
+    @StateObject var viewModel = TasksViewModel()
     var body: some View {
         VStack {
-            ForEach(0..<10) { _ in
-                TaskCell()
+            ForEach(viewModel.userTasks) { task in
+                TaskCell(dueDate: task.dueDate, title: task.title, location: task.locationTitle)
                     .padding()
             }
         }
