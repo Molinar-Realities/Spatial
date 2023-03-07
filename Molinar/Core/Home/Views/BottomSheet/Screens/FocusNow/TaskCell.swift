@@ -21,9 +21,7 @@ struct TaskCell: View {
                     let impact = UIImpactFeedbackGenerator(style: .medium)
                     impact.impactOccurred()
                     
-                    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 3) {
-                                       removed.toggle()
-                                   }
+                    
                                 withAnimation {
                                     completed.toggle()
                                     self.isAnimatingCheckmark = true
@@ -39,14 +37,17 @@ struct TaskCell: View {
                                         self.isAnimatingCheckmark = false
                                     }
                             }
-                            .opacity(removed ? 0 : 1)
+//                            .opacity(completed ? 0.5 : 1)
                             .animation(.easeInOut(duration: 0.3))
                 Text("title")
-                                    .opacity(removed ? 0 : 1)
+                    .strikethrough(completed ? true : false)
+
+                    .opacity(completed ? 0.5 : 1)
                                     .animation(.easeInOut(duration: 0.3))
                 Spacer()
                 Text(dueDate.isToday ? dueDate.toString(dateFormat: "h:mm a") : dueDate.toString(dateFormat: "MMM d"))
-                    .opacity(removed ? 0 : 1)
+                    .opacity(completed ? 0.5 : 1)
+                    .strikethrough(completed ? true : false)
                     .animation(.easeInOut(duration: 0.3))
             }
             Divider()
