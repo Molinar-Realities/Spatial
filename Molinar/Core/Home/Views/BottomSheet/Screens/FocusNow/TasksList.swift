@@ -9,7 +9,12 @@ import SwiftUI
 
 struct TasksList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ForEach(0..<10) { _ in
+                TaskCell()
+                    .padding()
+            }
+        }
     }
 }
 
