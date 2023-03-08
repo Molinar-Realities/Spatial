@@ -8,7 +8,7 @@ import Dispatch
 import SwiftUI
 import BottomSheet
 
-struct ContentView: View {
+struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var bottomSheetViewModel: BottomSheetViewModel
     @EnvironmentObject var tasksViewModel: TasksViewModel
@@ -62,14 +62,9 @@ struct ContentView: View {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
 //                                        }
                                     } else {
-                                        Text("Focus Now")
-                                            .font(.largeTitle)
-                                            .fontWeight(.bold)
-                                            .padding(.horizontal)
+                                        FocusNowHeader()
                                     }
-                                    
                                 case 1:
-                                    
                                     Text("Create")
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
@@ -80,36 +75,12 @@ struct ContentView: View {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
 //                                        }
                                     } else {
-                                        VStack {
-                                            HStack {
-                                                Text("Friends")
-                                                    .font(.largeTitle)
-                                                    .fontWeight(.bold)
-                                                .padding(.horizontal)
-                                                Spacer()
-                                                
-                                                Button(action: {}) {
-                                                    Image(systemName: "plus.circle.fill")
-                                                        .resizable()
-                                                        .scaledToFill()
-                                                        .frame(width: 38, height: 38)
-                                                        .padding(.horizontal)
-                                                    .foregroundColor(.blue)
-                                                }
-                                            }
-                                            
-                                        }
+                                        FriendsHeader()
                                     }
-                                    
                                 default:
-                                    Text("Focus Now")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
-                                        .padding(.horizontal)
+                                    FocusNowHeader()
                                 }
-                                
                             }) {
-                                
                                 switch selectedIndex {
                                 case 0:
                                     TaskFocusNow()
@@ -119,7 +90,6 @@ struct ContentView: View {
                                 default:
                                     Text("")
                                 }
-                                
                             }
                             .showDragIndicator(shouldShowDragIndicator)
                             .enableAppleScrollBehavior()
@@ -127,54 +97,21 @@ struct ContentView: View {
                             .onChange(of: bottomSheetPosition) { position in
                                 shouldShowDragIndicator = position != .relativeTop(1.0)
                                         }
-                           
-
-
                     }
                     Divider()
-                    HStack {
-                        ForEach(0..<3, id: \.self) { number in
-                            Spacer()
-                            Button(action: {
-                                if number == 1 {
-                                    isShowingTaskSheet.toggle()
-                                    
-                                    // Generate haptic feedback
-                                    let generator = UIImpactFeedbackGenerator(style: .light)
-                                    generator.prepare()
-                                    generator.impactOccurred()
-                                    
-                                } else {
-                                    self.selectedIndex = number
-
-                                }
-                            }) {
-                                Image(systemName: icons[number])
-                                    .font(.system(size: 25))
-                                    .foregroundColor(selectedIndex == number ? .blue : Color(UIColor.white))
-
-                            }
-                            .sheet(isPresented: $isShowingTaskSheet, onDismiss: {
-                                        // Do something when the sheet is dismissed
-                                presentationDetents = [.height(140)]
-                                    }) {
-                                        
-                                        TaskSheet(showingSheet: $isShowingTaskSheet, presentationDetents: $presentationDetents)
-                                            .presentationDetents(Set<PresentationDetent>(presentationDetents))
-                                        
-                                    }
-                            
-                           
-                            
-                                    
-                                    
-                            Spacer()
-                        }
-                    }
-                    .padding(.top, 4)
-                    .background(.black)
+                    HomeTabView(isShowingTaskSheet: $isShowingTaskSheet, selectedIndex: $selectedIndex, icons: icons)
                     
                 }
+                // Add Task Sheet
+                .sheet(isPresented: $isShowingTaskSheet, onDismiss: {
+                            // Do something when the sheet is dismissed
+                    presentationDetents = [.height(140)]
+                        }) {
+                            
+                            TaskSheet(showingSheet: $isShowingTaskSheet, presentationDetents: $presentationDetents)
+                                .presentationDetents(Set<PresentationDetent>(presentationDetents))
+                            
+                        }
                 
             } else {
                 LoginView()
@@ -184,12 +121,18 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(AuthViewModel.shared)
+        HomeView().environmentObject(AuthViewModel.shared)
             .environmentObject(BottomSheetViewModel())
     }
 }
+
+
+
+
+
+
 
 
 

@@ -41,7 +41,7 @@ struct MolinarApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(AuthViewModel.shared)
+            HomeView().environmentObject(AuthViewModel.shared)
                 .environmentObject(BottomSheetViewModel.shared)
                 .environmentObject(locationViewModel)
                 .environmentObject(taskViewModel)

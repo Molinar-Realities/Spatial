@@ -14,5 +14,4 @@ class MapboxViewModel: ObservableObject {
     init() {}
     
     @Published var mapboxView = MapboxView()
-    @Published var filterButtons = FilterLabels()
 }

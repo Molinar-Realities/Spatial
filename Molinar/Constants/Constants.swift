@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 
 let COLLECTION_TASKS = Firestore.firestore().collection("tasks")

@@ -16,29 +16,10 @@ struct FriendsBottomTab: View {
         VStack(alignment: .leading, spacing: 15) {
             
             
-            HStack {
-                Text("Messages")
-                    .font(.headline)
-                Spacer()
-            }
+            MessagesHeadline()
             VStack(spacing: 15) {
                 ForEach(0 ..< 10) { item in
-                    HStack(spacing: 15) {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 38, height: 38)
-                            .foregroundColor(.gray)
-                        VStack(alignment: .leading) {
-                            Text("molinar.matthew")
-                                .font(.subheadline)
-                            Text("Worked out 2h ago")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                        }
-                    }
+                    ConversationCell()
                 }
             }
         }
@@ -51,3 +32,7 @@ struct FriendsBottomTab_Previews: PreviewProvider {
         FriendsBottomTab(searchText: .constant(""), bottomSheetPosition: .constant(.relativeTop(0.5)))
     }
 }
+
+
+
+
