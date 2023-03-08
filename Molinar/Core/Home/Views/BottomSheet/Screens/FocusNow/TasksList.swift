@@ -33,10 +33,10 @@ struct TasksList: View {
                     }
             }
         }
-        .sheet(isPresented: $presentTaskDetail) {
-            TaskDetailSheet(isShowing: $presentTaskDetail)
-                .presentationDetents([.medium])
-        }
+//        .sheet(isPresented: $presentTaskDetail) {
+//            TaskDetailSheet(isShowing: $presentTaskDetail)
+//                .presentationDetents([.medium])
+//        }
     }
 }
 

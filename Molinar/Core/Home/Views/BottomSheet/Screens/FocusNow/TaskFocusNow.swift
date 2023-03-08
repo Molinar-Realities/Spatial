@@ -29,7 +29,7 @@ struct TaskFocusNow: View {
 //                        .padding(.horizontal)
 //
 //                    // ScrollView for cards
-////                    RecommendedTasks()
+                    RecommendedTasks()
 //                }
                 
                 
@@ -69,6 +69,8 @@ struct TaskFocusNow_Previews: PreviewProvider {
 
 struct RecommendedTasks: View {
     @EnvironmentObject var viewModel: TasksViewModel
+    
+    var hardCodedTasks = [Task(dictionary: ["title": "Meditate", "taskLocationTitle": "Based on steps", "id": "1"]), Task(dictionary: ["title": "Go for a run", "taskLocationTitle": "Based on your goals", "id": "2"])]
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -78,10 +80,10 @@ struct RecommendedTasks: View {
                     .frame(width: 10, height: 187)
                     .foregroundColor(.clear)
                 // HACK
-                ForEach(viewModel.userTasks) { task in
+                ForEach(0..<2) { index in
                     VStack(alignment: .leading, spacing: 10) {
                         // TO DO: Make the cards from Apple Music.
-                        FeaturedCard(task: task)
+                        FeaturedCard(task: hardCodedTasks[index])
                     }
                 }
                 // HACK
@@ -179,7 +181,7 @@ struct FeaturedCard: View {
                                     Spacer()
                                 }.padding().padding()
                                 Spacer()
-                                Text(task.locationTitle)
+                                Text("Based on your goals")
                                     .font(.system(size: 14))
                                     .padding()
                                     .frame(maxWidth: .infinity)
