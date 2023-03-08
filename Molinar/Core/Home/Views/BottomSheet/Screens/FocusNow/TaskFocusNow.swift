@@ -13,7 +13,7 @@ struct TaskFocusNow: View {
     var body: some View {
       
         // Main VStack
-            VStack(alignment: .leading, spacing: 15) {
+//            VStack(alignment: .leading, spacing: 15) {
 //                Text("Focus Now")
 //                    .font(.largeTitle)
 //                    .fontWeight(.bold)
@@ -22,15 +22,15 @@ struct TaskFocusNow: View {
                     
                 // Tasks from Calendar
 
-                VStack(alignment: .leading, spacing: 5) {
-                    // Header for Tasks from Calendar
-                    Text("Recommended")
-                        .font(.headline)
-                        .padding(.horizontal)
-                    
-                    // ScrollView for cards
-                    RecommendedTasks()
-                }
+//                VStack(alignment: .leading, spacing: 5) {
+//                    // Header for Tasks from Calendar
+//                    Text("Recommended")
+//                        .font(.headline)
+//                        .padding(.horizontal)
+//
+//                    // ScrollView for cards
+////                    RecommendedTasks()
+//                }
                 
                 
                 
@@ -43,9 +43,9 @@ struct TaskFocusNow: View {
                             .font(.headline)
                             .padding(.leading)
                         .fontWeight(.bold)
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(Color(.systemGray))
-                            .fontWeight(.bold)
+//                        Image(systemName: "chevron.right")
+//                            .foregroundColor(Color(.systemGray))
+//                            .fontWeight(.bold)
                     }
                     
                     TasksList()
@@ -56,7 +56,7 @@ struct TaskFocusNow: View {
                 
                 
                 
-            }
+//            }
         
     }
 }

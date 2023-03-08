@@ -9,6 +9,18 @@ import SwiftUI
 import Dispatch
 import CoreLocation
 import UserNotifications
+import NaturalLanguage
+
+extension Date {
+    func formattedString(dateStyle: DateFormatter.Style = .short, timeStyle: DateFormatter.Style = .short) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.string(from: self)
+    }
+}
+
+
 
 struct TaskSheet: View {
     @State private var taskTitle = ""
@@ -72,6 +84,19 @@ struct TaskSheet: View {
                 return formatter.string(from: deadline)
             }
         }
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
 
 
 
@@ -88,11 +113,11 @@ struct TaskSheet: View {
                     .cornerRadius(10)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            print("DEBUG: Async ran.")
                             taskNameInFocus = true
-                            print(taskNameInFocus)
                       }
                     }
+                   
+                
                 TextField("Where at?", text: $viewModel.queryFragment)
                     .textFieldStyle(.plain)
                     .padding(.horizontal)
