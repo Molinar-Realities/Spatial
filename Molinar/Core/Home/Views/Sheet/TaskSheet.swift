@@ -37,13 +37,15 @@ struct TaskSheet: View {
         content.sound = UNNotificationSound.default
         
         let dueDate = task.dueDate
-        let reminderDate = dueDate.addingTimeInterval(-30 * 60) // Subtract 30 minutes from the due date
-        
-        let reminderTime = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminderDate)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: task.id, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        if let dueDate = task.dueDate {
+            let reminderDate = dueDate.addingTimeInterval(-30 * 60)
+            let reminderTime = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminderDate)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: task.id, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request)
+        }
+
     }
     
     // Returns the color of the deadline text based on its proximity to today's date

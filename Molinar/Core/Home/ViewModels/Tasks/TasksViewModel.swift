@@ -53,9 +53,15 @@ class TasksViewModel: ObservableObject {
                     print("DEBUG: Task already exists.")
                 } else {
                     var data = change.document.data()
-                    let timestamp = data["dueDate"] as! Timestamp
-                    var date = timestamp.dateValue()
-                    data["dueDate"] = date
+                    if let dueDate = data["dueDate"] as? Timestamp {
+                        // Use dueDate variable here
+                        var date = dueDate.dateValue()
+                        data["dueDate"] = date
+
+                    } else {
+                        // Handle case where data["dueDate"] is nil or not a Timestamp type
+                        print("DEBUG: dueDate was nil or not timestamp")
+                    }
                     self.userTasks.append(Task(dictionary: data))
                 }
             }

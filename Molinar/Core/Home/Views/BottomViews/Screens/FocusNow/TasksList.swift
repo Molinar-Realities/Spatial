@@ -12,16 +12,16 @@ struct TasksList: View {
     @EnvironmentObject var viewModel: TasksViewModel
     @State var selectedTask: Task = Task(dictionary: ["": ""])
     var sortedTasks: [Task] {
-        print(viewModel.userTasks)
         return viewModel.userTasks
-            .filter { Calendar.current.isDateInToday($0.dueDate) }
-            .sorted { $0.dueDate < $1.dueDate }
+            .filter { $0.dueDate != nil && Calendar.current.isDateInToday($0.dueDate!) } // Safely unwrap dueDate using force unwrap with nil check
+            .sorted { $0.dueDate! < $1.dueDate! } // Safely unwrap dueDate using force unwrap with nil check
     }
+
 
     var body: some View {
         VStack {
             ForEach(sortedTasks) { task in
-                TaskCell(dueDate: task.dueDate, title: task.title, location: task.locationTitle)
+                TaskCell(dueDate: task.dueDate ?? Date(), title: task.title, location: task.locationTitle)
                     .padding()
                     .onTapGesture {
                         selectedTask = task

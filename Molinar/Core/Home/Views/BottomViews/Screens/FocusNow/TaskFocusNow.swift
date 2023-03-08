@@ -22,15 +22,15 @@ struct TaskFocusNow: View {
                     
                 // Tasks from Calendar
 
-                VStack(alignment: .leading, spacing: 5) {
-                    // Header for Tasks from Calendar
-                    Text("Recommended")
-                        .font(.headline)
-                        .padding(.horizontal)
-
-//                    // ScrollView for cards
-                    RecommendedTasks()
-                }
+//                VStack(alignment: .leading, spacing: 5) {
+//                    // Header for Tasks from Calendar
+//                    Text("Recommended")
+//                        .font(.headline)
+//                        .padding(.horizontal)
+//
+////                    // ScrollView for cards
+////                    RecommendedTasks()
+//                }
                 
 
                 // Your tasks, top projects
