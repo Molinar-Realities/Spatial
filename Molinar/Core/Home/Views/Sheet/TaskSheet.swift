@@ -27,8 +27,8 @@ struct TaskSheet: View {
     
     func scheduleReminder(for task: Task) {
         let content = UNMutableNotificationContent()
-        content.title = "Task Reminder"
-        content.body = "Your task '\(task.title)' is due in 30 minutes."
+        content.title = "Molinar"
+        content.body = "\(task.title)"
         content.sound = UNNotificationSound.default
         
         let dueDate = task.dueDate
