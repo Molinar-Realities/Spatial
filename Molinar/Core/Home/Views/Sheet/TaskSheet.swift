@@ -40,6 +40,38 @@ struct TaskSheet: View {
         let request = UNNotificationRequest(identifier: task.id, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
+    
+    // Returns the color of the deadline text based on its proximity to today's date
+        func getDeadlineColor() -> Color {
+            let calendar = Calendar.current
+            if calendar.isDateInToday(deadline) {
+                return .green
+            } else if calendar.isDateInTomorrow(deadline) {
+                return .yellow
+            } else if calendar.isDate(deadline, equalTo: Date(), toGranularity: .weekOfYear) {
+                return .purple // Replace with your own color for this week's deadlines
+            } else {
+                return .gray // Replace with your own color for deadlines beyond this week
+            }
+        }
+    
+    // Returns the text of the deadline based on its proximity to today's date
+        func getDeadlineText() -> String {
+            let calendar = Calendar.current
+            if calendar.isDateInToday(deadline) {
+                return "Today"
+            } else if calendar.isDateInTomorrow(deadline) {
+                return "Tomorrow"
+            } else if calendar.isDate(deadline, equalTo: Date(), toGranularity: .weekOfYear) {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEE" // Use "EEE" for abbreviated day names like "Mon", "Tue", etc.
+                return formatter.string(from: deadline)
+            } else {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMM d" // Use "MMM d" for abbreviated month name and day number like "Mar 30"
+                return formatter.string(from: deadline)
+            }
+        }
 
 
 
@@ -85,9 +117,9 @@ struct TaskSheet: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 12, height: 12)
-                                .foregroundColor(.green)
-                            Text("Today")
-                                .foregroundColor(.green)
+                                .foregroundColor(getDeadlineColor())
+                            Text(getDeadlineText())
+                                .foregroundColor(getDeadlineColor())
                         }
                     }
                     Spacer()
