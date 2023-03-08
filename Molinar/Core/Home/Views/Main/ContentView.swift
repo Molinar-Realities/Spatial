@@ -51,68 +51,7 @@ struct ContentView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-                                    ScrollView(.horizontal, showsIndicators: false) {
-                                        VStack {
-                                            HStack(alignment: .top, spacing: 15) {
-                                                MiniCalendar()
-                                                VStack(alignment: .leading, spacing: 5) {
-                                                    HStack {
-                                                        Text("Tasks")
-                                                            .font(.subheadline)
-                                                    }
-                                                    .padding(.top, 8)
-                                                    .padding(.horizontal, 16)
-                                                    
-                                                    VStack {
-                                                        
-                                                    }
-                                                    
-                                                }
-                                                .background(.white)
-                                                .cornerRadius(20)
-                                                
-                                                VStack(alignment: .leading, spacing: 5) {
-                                                    HStack {
-                                                        Text("Fitness")
-                                                            .font(.subheadline)
-                                                    }
-                                                    .padding(.top, 8)
-                                                    .padding(.horizontal, 16)
-                                                    
-                                                    VStack {
-                                                        
-                                                    }
-                                                    
-                                                }
-                                                .background(.white)
-                                                .cornerRadius(20)
-                                                
-                                                
-                                                VStack(alignment: .leading, spacing: 5) {
-                                                    HStack {
-                                                        Text("Energy")
-                                                            .font(.subheadline)
-                                                    }
-                                                    .padding(.top, 8)
-                                                    .padding(.horizontal, 16)
-                                                    
-                                                    VStack {
-                                                        
-                                                    }
-                                                    
-                                                }
-                                                .background(.white)
-                                                .cornerRadius(20)
-                                                
-                                                
-                                                
-                                                Spacer()
-                                            }
-                                            .padding()
-                                            Spacer()
-                                                .fixedSize()
-                                        }
-                                    }
+                                    FilterScrollView()
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
@@ -251,3 +190,7 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(BottomSheetViewModel())
     }
 }
+
+
+
+

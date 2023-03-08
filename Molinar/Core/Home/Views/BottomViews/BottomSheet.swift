@@ -38,13 +38,4 @@ struct BottomSheet_Previews: PreviewProvider {
     }
 }
 
-extension Color {
-    static let bottomSheetColor = Color("BottomSheet")
-    static let linearGradientSearchBarLead = Color("SearchBar1")
-    static let linearGradientSearchBarTrail = Color("SearchBar2")
-    static let filterButtonLead = Color("FilterButton")
-    static let filterButtonTrail = Color("FilterButton2")
-    static let handleButtonLead = Color("Handle1")
-    static let handleButtonTrail = Color("Handle2")
 
-}

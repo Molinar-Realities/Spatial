@@ -11,14 +11,7 @@ import CoreLocation
 import UserNotifications
 import NaturalLanguage
 
-extension Date {
-    func formattedString(dateStyle: DateFormatter.Style = .short, timeStyle: DateFormatter.Style = .short) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = dateStyle
-        formatter.timeStyle = timeStyle
-        return formatter.string(from: self)
-    }
-}
+
 
 
 
