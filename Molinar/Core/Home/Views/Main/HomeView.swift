@@ -46,8 +46,10 @@ struct HomeView: View {
 
                     // BEGIN
                     ZStack {
+                        // The main map itself!
                         MapboxRepresentable().environmentObject(MapboxViewModel.shared)
                             .edgesIgnoringSafeArea(.all)
+                            // A hack to overlay the header due to ZStack
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
@@ -94,11 +96,14 @@ struct HomeView: View {
                             .showDragIndicator(shouldShowDragIndicator)
                             .enableAppleScrollBehavior()
                             .customBackground(.white)
+                            // Makes it so that when the bottom sheet is full position, the
+                            // handle disappears for an immersive experience.
                             .onChange(of: bottomSheetPosition) { position in
                                 shouldShowDragIndicator = position != .relativeTop(1.0)
                                         }
                     }
                     Divider()
+                    // Our Tab View
                     HomeTabView(isShowingTaskSheet: $isShowingTaskSheet, selectedIndex: $selectedIndex, icons: icons)
                     
                 }
@@ -125,6 +130,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView().environmentObject(AuthViewModel.shared)
             .environmentObject(BottomSheetViewModel())
+            .environmentObject(TasksViewModel())
     }
 }
 
