@@ -17,14 +17,38 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
     private let locationManager = LocationManager()
     private var cancellables = Set<AnyCancellable>()
     
+//    private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
+//            let cameraOptions = CameraOptions(center: coordinate, zoom: 18.0)
+//            mapView.camera.ease(to: cameraOptions, duration: 3.0)
+//        }
+    
+    private var shouldFollowUser = true
+
     private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
-            let cameraOptions = CameraOptions(center: coordinate, zoom: 18.0)
+        if shouldFollowUser {
+            let cameraOptions = CameraOptions(center: coordinate, zoom: 17.00)
             mapView.camera.ease(to: cameraOptions, duration: 3.0)
         }
+    }
+
+    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            // Stop following the user when the camera is manually moved
+            shouldFollowUser = false
+        case .ended, .cancelled:
+            // Start following the user again when the camera is released
+            shouldFollowUser = true
+        default:
+            break
+        }
+    }
+
 
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+
         
         // Subscribe to updates of the current location
                 locationManager.$currentLocation
@@ -39,7 +63,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
                 return
             }
         let cameraOptions = CameraOptions(center: locationManager.getCurrentLocation(),
-                                              zoom: 18.00,
+                                          zoom: 10.00,
                                               bearing: -168.00,
                                               pitch: 80)
         let myResourceOptions = ResourceOptions(accessToken: "pk.eyJ1Ijoibm92ZWxpY2EiLCJhIjoiY2xjdmF0NjR6MHMwZjN3cmxnMHFpaGFjMSJ9.bBri5mIGTCFnINYa75jS4w")
@@ -52,12 +76,31 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         mapView.ornaments.attributionButton.isHidden = true
         mapView.preferredFramesPerSecond = 60 // Increase the frame rate of the mapView
 
-
-//        var pointAnnotation = PointAnnotation(coordinate: centerCoordinate)
-//        pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
-//        pointAnnotation.iconAnchor = .bottom
 //        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-//        pointAnnotationManager.annotations = [pointAnnotation]
+//        var annotations: [PointAnnotation] = []
+//        for task in tasksViewModel.userTasks {
+//            print("DEBUG: task coordinate \(task.coordinate)")
+//            var pointAnnotation = PointAnnotation(coordinate: task.coordinate)
+//            pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+//            pointAnnotation.iconAnchor = .bottom
+//            annotations.append(pointAnnotation)
+//        }
+//        pointAnnotationManager.annotations = annotations
+        var centerCoordinate = CLLocationCoordinate2D(latitude: 30.268908, longitude: -97.740437)
+        var pointAnnotation = PointAnnotation(coordinate: centerCoordinate)
+        pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+        pointAnnotation.iconAnchor = .bottom
+        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+        
+        var coordinateTwo = CLLocationCoordinate2D(latitude: 30.2963872, longitude: -97.7462766)
+        var pointAnnotation2 = PointAnnotation(coordinate: coordinateTwo)
+        pointAnnotation2.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+        pointAnnotation2.iconAnchor = .bottom
+        
+
+        
+        
+        pointAnnotationManager.annotations = [pointAnnotation, pointAnnotation2]
         // Fetch the `gltf` asset
         let uri = Bundle.main.url(forResource: "locationPuck",
                                          withExtension: "glb")
@@ -94,6 +137,9 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         let configuration = Puck3DConfiguration(model: locationModel, modelScale: .expression(scalingExpression), modelOpacity: .constant(1))
         mapView.location.options.puckType = .puck3D(configuration)
         mapView.location.options.puckBearingSource = .course
+        
+//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+//        mapView.addGestureRecognizer(panGestureRecognizer)
         self.view.addSubview(mapView)
 
     }
@@ -119,8 +165,10 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         
         
 
-            mapView.camera.ease(to: cameraOptions, duration: 3.0)
-//            mapView.camera.makeAnimator(duration: 2.0, curve: .easeInOut)
+//        if shouldFollowUser {
+//            mapView.camera.ease(to: cameraOptions, duration: 3.0)
+//        }
+        //            mapView.camera.makeAnimator(duration: 2.0, curve: .easeInOut)
             // Stop updating location to conserve battery
             // removed this bc it seems to hinder the camera pan functionality, and I saw that it's not actually running this all the time?( Line 82.)
 //            locationManager.stopUpdatingLocation()
