@@ -52,6 +52,10 @@ struct TasksList: View {
                                     Spacer()
                                 }
                                 Button(action: {
+                                    // Generate haptic feedback
+                                    let generator = UIImpactFeedbackGenerator(style: .light)
+                                    generator.prepare()
+                                    generator.impactOccurred()
                                     showAddTask.toggle()
                                 }) {
                                     HStack {
