@@ -25,6 +25,8 @@ class AuthViewModel: ObservableObject {
         fetchUser()
     }
     
+    
+    // MARK: - Login
     func login(withEmail email: String, password: String) {
         isAuthenticating = true
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -40,12 +42,15 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Sign out
     func signOut() {
         userSession = nil
         user = nil
+        // TODO: CLEAR TASKS
         try? Auth.auth().signOut()
     }
     
+    // MARK: - Register user
     func registerUser(email: String, password: String, username: String, name: String, profileImage: UIImage, age: String, grade: String) {
         guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
         let filename = NSUUID().uuidString
@@ -110,6 +115,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    // MARK: - fetch user
     func fetchUser() {
         guard let uid = userSession?.uid else { return }
         

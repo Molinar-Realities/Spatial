@@ -8,13 +8,17 @@
 import SwiftUI
 import Firebase
 import CoreLocation
+import Combine
 
 class TasksViewModel: ObservableObject {
     @Published var userTasks = [Task]()
     @Published var isLoading = false
     
+
+    
     init() {
         fetchUserTasks()
+        
     }
     
 
@@ -24,6 +28,7 @@ class TasksViewModel: ObservableObject {
         
         guard let uid = AuthViewModel.shared.userSession?.uid else {
             isLoading = false
+
             return
         }
         print("DEBUG: uid \(uid)")
@@ -31,6 +36,7 @@ class TasksViewModel: ObservableObject {
         Firestore.firestore().collection("tasks").whereField("uid", isEqualTo: uid).addSnapshotListener { snapshot, error in
             guard let changes = snapshot?.documentChanges else {
                 self.isLoading = false
+
                 return
             }
             
@@ -63,6 +69,7 @@ class TasksViewModel: ObservableObject {
             }
             
             self.isLoading = false
+
         }
     }
 }

@@ -20,6 +20,8 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
     var tasksViewModel: TasksViewModel?
     private var pointAnnotationManager: PointAnnotationManager?
     var annotations: [PointAnnotation] = []
+    private var isLoadingCancellable: AnyCancellable?
+
 
 
     
@@ -135,14 +137,15 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         mapView.ornaments.attributionButton.isHidden = true
         mapView.preferredFramesPerSecond = 60 // Increase the frame rate of the mapView
         
-        // Subscribe to the updates of the taskViewModel instance
-        tasksViewModel!.$userTasks
-                    .sink { [weak self] _ in
-                        // Call the function to add the annotations to the mapView
-                        self?.addAnnotations()
-                    }
-                    .store(in: &cancellables)
+        isLoadingCancellable = tasksViewModel!.$isLoading
+            .sink { [weak self] isLoading in
+                if !isLoading {
+                    // Call the function to add the annotations to the mapView
+                    self?.addAnnotations()
+                }
+            }
 
+        
 
         // Fetch the `gltf` asset
         let uri = Bundle.main.url(forResource: "locationPuck",
