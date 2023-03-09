@@ -16,18 +16,6 @@ class TasksViewModel: ObservableObject {
         fetchUserTasks()
     }
     
-//    func deleteTasks(atOffsets offsets: IndexSet) {
-//        // Get the tasks to delete based on the indices
-//        let tasksToDelete = offsets.map { userTasks[$0] }
-//        
-//        // Delete the tasks from Firestore
-//        for task in tasksToDelete {
-//            Firestore.firestore().collection("tasks").document(task.id).delete()
-//        }
-//        
-//        // Remove the tasks from the userTasks array
-//        userTasks.remove(atOffsets: offsets)
-//    }
 
     
     func fetchUserTasks() {
@@ -37,6 +25,7 @@ class TasksViewModel: ObservableObject {
             isLoading = false
             return
         }
+        print("DEBUG: uid \(uid)")
         
         Firestore.firestore().collection("tasks").whereField("uid", isEqualTo: uid).addSnapshotListener { snapshot, error in
             guard let changes = snapshot?.documentChanges else {

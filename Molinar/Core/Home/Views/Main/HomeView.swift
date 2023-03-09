@@ -85,10 +85,21 @@ struct HomeView: View {
                             }) {
                                 switch selectedIndex {
                                 case 0:
-                                    TaskFocusNow()
-                                        .environmentObject(tasksViewModel)
+                                    Group {
+                                        if tasksViewModel.isLoading {
+                                            ProgressView()
+                                        } else {
+                                            TaskFocusNow()
+                                                .environmentObject(tasksViewModel)
+                                                .edgesIgnoringSafeArea(.all)
+                                        }
+                                    }
+                                    
+                                    
                                 case 2:
                                     FriendsBottomTab(searchText: $searchText, bottomSheetPosition: $bottomSheetPosition)
+                                        .edgesIgnoringSafeArea(.all)
+
                                 default:
                                     Text("")
                                 }
