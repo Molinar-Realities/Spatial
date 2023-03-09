@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Firebase 
+import Firebase
+import CoreLocation
 
 class TasksViewModel: ObservableObject {
     @Published var userTasks = [Task]()
@@ -52,6 +53,11 @@ class TasksViewModel: ObservableObject {
                         // Handle case where data["dueDate"] is nil or not a Timestamp type
                         print("DEBUG: dueDate was nil or not timestamp")
                     }
+                    var coordData = data["coordinate"] as! [Double]
+                    var latitude = coordData[0]
+                    var longitude = coordData[1]
+                    var coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    data["coordinate"] = coordinate
                     self.userTasks.append(Task(dictionary: data))
                 }
             }

@@ -16,6 +16,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
     internal var mapView: MapView!
     private let locationManager = LocationManager()
     private var cancellables = Set<AnyCancellable>()
+    private var tasksViewModel = TasksViewModel()
     
 //    private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
 //            let cameraOptions = CameraOptions(center: coordinate, zoom: 18.0)
@@ -23,6 +24,23 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
 //        }
     
     private var shouldFollowUser = true
+    
+    private func addAnnotations() {
+        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+        var annotations: [PointAnnotation] = []
+        
+        for task in tasksViewModel.userTasks {
+            print("DEBUG: task \(task)")
+            var taskCoordinate = task.coordinate
+            var pointAnnotation = PointAnnotation(coordinate: taskCoordinate)
+            pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+            pointAnnotation.iconAnchor = .bottom
+            annotations.append(pointAnnotation)
+        
+        }
+        pointAnnotationManager.annotations = annotations
+
+    }
 
     private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
         if shouldFollowUser {
@@ -50,6 +68,10 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
 
         
+        
+        
+        
+        
         // Subscribe to updates of the current location
                 locationManager.$currentLocation
                     .compactMap { $0 }
@@ -75,32 +97,16 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         mapView.ornaments.logoView.isHidden = true
         mapView.ornaments.attributionButton.isHidden = true
         mapView.preferredFramesPerSecond = 60 // Increase the frame rate of the mapView
+        
+        // Subscribe to the updates of the taskViewModel instance
+                tasksViewModel.$userTasks
+                    .sink { [weak self] _ in
+                        // Call the function to add the annotations to the mapView
+                        self?.addAnnotations()
+                    }
+                    .store(in: &cancellables)
 
-//        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-//        var annotations: [PointAnnotation] = []
-//        for task in tasksViewModel.userTasks {
-//            print("DEBUG: task coordinate \(task.coordinate)")
-//            var pointAnnotation = PointAnnotation(coordinate: task.coordinate)
-//            pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
-//            pointAnnotation.iconAnchor = .bottom
-//            annotations.append(pointAnnotation)
-//        }
-//        pointAnnotationManager.annotations = annotations
-        var centerCoordinate = CLLocationCoordinate2D(latitude: 30.268908, longitude: -97.740437)
-        var pointAnnotation = PointAnnotation(coordinate: centerCoordinate)
-        pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
-        pointAnnotation.iconAnchor = .bottom
-        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-        
-        var coordinateTwo = CLLocationCoordinate2D(latitude: 30.2963872, longitude: -97.7462766)
-        var pointAnnotation2 = PointAnnotation(coordinate: coordinateTwo)
-        pointAnnotation2.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
-        pointAnnotation2.iconAnchor = .bottom
-        
 
-        
-        
-        pointAnnotationManager.annotations = [pointAnnotation, pointAnnotation2]
         // Fetch the `gltf` asset
         let uri = Bundle.main.url(forResource: "locationPuck",
                                          withExtension: "glb")
