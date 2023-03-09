@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TaskFocusNow: View {
+    @Binding var showAddTask: Bool
     @EnvironmentObject var tasksViewModel: TasksViewModel
 
     var body: some View {
@@ -39,6 +40,7 @@ struct TaskFocusNow: View {
                     HStack(spacing: 5) {
                     //Header
                         Text("Today's Agenda")
+                            .foregroundColor(.black)
                             .font(.headline)
                             .padding(.leading)
                         .fontWeight(.bold)
@@ -46,7 +48,7 @@ struct TaskFocusNow: View {
 //                            .foregroundColor(Color(.systemGray))
 //                            .fontWeight(.bold)
                     }
-                    TasksList()
+                    TasksList(showAddTask: $showAddTask)
                     
                 }
                 

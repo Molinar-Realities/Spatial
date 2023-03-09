@@ -52,7 +52,7 @@ struct TaskCell: View {
                                 Image(systemName: copyCompleted ? "checkmark.circle.fill" : "circle")
                                     .resizable()
                                     .frame(width: 24, height: 24)
-                                    .foregroundColor(copyCompleted ? .green : .primary)
+                                    .foregroundColor(copyCompleted ? .green : .black)
                                     .rotationEffect(Angle(degrees: self.isAnimatingCheckmark ? 360 : 0))
                                     .animation(.easeInOut(duration: 0.3))
                                     .onAppear {
@@ -63,6 +63,7 @@ struct TaskCell: View {
                             .animation(.easeInOut(duration: 0.3))
                 VStack(alignment: .leading) {
                     Text(title)
+                        .foregroundColor(.black)
                         .strikethrough(copyCompleted ? true : false)
 
                         .opacity(copyCompleted ? 0.5 : 1)
@@ -74,6 +75,7 @@ struct TaskCell: View {
                 }
                 Spacer()
                 Text(dueDate.isToday ? dueDate.toString(dateFormat: "h:mm a") : dueDate.toString(dateFormat: "MMM d"))
+                    .foregroundColor(.gray)
                     .opacity(copyCompleted ? 0.5 : 1)
                     .strikethrough(copyCompleted ? true : false)
                     .animation(.easeInOut(duration: 0.3))

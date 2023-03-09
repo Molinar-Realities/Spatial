@@ -11,7 +11,8 @@ struct FriendsHeader: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Friends")
+                Text("Close Friends")
+                    .foregroundColor(.black)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.horizontal)
@@ -23,8 +24,8 @@ struct FriendsHeader: View {
                         .scaledToFill()
                         .frame(width: 38, height: 38)
                         .padding(.horizontal)
-                        .foregroundColor(.blue)
                 }
+                .disabled(true)
             }
             
         }

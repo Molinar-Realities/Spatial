@@ -54,7 +54,7 @@ struct HomeView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-                                    FilterScrollView()
+//                                    FilterScrollView()
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
@@ -90,7 +90,7 @@ struct HomeView: View {
                                         if tasksViewModel.isLoading {
                                             ProgressView()
                                         } else {
-                                            TaskFocusNow()
+                                            TaskFocusNow(showAddTask: $isShowingTaskSheet)
                                                 .environmentObject(tasksViewModel)
                                                 .edgesIgnoringSafeArea(.all)
                                         }

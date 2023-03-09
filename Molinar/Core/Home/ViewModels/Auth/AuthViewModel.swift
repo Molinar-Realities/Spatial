@@ -82,6 +82,29 @@ class AuthViewModel: ObservableObject {
                         self.userSession = user
                         self.fetchUser()
                     }
+                    
+//                    let docRef = COLLECTION_TASKS.document()
+//
+//                    var createdAt = Date()
+//                    
+//                    let taskData: [String: Any] = ["uid": user.uid, "title": "Make your first task with the +", "id": docRef.documentID, "coordinate": [30.285142, -97.739490], "locationTitle": "Tasks have locations, try it!", "dueDate": Date(), "completed": false, "locationCreatedAt": [30.285142, -97.739490], "createdAt": createdAt]
+//
+//                    docRef.setData(taskData) { _ in
+//                        print("DEBUG: Successfully uploaded onboarding task.")
+//                    }
+//
+//                    let docRef2 = COLLECTION_TASKS.document()
+//
+//                    let task2Data: [String: Any] = ["uid": user.uid, "title": "matt's number: 281-570-7383", "id": docRef2.documentID, "coordinate": [30.270836, -97.738306], "locationTitle": "lmk what you want on the app", "dueDate": Date(), "completed": false, "locationCreatedAt": [30.285142, -97.739490], "createdAt": createdAt]
+//
+//
+//
+//                    docRef2.setData(task2Data) { _ in
+//                        print("DEBUG: successfully uploaded second onboarding task.")
+//                    }
+                    
+                    
+                    
                 }
             }
         }

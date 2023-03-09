@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TasksList: View {
+    @Binding var showAddTask: Bool
     @State var presentTaskDetail = false
     @EnvironmentObject var viewModel: TasksViewModel
     @State var selectedTask: Task = Task(dictionary: ["": ""])
@@ -35,7 +36,44 @@ struct TasksList: View {
                     }
                 }
             } else {
-                ProgressView()
+                
+                VStack {
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else {
+                        HStack {
+                            
+                            VStack(alignment: .leading, spacing: 15) {
+                                Spacer()
+                                HStack {
+                                    Spacer()
+                                    Text("Nothing to do today!")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
+                                Button(action: {
+                                    showAddTask.toggle()
+                                }) {
+                                    HStack {
+                                        Spacer()
+                                        Text("Tap ")
+                                            .foregroundColor(.gray)
+                                            .font(.caption)
+                                        Image(systemName: "plus.app.fill")
+                                            .foregroundColor(.gray)
+                                        Text(" to add a task.")
+                                            .foregroundColor(.gray)
+                                            .font(.caption)
+                                        Spacer()
+                                    }
+                                }
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                    }
+                }
             }
         }
 //        .sheet(isPresented: $presentTaskDetail) {

@@ -17,10 +17,21 @@ struct FriendsBottomTab: View {
             
             
             MessagesHeadline()
-            VStack(spacing: 15) {
-                ForEach(0 ..< 10) { item in
-                    ConversationCell()
+//            VStack(spacing: 15) {
+//                ForEach(0 ..< 10) { item in
+//                    ConversationCell()
+//                }
+//            }
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("Coming soon")
+                        .foregroundColor(.gray)
+                        
+                    Spacer()
                 }
+                Spacer()
             }
         }
         .padding(.horizontal)

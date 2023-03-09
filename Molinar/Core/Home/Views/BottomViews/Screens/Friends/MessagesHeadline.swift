@@ -12,6 +12,7 @@ struct MessagesHeadline: View {
         HStack {
             Text("Messages")
                 .font(.headline)
+                .foregroundColor(.black)
             Spacer()
         }
     }
