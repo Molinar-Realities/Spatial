@@ -108,6 +108,7 @@ struct HomeView: View {
                             .showDragIndicator(shouldShowDragIndicator)
                             .enableAppleScrollBehavior()
                             .customBackground(.white)
+                            .dragIndicatorColor(Color(.systemGray3))
                             // Makes it so that when the bottom sheet is full position, the
                             // handle disappears for an immersive experience.
                             .onChange(of: bottomSheetPosition) { position in

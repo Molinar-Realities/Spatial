@@ -12,35 +12,67 @@ import SwiftUI
 import CoreLocation
 import Combine
 
+
 class MapboxView: UIViewController, CLLocationManagerDelegate {
     internal var mapView: MapView!
     private let locationManager = LocationManager()
     private var cancellables = Set<AnyCancellable>()
     var tasksViewModel: TasksViewModel?
+    private var pointAnnotationManager: PointAnnotationManager?
+    var annotations: [PointAnnotation] = []
+
+
     
 //    private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
 //            let cameraOptions = CameraOptions(center: coordinate, zoom: 18.0)
 //            mapView.camera.ease(to: cameraOptions, duration: 3.0)
 //        }
     
+    // MARK: - Methods
     private var shouldFollowUser = true
     
+    
+    // MARK: - Annotations
     private func addAnnotations() {
-        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-        var annotations: [PointAnnotation] = []
+        guard let pointAnnotationManager = pointAnnotationManager else {
+                return
+            }
         
-        for task in tasksViewModel!.userTasks {
-            print("DEBUG: task \(task)")
+        let currentDate = Date()
+        let currentCalendar = Calendar.current
+        
+        for task in tasksViewModel!.userTasks.filter({ task in
+            return task.dueDate!.isToday
+        }) {
+            
+            
+            
             var taskCoordinate = task.coordinate
-            var pointAnnotation = PointAnnotation(coordinate: taskCoordinate)
-            pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
-            pointAnnotation.iconAnchor = .bottom
-            annotations.append(pointAnnotation)
-        
+            var taskId = task.id
+            
+            if annotations.isEmpty {
+                var pointAnnotation = PointAnnotation(id: taskId, coordinate: taskCoordinate)
+                pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+                pointAnnotation.iconAnchor = .bottom
+                annotations.append(pointAnnotation)
+            } else {
+                // check if this task is already an annotation
+                if !annotations.contains(where: {$0.id == taskId}) {
+                    var pointAnnotation = PointAnnotation(id: taskId, coordinate: taskCoordinate)
+                    pointAnnotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+                    pointAnnotation.iconAnchor = .bottom
+                    annotations.append(pointAnnotation)
+                }
+            }
+                        
+            
         }
+        
         pointAnnotationManager.annotations = annotations
-
     }
+    
+    
+
 
     private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
         if shouldFollowUser {
@@ -63,10 +95,12 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
     }
 
 
+    // MARK: - ViewDidload
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-
+        // Initialize pointAnnotationManager
+            
         
         
         
@@ -91,6 +125,9 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         let myResourceOptions = ResourceOptions(accessToken: "pk.eyJ1Ijoibm92ZWxpY2EiLCJhIjoiY2xjdmF0NjR6MHMwZjN3cmxnMHFpaGFjMSJ9.bBri5mIGTCFnINYa75jS4w")
         let myMapInitOptions = MapInitOptions(resourceOptions: myResourceOptions, cameraOptions: cameraOptions, styleURI: StyleURI(rawValue: "mapbox://styles/novelica/cldzj4ky0003h01qkjx9xqfhk"))
         mapView = MapView(frame: view.bounds, mapInitOptions: myMapInitOptions)
+        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+        self.pointAnnotationManager = pointAnnotationManager
+
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.ornaments.compassView.isHidden = true
         mapView.ornaments.scaleBarView.isHidden = true
@@ -143,6 +180,8 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         let configuration = Puck3DConfiguration(model: locationModel, modelScale: .expression(scalingExpression), modelOpacity: .constant(1))
         mapView.location.options.puckType = .puck3D(configuration)
         mapView.location.options.puckBearingSource = .course
+        
+
         
 //        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
 //        mapView.addGestureRecognizer(panGestureRecognizer)
