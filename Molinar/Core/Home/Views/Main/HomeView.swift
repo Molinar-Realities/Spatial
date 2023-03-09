@@ -48,6 +48,7 @@ struct HomeView: View {
                     ZStack {
                         // The main map itself!
                         MapboxRepresentable().environmentObject(MapboxViewModel.shared)
+                            .environmentObject(tasksViewModel)
                             .edgesIgnoringSafeArea(.all)
                             // A hack to overlay the header due to ZStack
                             .overlay(alignment: .top) {

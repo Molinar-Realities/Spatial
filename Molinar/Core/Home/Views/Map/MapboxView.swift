@@ -16,7 +16,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
     internal var mapView: MapView!
     private let locationManager = LocationManager()
     private var cancellables = Set<AnyCancellable>()
-    private var tasksViewModel = TasksViewModel()
+    var tasksViewModel: TasksViewModel?
     
 //    private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
 //            let cameraOptions = CameraOptions(center: coordinate, zoom: 18.0)
@@ -29,7 +29,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
         var annotations: [PointAnnotation] = []
         
-        for task in tasksViewModel.userTasks {
+        for task in tasksViewModel!.userTasks {
             print("DEBUG: task \(task)")
             var taskCoordinate = task.coordinate
             var pointAnnotation = PointAnnotation(coordinate: taskCoordinate)
@@ -99,7 +99,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
         mapView.preferredFramesPerSecond = 60 // Increase the frame rate of the mapView
         
         // Subscribe to the updates of the taskViewModel instance
-                tasksViewModel.$userTasks
+        tasksViewModel!.$userTasks
                     .sink { [weak self] _ in
                         // Call the function to add the annotations to the mapView
                         self?.addAnnotations()
@@ -185,8 +185,10 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
 
 struct MapboxRepresentable: UIViewControllerRepresentable {
     @EnvironmentObject var mapboxViewModel: MapboxViewModel
+    @EnvironmentObject var tasksViewModel: TasksViewModel
 
     func makeUIViewController(context: Context) -> MapboxView {
+        mapboxViewModel.mapboxView.tasksViewModel = tasksViewModel
         return mapboxViewModel.mapboxView
 
     }
