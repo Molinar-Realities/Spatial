@@ -7,14 +7,28 @@
 
 import SwiftUI
 import Dispatch
+import Firebase
 
 struct TaskCell: View {
     @State private var isAnimatingCheckmark = false
     @State var removed = false
-    @State var completed = false
+    var completed: Bool
+    @State var copyCompleted: Bool
     var dueDate: Date
     var title: String
     var location: String
+    var id: String
+    
+    init(completed: Bool, dueDate: Date, title: String, location: String, id: String) {
+            self.completed = completed
+            self.dueDate = dueDate
+            self.title = title
+            self.location = location
+            self.id = id
+            self._copyCompleted = State(initialValue: completed)
+        }
+
+
     
     var body: some View {
         VStack {
@@ -22,17 +36,23 @@ struct TaskCell: View {
                 Button(action: {
                     let impact = UIImpactFeedbackGenerator(style: .medium)
                     impact.impactOccurred()
+                    withAnimation {
+                        copyCompleted.toggle()
+                        self.isAnimatingCheckmark = true
+                    }
+                        Firestore.firestore().collection("tasks").document(id).updateData([
+                            "completed": copyCompleted
+                        ]) { error in
+                            if let error = error {
+                                print("Error updating task: \(error.localizedDescription)")
+                            }
+                        }
                     
-                    
-                                withAnimation {
-                                    completed.toggle()
-                                    self.isAnimatingCheckmark = true
-                                }
                             }) {
-                                Image(systemName: completed ? "checkmark.circle.fill" : "circle")
+                                Image(systemName: copyCompleted ? "checkmark.circle.fill" : "circle")
                                     .resizable()
                                     .frame(width: 24, height: 24)
-                                    .foregroundColor(completed ? .green : .primary)
+                                    .foregroundColor(copyCompleted ? .green : .primary)
                                     .rotationEffect(Angle(degrees: self.isAnimatingCheckmark ? 360 : 0))
                                     .animation(.easeInOut(duration: 0.3))
                                     .onAppear {
@@ -43,19 +63,19 @@ struct TaskCell: View {
                             .animation(.easeInOut(duration: 0.3))
                 VStack(alignment: .leading) {
                     Text(title)
-                        .strikethrough(completed ? true : false)
+                        .strikethrough(copyCompleted ? true : false)
 
-                        .opacity(completed ? 0.5 : 1)
+                        .opacity(copyCompleted ? 0.5 : 1)
                     .animation(.easeInOut(duration: 0.3))
                     Text(location)
                         .foregroundColor(.gray)
-                        .strikethrough(completed ? true : false)
+                        .strikethrough(copyCompleted ? true : false)
 
                 }
                 Spacer()
                 Text(dueDate.isToday ? dueDate.toString(dateFormat: "h:mm a") : dueDate.toString(dateFormat: "MMM d"))
-                    .opacity(completed ? 0.5 : 1)
-                    .strikethrough(completed ? true : false)
+                    .opacity(copyCompleted ? 0.5 : 1)
+                    .strikethrough(copyCompleted ? true : false)
                     .animation(.easeInOut(duration: 0.3))
             }
             Divider()
@@ -63,8 +83,8 @@ struct TaskCell: View {
     }
 }
 
-struct TaskCell_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskCell(dueDate: Date(), title: "hi", location: "123 main st")
-    }
-}
+//struct TaskCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        T
+//    }
+//}

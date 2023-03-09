@@ -40,6 +40,7 @@ class TasksViewModel: ObservableObject {
                 
                 if let index = taskIndex {
                     print("DEBUG: Task already exists.")
+                    
                 } else {
                     var data = change.document.data()
                     if let dueDate = data["dueDate"] as? Timestamp {
