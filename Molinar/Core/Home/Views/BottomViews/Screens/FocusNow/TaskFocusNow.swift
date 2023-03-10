@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import BottomSheet
 
 struct TaskFocusNow: View {
+    @Binding var bottomSheetPosition: BottomSheetPosition
+    @Binding var showTaskDetail: Bool
     @Binding var showAddTask: Bool
     @EnvironmentObject var tasksViewModel: TasksViewModel
+    @Binding var showTabs: Bool
 
     var body: some View {
       
@@ -48,7 +52,7 @@ struct TaskFocusNow: View {
 //                            .foregroundColor(Color(.systemGray))
 //                            .fontWeight(.bold)
                     }
-                    TasksList(showAddTask: $showAddTask)
+                    TasksList(bottomSheetPosition: $bottomSheetPosition, showTabs: $showTabs, showTaskDetail: $showTaskDetail, showAddTask: $showAddTask)
                     
                 }
                 

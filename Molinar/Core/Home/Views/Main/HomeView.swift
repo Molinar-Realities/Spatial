@@ -12,6 +12,8 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var bottomSheetViewModel: BottomSheetViewModel
     @EnvironmentObject var tasksViewModel: TasksViewModel
+    
+    @State var showingTabView = true
 
     @State var selectedIndex = 0
     @State var presentSheet = false
@@ -24,6 +26,7 @@ struct HomeView: View {
     @State private var currentPresentationDetent: PresentationDetent = .height(140)
     @State var presentationDetents: [PresentationDetent] = [.height(140)]
     @State var shouldShowDragIndicator = true
+    @State var showingTaskDetail = false
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -57,7 +60,7 @@ struct HomeView: View {
 //                                    FilterScrollView()
                                 }
                             }
-                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
+                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
                                 switch selectedIndex {
                                 case 0:
                                     if !shouldShowDragIndicator {
@@ -65,7 +68,11 @@ struct HomeView: View {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
 //                                        }
                                     } else {
-                                        FocusNowHeader()
+                                        if !showingTaskDetail {
+                                            FocusNowHeader()
+                                        } else {
+                                            DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
+                                        }
                                     }
                                 case 1:
                                     Text("Create")
@@ -78,7 +85,11 @@ struct HomeView: View {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
 //                                        }
                                     } else {
-                                        FriendsHeader()
+                                        if !showingTaskDetail {
+                                            FriendsHeader()
+                                        } else {
+                                            DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
+                                        }
                                     }
                                 default:
                                     FocusNowHeader()
@@ -90,9 +101,13 @@ struct HomeView: View {
                                         if tasksViewModel.isLoading {
                                             ProgressView()
                                         } else {
-                                            TaskFocusNow(showAddTask: $isShowingTaskSheet)
-                                                .environmentObject(tasksViewModel)
+                                            if !showingTaskDetail {
+                                                TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView)
+                                                    .environmentObject(tasksViewModel)
                                                 .edgesIgnoringSafeArea(.all)
+                                            } else {
+                                                DetailTask()
+                                            }
                                         }
                                     }
                                     
@@ -115,9 +130,15 @@ struct HomeView: View {
                                 shouldShowDragIndicator = position != .relativeTop(1.0)
                                         }
                     }
-                    Divider()
                     // Our Tab View
-                    HomeTabView(isShowingTaskSheet: $isShowingTaskSheet, selectedIndex: $selectedIndex, icons: icons)
+                    if showingTabView {
+                        Divider()
+                        HomeTabView(isShowingTaskSheet: $isShowingTaskSheet, selectedIndex: $selectedIndex, icons: icons)
+                    } else {
+                        Rectangle()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width, height: 35)
+                    }
                     
                 }
                 // Add Task Sheet

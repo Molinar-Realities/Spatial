@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import BottomSheet
 
 struct TasksList: View {
+    @Binding var bottomSheetPosition: BottomSheetPosition
+    @Binding var showTabs: Bool
+    @Binding var showTaskDetail: Bool
     @Binding var showAddTask: Bool
     @State var presentTaskDetail = false
     @EnvironmentObject var viewModel: TasksViewModel
@@ -31,7 +35,10 @@ struct TasksList: View {
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.prepare()
                                 generator.impactOccurred()
+                                bottomSheetPosition = .relative(0.4)
                                 presentTaskDetail.toggle()
+                                showTaskDetail.toggle()
+                                showTabs.toggle()
                             }
                     }
                 }
