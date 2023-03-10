@@ -79,7 +79,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
     private func updateMapCamera(to coordinate: CLLocationCoordinate2D) {
         if shouldFollowUser {
             let cameraOptions = CameraOptions(center: coordinate, zoom: 17.00)
-            mapView.camera.ease(to: cameraOptions, duration: 3.0)
+            mapView.camera.ease(to: cameraOptions, duration: 1.0)
         }
     }
 
@@ -112,7 +112,8 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
                 locationManager.$currentLocation
                     .compactMap { $0 }
                     .sink { [weak self] location in
-                        self?.updateMapCamera(to: location.coordinate)
+                        return
+//                        self?.updateMapCamera(to: location.coordinate)
                     }
                     .store(in: &cancellables)
 
@@ -121,7 +122,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
                 return
             }
         let cameraOptions = CameraOptions(center: locationManager.getCurrentLocation(),
-                                          zoom: 10.00,
+                                          zoom: 17.00,
                                               bearing: -168.00,
                                               pitch: 80)
         let myResourceOptions = ResourceOptions(accessToken: "pk.eyJ1Ijoibm92ZWxpY2EiLCJhIjoiY2xjdmF0NjR6MHMwZjN3cmxnMHFpaGFjMSJ9.bBri5mIGTCFnINYa75jS4w")
@@ -144,6 +145,16 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
                     self?.addAnnotations()
                 }
             }
+        
+        // Subscribe to updates of the selected task
+                tasksViewModel!.$selectedTask
+                    .compactMap { $0 }
+                    .sink { [weak self] selectedTask in
+                        self?.updateMapCamera(to: selectedTask.coordinate)
+                    }
+                    .store(in: &cancellables)
+        
+        
 
         
 

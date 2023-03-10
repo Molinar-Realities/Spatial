@@ -15,7 +15,6 @@ struct TasksList: View {
     @Binding var showAddTask: Bool
     @State var presentTaskDetail = false
     @EnvironmentObject var viewModel: TasksViewModel
-    @State var selectedTask: Task = Task(dictionary: ["": ""])
     var sortedTasks: [Task] {
         return viewModel.userTasks
             .filter { $0.dueDate != nil && Calendar.current.isDateInToday($0.dueDate!) } // Safely unwrap dueDate using force unwrap with nil check
@@ -30,8 +29,8 @@ struct TasksList: View {
                         TaskCell(completed: task.completed, dueDate: task.dueDate ?? Date(), title: task.title, location: task.locationTitle, id: task.id)
                             .padding()
                             .onTapGesture {
-                                selectedTask = task
                                 // Generate haptic feedback
+                                viewModel.selectedTask = task
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.prepare()
                                 generator.impactOccurred()

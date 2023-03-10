@@ -13,7 +13,8 @@ import Combine
 class TasksViewModel: ObservableObject {
     @Published var userTasks = [Task]()
     @Published var isLoading = false
-    
+    @Published var selectedTask: Task = Task(dictionary: ["": ""])
+
 
     
     init() {
