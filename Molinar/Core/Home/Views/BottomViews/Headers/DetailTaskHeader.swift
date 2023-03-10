@@ -27,7 +27,7 @@ struct DetailTaskHeader: View {
 ////                    isEditingName = true
 //                }
 //                .foregroundColor(.blue) // Set the color of the "Edit Task" button to blue
-//                
+//
 //                Button("Delete Task") {
 //                    // Action for menu item 2
 //                }
@@ -48,7 +48,7 @@ struct DetailTaskHeader: View {
                 Image(systemName: "x.circle.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 24, height: 24)
+                    .frame(width: 34, height: 34)
                     .foregroundColor(.gray)
             }
             

@@ -10,19 +10,23 @@ import Dispatch
 import CoreLocation
 import UserNotifications
 import NaturalLanguage
+import Combine
 
 
 
 
 
 struct TaskSheet: View {
+    @State private var deadlineTextString = ""
     @State private var taskTitle = ""
     @FocusState private var taskNameInFocus: Bool
     @State private var description = ""
     @Binding var showingSheet: Bool
     @State private var selectedDate = Date()
     @State var showDueDate = false
-    @State var deadline = Date()
+    
+    @State private var deadline = Date()
+    
     @State var locationText = ""
     @Binding var presentationDetents: [PresentationDetent]
     @State var showLocationSearch = false
@@ -30,9 +34,91 @@ struct TaskSheet: View {
     @StateObject var taskUpload = UploadTaskViewModel()
     @StateObject var locationManager = LocationManager()
     
+    
+    // MARK: -  DetectTime
+    
+    
+    func detectTime(text: String) -> Date? {
+        let regex = try! NSRegularExpression(pattern: "\\b(1[012]|[1-9])(:[0-5]\\d)?([ap]m)?\\b", options: [.caseInsensitive])
+        let matches = regex.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
+        print("DEBUG: matches \(matches)")
+        
+        guard let match = matches.first else {
+            return nil
+        }
+        
+        var timeString = (text as NSString).substring(with: match.range)
+        print("DEBUG: timestring \(timeString)")
+        let formatter = DateFormatter()
+//        formatter.timeZone = TimeZone(identifier: "UTC")
+
+        let today = Date()
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day], from: today)
+
+        if timeString.contains("am") || timeString.contains("pm") {
+            var hour = ""
+            var minute = ""
+            var suffix = ""
+            
+            if timeString.contains(" ") {
+                let timeComponents = timeString.components(separatedBy: " ")
+                if timeComponents.count == 2 {
+                    let time = timeComponents[0]
+                    let timeParts = time.components(separatedBy: ":")
+                    hour = timeParts[0]
+                    minute = timeParts.count > 1 ? timeParts[1] : "00"
+                    suffix = timeComponents[1]
+                } else if timeComponents.count == 3 {
+                    hour = timeComponents[0]
+                    minute = timeComponents[1]
+                    suffix = timeComponents[2]
+                }
+            } else {
+                let suffixIndex = timeString.index(timeString.endIndex, offsetBy: -2)
+                let time = String(timeString[..<suffixIndex])
+                let timeParts = time.components(separatedBy: ":")
+                hour = timeParts[0]
+                minute = timeParts.count > 1 ? timeParts[1] : "00"
+                suffix = String(timeString[suffixIndex...])
+            }
+            
+            let paddedHour = hour.count == 1 ? "0\(hour)" : hour
+            let paddedMinute = minute.count == 1 ? "0\(minute)" : minute
+            formatter.dateFormat = "h:mm a"
+            timeString = "\(paddedHour):\(paddedMinute) \(suffix)"
+        } else if timeString.contains(":") && !timeString.contains(" ") {
+            formatter.dateFormat = "HH:mm"
+        } else if timeString.lowercased() == "noon" {
+            formatter.dateFormat = "h:mm a"
+            timeString = "12:00 PM"
+        } else if timeString.lowercased() == "midnight" {
+            formatter.dateFormat = "h:mm a"
+            timeString = "12:00 AM"
+        } else {
+            formatter.dateFormat = "H"
+        }
+
+        if let time = formatter.date(from: timeString) {
+            components.hour = calendar.component(.hour, from: time)
+            components.minute = calendar.component(.minute, from: time)
+            components.second = calendar.component(.second, from: time)
+
+            let detectedDeadline = calendar.date(from: components)!
+            return detectedDeadline
+        } else {
+            return nil
+        }
+
+        
+    }
+    
+    // MARK: - scheduleReminder
+
+    
     func scheduleReminder(for task: Task) {
         let content = UNMutableNotificationContent()
-        content.title = "Molinar"
+        content.title = "Moves"
         content.body = "\(task.title)"
         content.sound = UNNotificationSound.default
         
@@ -48,6 +134,8 @@ struct TaskSheet: View {
 
     }
     
+    // MARK: - getDeadlineColor()
+    
     // Returns the color of the deadline text based on its proximity to today's date
         func getDeadlineColor() -> Color {
             let calendar = Calendar.current
@@ -62,23 +150,37 @@ struct TaskSheet: View {
             }
         }
     
+    // MARK: - getDeadlineText()
+    
     // Returns the text of the deadline based on its proximity to today's date
-        func getDeadlineText() -> String {
-            let calendar = Calendar.current
-            if calendar.isDateInToday(deadline) {
-                return "Today"
-            } else if calendar.isDateInTomorrow(deadline) {
-                return "Tomorrow"
-            } else if calendar.isDate(deadline, equalTo: Date(), toGranularity: .weekOfYear) {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "EEE" // Use "EEE" for abbreviated day names like "Mon", "Tue", etc.
-                return formatter.string(from: deadline)
-            } else {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MMM d" // Use "MMM d" for abbreviated month name and day number like "Mar 30"
-                return formatter.string(from: deadline)
-            }
+    func getDeadlineText() -> String {
+        let calendar = Calendar.current
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        
+        print("DEBUG: within deadlineText \(deadline)")
+
+        if calendar.isDateInToday(deadline) {
+//            formatter.dateFormat = "h:mm a"
+            return "Today " + deadline.toString(dateFormat: "h:mm a")
+        } else if calendar.isDateInTomorrow(deadline) {
+            formatter.dateFormat = "h:mm a"
+            return "Tomorrow " + deadline.toString(dateFormat: "h:mm a")
+        } else if calendar.isDate(deadline, equalTo: Date(), toGranularity: .weekOfYear) {
+            formatter.dateFormat = "EEE h:mm a" // Use "EEE" for abbreviated day names like "Mon", "Tue", etc.
+            return deadline.toString(dateFormat: "EEE h:mm a")
+        } else {
+            formatter.dateFormat = "MMM d h:mm a" // Use "MMM d" for abbreviated month name and day number like "Mar 30"
+            return deadline.toString(dateFormat: "MMM d h:mm a")
         }
+    }
+    
+    func removeTimePhrase(from string: String) -> String {
+        let pattern = "((at)?\\s*\\d{1,2}(\\s*:\\s*\\d{2})?\\s*(am|pm)?)"
+        let taskTextWithoutTime = string.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+        return taskTextWithoutTime
+    }
+
     
     
 
@@ -100,7 +202,7 @@ struct TaskSheet: View {
         VStack(spacing: 10) {
             
             if !showLocationSearch {
-                TextField("Task Name", text: $taskTitle)
+                TextField("Try typing 'Workout 3pm'", text: $taskTitle)
                     .focused($taskNameInFocus)
                     .textFieldStyle(.plain)
                     .padding(.horizontal)
@@ -109,7 +211,15 @@ struct TaskSheet: View {
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             taskNameInFocus = true
-                      }
+                        }
+                    }
+                    .onReceive(Just(taskTitle)) { text in
+                        // Detect time here
+                        if let date = detectTime(text: text) {
+                            // Do something with the detected date
+                            print("DEBUG: date \(date)")
+                            deadline = date
+                        }
                     }
                    
                 
@@ -142,6 +252,7 @@ struct TaskSheet: View {
                                 .foregroundColor(getDeadlineColor())
                         }
                     }
+                    
                     Spacer()
                     Button(action: {
                         // Generate haptic feedback
@@ -149,7 +260,7 @@ struct TaskSheet: View {
                         generator.prepare()
                         generator.impactOccurred()
                         scheduleReminder(for: Task(dictionary: ["dueDate": deadline, "title": taskTitle, "id": UUID().uuidString]))
-                        taskUpload.uploadTask(title: taskTitle, coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location", dueDate: deadline, locationCreatedAt:  locationManager.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 0, longitude: 0))
+                        taskUpload.uploadTask(title: removeTimePhrase(from: taskTitle), coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location", dueDate: deadline, locationCreatedAt:  locationManager.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 0, longitude: 0))
                         viewModel.queryFragment = ""
                         showingSheet.toggle()
                     }) {
@@ -162,6 +273,7 @@ struct TaskSheet: View {
                     .disabled(taskTitle.isEmpty)
                 }
                 .padding(.leading)
+                
 
                 Spacer()
 

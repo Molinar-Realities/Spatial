@@ -43,7 +43,7 @@ struct TaskFocusNow: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 5) {
                     //Header
-                        Text("Today's Agenda")
+                        Text("Today's Moves")
                             .foregroundColor(.black)
                             .font(.headline)
                             .padding(.leading)
