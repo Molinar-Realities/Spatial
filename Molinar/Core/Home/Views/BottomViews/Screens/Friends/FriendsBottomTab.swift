@@ -11,17 +11,25 @@ import BottomSheet
 struct FriendsBottomTab: View {
     @Binding var searchText: String
     @Binding var bottomSheetPosition: BottomSheetPosition
+    @State var selectedOption: FriendFilterOptions = .messages
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             
+            FriendFilterButtons(selectedOption: $selectedOption)
+            if selectedOption == .messages {
+                MessagesHeadline()
+                    .padding(.horizontal)
+            } else if selectedOption == .students {
+                HStack {
+                    Text("Students")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+            }
             
-            MessagesHeadline()
-//            VStack(spacing: 15) {
-//                ForEach(0 ..< 10) { item in
-//                    ConversationCell()
-//                }
-//            }
+
             VStack {
                 Spacer()
                 HStack {

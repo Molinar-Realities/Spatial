@@ -14,10 +14,10 @@ struct HomeTabView: View {
     
     var body: some View {
         HStack {
-            ForEach(0..<3, id: \.self) { number in
+            ForEach(0..<5, id: \.self) { number in
                 Spacer()
                 Button(action: {
-                    if number == 1 {
+                    if number == 2 {
                         isShowingTaskSheet.toggle()
                         // Generate haptic feedback
                         let generator = UIImpactFeedbackGenerator(style: .light)

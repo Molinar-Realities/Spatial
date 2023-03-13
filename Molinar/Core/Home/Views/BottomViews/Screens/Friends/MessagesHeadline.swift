@@ -10,7 +10,7 @@ import SwiftUI
 struct MessagesHeadline: View {
     var body: some View {
         HStack {
-            Text("Messages")
+            Text("What's the move?")
                 .font(.headline)
                 .foregroundColor(.black)
             Spacer()

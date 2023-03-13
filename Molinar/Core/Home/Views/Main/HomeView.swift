@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var bottomSheetViewModel: BottomSheetViewModel
     @EnvironmentObject var tasksViewModel: TasksViewModel
+    @EnvironmentObject var projectsViewModel: ProjectsViewModel
     
     @State var showingTabView = true
 
@@ -27,6 +28,7 @@ struct HomeView: View {
     @State var presentationDetents: [PresentationDetent] = [.height(140)]
     @State var shouldShowDragIndicator = true
     @State var showingTaskDetail = false
+    @State var selectedFilter: TaskFilterOptions = .foryou
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -40,7 +42,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["globe.americas.fill", "plus.app.fill", "figure.2.arms.open" ]
+    let icons = ["house.fill", "magnifyingglass", "plus.app.fill", "person.2.fill", "bubble.left.fill" ]
 
     var body: some View {
         Group {
@@ -65,20 +67,57 @@ struct HomeView: View {
                                 case 0:
                                     if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
+                                        VStack {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
+                                            TaskFilterButtons(selectedOption: $selectedFilter)
+                                        }
 //                                        }
                                     } else {
                                         if !showingTaskDetail {
-                                            FocusNowHeader()
+                                        
+                                        TaskFilterButtons(selectedOption: $selectedFilter)
+                                              
+                            
                                         } else {
                                             DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                         }
                                     }
                                 case 1:
-                                    Text("Create")
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
-                                        .padding(.horizontal)
+                                    //A SearchBar as headerContent.
+                                    if !shouldShowDragIndicator {
+                                        VStack {
+                                            AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
+                                            HStack {
+                                                Image(systemName: "magnifyingglass")
+                                                TextField("Search", text: self.$searchText)
+                                            }
+                                            .foregroundColor(Color(UIColor.secondaryLabel))
+                                            .padding(.vertical, 8)
+                                            .padding(.horizontal, 5)
+                                            .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.quaternaryLabel)))
+                                            .padding([.horizontal, .bottom])
+                                            //When you tap the SearchBar, the BottomSheet moves to the .top position to make room for the keyboard.
+                                            .onTapGesture {
+                                                self.bottomSheetPosition = .relativeTop(1.00)
+                                            }
+                                        }
+                                    } else {
+                                        HStack {
+                                            Image(systemName: "magnifyingglass")
+                                            TextField("Search", text: self.$searchText)
+                                        }
+                                        .foregroundColor(Color(UIColor.secondaryLabel))
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal, 5)
+                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.quaternaryLabel)))
+                                        .padding([.horizontal, .bottom])
+                                        //When you tap the SearchBar, the BottomSheet moves to the .top position to make room for the keyboard.
+                                        .onTapGesture {
+                                            self.bottomSheetPosition = .relativeTop(1.00)
+                                        }
+
+                                    }
+                                    
                                 case 2:
                                     if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
@@ -86,7 +125,7 @@ struct HomeView: View {
 //                                        }
                                     } else {
                                         if !showingTaskDetail {
-                                            FriendsHeader()
+                                            EmptyView()
                                         } else {
                                             DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                         }
@@ -102,7 +141,7 @@ struct HomeView: View {
                                             ProgressView()
                                         } else {
                                             if !showingTaskDetail {
-                                                TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView)
+                                                TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
                                                     .environmentObject(tasksViewModel)
                                                 .edgesIgnoringSafeArea(.all)
                                             } else {
@@ -111,8 +150,21 @@ struct HomeView: View {
                                         }
                                     }
                                     
+                                case 1:
+                                    VStack(alignment: .leading) {
+                                        Text("Try searching for people, events, or your own tasks.")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                    }
                                     
-                                case 2:
+                                
+                                case 3:
+                                    VStack {
+                                        Text("Friends")
+                                    }
+                                    
+                                case 4:
                                     FriendsBottomTab(searchText: $searchText, bottomSheetPosition: $bottomSheetPosition)
                                         .edgesIgnoringSafeArea(.all)
 

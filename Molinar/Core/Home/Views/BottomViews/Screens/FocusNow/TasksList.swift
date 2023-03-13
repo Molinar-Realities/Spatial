@@ -9,6 +9,7 @@ import SwiftUI
 import BottomSheet
 
 struct TasksList: View {
+    @Binding var selectedFilter: TaskFilterOptions
     @Binding var bottomSheetPosition: BottomSheetPosition
     @Binding var showTabs: Bool
     @Binding var showTaskDetail: Bool
@@ -50,10 +51,9 @@ struct TasksList: View {
                         HStack {
                             
                             VStack(alignment: .leading, spacing: 15) {
-                                Spacer()
                                 HStack {
                                     Spacer()
-                                    Text("Nothing to do today!")
+                                    Text("No Moves today!")
                                         .foregroundColor(.gray)
                                     Spacer()
                                 }
@@ -66,12 +66,12 @@ struct TasksList: View {
                                 }) {
                                     HStack {
                                         Spacer()
-                                        Text("Tap ")
+                                        Text("Tap")
                                             .foregroundColor(.gray)
                                             .font(.caption)
                                         Image(systemName: "plus.app.fill")
                                             .foregroundColor(.gray)
-                                        Text(" to add a task.")
+                                        Text("to add a Move.")
                                             .foregroundColor(.gray)
                                             .font(.caption)
                                         Spacer()

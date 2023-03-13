@@ -13,7 +13,7 @@ class UploadTaskViewModel: ObservableObject {
     func uploadTask(title: String, coordinate: CLLocationCoordinate2D, locationTitle: String, dueDate: Date, locationCreatedAt: CLLocationCoordinate2D) {
         guard let user = AuthViewModel.shared.user else { return }
         let docRef = COLLECTION_TASKS.document()
-        print("DEBUG: from within upload task locationTitle: \(locationTitle)")
+        
         
         var createdAt = Date()
         

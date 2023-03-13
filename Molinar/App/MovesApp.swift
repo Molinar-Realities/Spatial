@@ -34,10 +34,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 @main
-struct MolinarApp: App {
+struct MovesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var locationViewModel = LocationSearchViewModel()
     @StateObject var taskViewModel = TasksViewModel()
+    @StateObject var projectsViewModel = ProjectsViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -45,6 +46,7 @@ struct MolinarApp: App {
                 .environmentObject(BottomSheetViewModel.shared)
                 .environmentObject(locationViewModel)
                 .environmentObject(taskViewModel)
+                .environmentObject(projectsViewModel)
 
         }
     }

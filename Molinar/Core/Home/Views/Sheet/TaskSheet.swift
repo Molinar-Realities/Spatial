@@ -202,7 +202,7 @@ struct TaskSheet: View {
         VStack(spacing: 10) {
             
             if !showLocationSearch {
-                TextField("Try typing 'Workout 3pm'", text: $taskTitle)
+                TextField("Try typing 'Workout at 3pm'", text: $taskTitle)
                     .focused($taskNameInFocus)
                     .textFieldStyle(.plain)
                     .padding(.horizontal)

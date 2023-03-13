@@ -14,6 +14,9 @@ struct TaskFocusNow: View {
     @Binding var showAddTask: Bool
     @EnvironmentObject var tasksViewModel: TasksViewModel
     @Binding var showTabs: Bool
+    @Binding var selectedFilter: TaskFilterOptions
+    @State var showAddProject = false
+    @EnvironmentObject var projectsViewModel: ProjectsViewModel
 
     var body: some View {
       
@@ -41,21 +44,70 @@ struct TaskFocusNow: View {
                 // Your tasks, top projects
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    HStack(spacing: 5) {
-                    //Header
-                        Text("Today's Moves")
-                            .foregroundColor(.black)
-                            .font(.headline)
-                            .padding(.leading)
-                        .fontWeight(.bold)
-//                        Image(systemName: "chevron.right")
-//                            .foregroundColor(Color(.systemGray))
-//                            .fontWeight(.bold)
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        HStack {
+//                            TaskFilterButtons(selectedOption: $selectedFilter)
+//                        }
+//                    }
+//                    .padding(.top)
+                    
+                    if selectedFilter == .today {
+                        VStack(alignment: .leading) {
+                            Text("Your Moves Today")
+                                .foregroundColor(.black)
+                                .font(.headline)
+                                .padding(.leading)
+                                .fontWeight(.bold)
+                                .padding(.top)
+                            TasksList(selectedFilter: $selectedFilter, bottomSheetPosition: $bottomSheetPosition, showTabs: $showTabs, showTaskDetail: $showTaskDetail, showAddTask: $showAddTask)
+                            
+                        }
+                        
+                    } else if selectedFilter == .upcoming {
+                        VStack(alignment: .leading) {
+                            Text("Upcoming Moves")
+                                .foregroundColor(.black)
+                                .font(.headline)
+                                .padding(.leading)
+                                .fontWeight(.bold)
+                            InboxView()
+                        }.padding(.horizontal)
+                        
+                    } else if selectedFilter == .projects {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("Projects")
+                                    .foregroundColor(.black)
+                                    .font(.headline)
+                                    .padding(.leading)
+                                    .fontWeight(.bold)
+                                Button(action: {
+                                    showAddProject.toggle()
+                                }) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 18, height: 18)
+                                        .foregroundColor(.gray)
+                                }
+                            }.padding(.vertical)
+                            ProjectsList()
+
+                        }.padding(.horizontal)
+                        
+                    } else if selectedFilter == .foryou {
+                        ForYou()
                     }
-                    TasksList(bottomSheetPosition: $bottomSheetPosition, showTabs: $showTabs, showTaskDetail: $showTaskDetail, showAddTask: $showAddTask)
+                        
+
+                    
+            
+                    
                     
                 }
-                
+                .sheet(isPresented: $showAddProject) {
+                    NewProject()
+                }
 //            }
         
     }

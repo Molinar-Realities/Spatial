@@ -28,6 +28,13 @@ struct AppHeader: View {
                         .frame(width: 38, height: 38)
                         .onTapGesture {
                         }
+                    Spacer()
+                    VStack {
+                        Text("Happening Now")
+                            .fontWeight(.bold)
+                        Text("Meeting with co-founders")
+                            .foregroundColor(.gray)
+                    }
                     
                     Spacer()
                     Divider()
