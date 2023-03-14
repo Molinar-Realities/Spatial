@@ -8,15 +8,15 @@
 import SwiftUI
 
 enum TaskFilterOptions: Int, CaseIterable {
-    case foryou
     case today
+    case inbox
     case upcoming
     case projects
     
     var text: String {
         switch self {
-        case .foryou: return "For you"
         case .today: return "Today"
+        case .inbox: return "Inbox"
         case .upcoming: return "Upcoming"
         case .projects: return "Projects"
         }
@@ -39,6 +39,7 @@ struct TaskFilterButtons: View {
                         self.selectedOption = option
                     }, label: {
                         Text(option.text)
+                            .foregroundColor(Color("TrustBlue"))
                             .frame(width: underlineWidth - 6)
                     })
                 }
@@ -46,7 +47,7 @@ struct TaskFilterButtons: View {
             .padding(.bottom)
             Rectangle()
                 .frame(width: underlineWidth - 24, height: 3, alignment: .center)
-                .foregroundColor(.blue)
+                .foregroundColor(Color("TrustBlue"))
                 .padding(.leading, padding)
                 .animation(.spring())
             Divider()

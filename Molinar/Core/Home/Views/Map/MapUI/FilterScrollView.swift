@@ -7,14 +7,35 @@
 
 import SwiftUI
 
+enum FeedFilterOptions: Int, CaseIterable {
+    case home
+    case calendar
+    case tasks
+    case events
+}
+
+
 struct FilterScrollView: View {
+    @Binding var selectedFeed:FeedFilterOptions
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             VStack {
                 HStack(alignment: .top, spacing: 15) {
                     MiniCalendar()
+                        .onTapGesture {
+                            selectedFeed = .calendar
+                        }
                     MapFilterButton(filterLabel: "Tasks")
-                    MapFilterButton(filterLabel: "Fitness")
+                        .onTapGesture {
+                            selectedFeed = .tasks
+                        }
+                    MapFilterButton(filterLabel: "Events")
+                        .onTapGesture {
+                            selectedFeed = .events
+                        }
+
+//                    MapFilterButton(filterLabel: "Fitness")
+//                    MapFilterButton(filterLabel: "Energy")
                     Spacer()
                 }
                 .padding()
@@ -27,6 +48,6 @@ struct FilterScrollView: View {
 
 struct FilterScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterScrollView()
+        FilterScrollView(selectedFeed: .constant(.home))
     }
 }

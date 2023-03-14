@@ -28,7 +28,8 @@ struct HomeView: View {
     @State var presentationDetents: [PresentationDetent] = [.height(140)]
     @State var shouldShowDragIndicator = true
     @State var showingTaskDetail = false
-    @State var selectedFilter: TaskFilterOptions = .foryou
+    @State var selectedFilter: TaskFilterOptions = .today
+    @State var selectedFeed: FeedFilterOptions = .home
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -42,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["house.fill", "magnifyingglass", "plus.app.fill", "person.2.fill", "bubble.left.fill" ]
+    let icons = ["house", "plus.app.fill", "person.2"]
 
     var body: some View {
         Group {
@@ -59,7 +60,7 @@ struct HomeView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-//                                    FilterScrollView()
+                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
@@ -74,8 +75,24 @@ struct HomeView: View {
 //                                        }
                                     } else {
                                         if !showingTaskDetail {
+                                            if selectedFeed == .home {
+                                                HStack {
+                                                    Image(systemName: "magnifyingglass")
+                                                    TextField("Search", text: self.$searchText)
+                                                }
+                                                .foregroundColor(Color(UIColor.secondaryLabel))
+                                                .padding(.vertical, 8)
+                                                .padding(.horizontal, 5)
+                                                .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.quaternaryLabel)))
+                                                .padding([.horizontal, .bottom])
+                                                //When you tap the SearchBar, the BottomSheet moves to the .top position to make room for the keyboard.
+                                                .onTapGesture {
+                                                    self.bottomSheetPosition = .relativeTop(0.97)
+                                                }
+                                            } else {
+                                                TaskFilterButtons(selectedOption: $selectedFilter)
+                                            }
                                         
-                                        TaskFilterButtons(selectedOption: $selectedFilter)
                                               
                             
                                         } else {
@@ -87,6 +104,7 @@ struct HomeView: View {
                                     if !shouldShowDragIndicator {
                                         VStack {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
+
                                             HStack {
                                                 Image(systemName: "magnifyingglass")
                                                 TextField("Search", text: self.$searchText)
@@ -141,9 +159,19 @@ struct HomeView: View {
                                             ProgressView()
                                         } else {
                                             if !showingTaskDetail {
-                                                TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
-                                                    .environmentObject(tasksViewModel)
-                                                .edgesIgnoringSafeArea(.all)
+                                                // filter feed view
+                                                if selectedFeed == .home {
+                                                    ForYou()
+                                                } else if selectedFeed == .tasks {
+                                                    TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
+                                                        .environmentObject(tasksViewModel)
+                                                    .edgesIgnoringSafeArea(.all)
+                                                } else if selectedFeed == .events {
+                                                    TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
+                                                        .environmentObject(tasksViewModel)
+                                                    .edgesIgnoringSafeArea(.all)
+                                                }
+                                                
                                             } else {
                                                 DetailTask()
                                             }
@@ -185,7 +213,7 @@ struct HomeView: View {
                     // Our Tab View
                     if showingTabView {
                         Divider()
-                        HomeTabView(isShowingTaskSheet: $isShowingTaskSheet, selectedIndex: $selectedIndex, icons: icons)
+                        HomeTabView(isShowingTaskSheet: $isShowingTaskSheet, selectedIndex: $selectedIndex, icons: icons, selectedFeed: $selectedFeed)
                     } else {
                         Rectangle()
                             .foregroundColor(.white)

@@ -22,7 +22,7 @@ struct AppHeader: View {
         
             ZStack {
                 HStack {
-                    Image("AppLogo")
+                    Image("WeakerBlueGreenLogo")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 38, height: 38)
@@ -32,8 +32,11 @@ struct AppHeader: View {
                     VStack {
                         Text("Happening Now")
                             .fontWeight(.bold)
+                            .font(.body)
+                            .foregroundColor(.green)
                         Text("Meeting with co-founders")
                             .foregroundColor(.gray)
+                            .font(.caption)
                     }
                     
                     Spacer()

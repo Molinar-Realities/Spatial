@@ -18,6 +18,7 @@ struct MiniCalendar: View {
             // calendar header
             HStack {
                 Text("Calendar")
+                    .foregroundColor(Color("TrustBlue"))
                     .font(.subheadline)
                 
                 Spacer()

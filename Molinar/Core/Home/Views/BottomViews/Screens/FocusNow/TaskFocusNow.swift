@@ -95,8 +95,6 @@ struct TaskFocusNow: View {
 
                         }.padding(.horizontal)
                         
-                    } else if selectedFilter == .foryou {
-                        ForYou()
                     }
                         
 

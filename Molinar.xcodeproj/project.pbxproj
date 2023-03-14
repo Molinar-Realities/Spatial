@@ -70,6 +70,7 @@
 		DEA8B4F629B900F000CACBDD /* FriendsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8B4F529B900F000CACBDD /* FriendsHeader.swift */; };
 		DEA8B4F829B9011600CACBDD /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8B4F729B9011600CACBDD /* HomeTabView.swift */; };
 		DEA8E65D29BF10CE00BF7531 /* ForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8E65C29BF10CE00BF7531 /* ForYou.swift */; };
+		DECC1C4729C07600003469DA /* FeedFilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECC1C4629C07600003469DA /* FeedFilterOptions.swift */; };
 		DEF242D229BAA85900467B6F /* DetailTaskHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF242D129BAA85900467B6F /* DetailTaskHeader.swift */; };
 		DEF242D529BAA89500467B6F /* DetailTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF242D429BAA89500467B6F /* DetailTask.swift */; };
 		DEFA4B8029B000DB00F2FCD8 /* WorkoutNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */; };
@@ -163,6 +164,7 @@
 		DEA8B4F529B900F000CACBDD /* FriendsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsHeader.swift; sourceTree = "<group>"; };
 		DEA8B4F729B9011600CACBDD /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		DEA8E65C29BF10CE00BF7531 /* ForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYou.swift; sourceTree = "<group>"; };
+		DECC1C4629C07600003469DA /* FeedFilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFilterOptions.swift; sourceTree = "<group>"; };
 		DEF242D129BAA85900467B6F /* DetailTaskHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskHeader.swift; sourceTree = "<group>"; };
 		DEF242D429BAA89500467B6F /* DetailTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTask.swift; sourceTree = "<group>"; };
 		DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNow.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			children = (
 				DE2F53E429A9CC7A00805518 /* HomeView.swift */,
 				DEA8B4F729B9011600CACBDD /* HomeTabView.swift */,
+				DECC1C4629C07600003469DA /* FeedFilterOptions.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				DEA8B4F829B9011600CACBDD /* HomeTabView.swift in Sources */,
 				DE2F542629AADD2700805518 /* MapboxView.swift in Sources */,
 				DEA8B4BB29B6C90700CACBDD /* TaskCell.swift in Sources */,
+				DECC1C4729C07600003469DA /* FeedFilterOptions.swift in Sources */,
 				DE2F547029AAE67A00805518 /* Task.swift in Sources */,
 				DEFA4B8329B0059100F2FCD8 /* AppHeader.swift in Sources */,
 				DEFA4BA929B0B60200F2FCD8 /* Item.swift in Sources */,
