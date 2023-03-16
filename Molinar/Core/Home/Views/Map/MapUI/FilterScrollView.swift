@@ -12,6 +12,7 @@ enum FeedFilterOptions: Int, CaseIterable {
     case calendar
     case tasks
     case events
+    case posts
 }
 
 
@@ -29,9 +30,9 @@ struct FilterScrollView: View {
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Events")
+                    MapFilterButton(filterLabel: "Posts")
                         .onTapGesture {
-                            selectedFeed = .events
+                            selectedFeed = .posts
                         }
 
 //                    MapFilterButton(filterLabel: "Fitness")

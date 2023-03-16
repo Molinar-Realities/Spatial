@@ -12,6 +12,7 @@ struct LocationSearchView: View {
     @EnvironmentObject var viewModel: LocationSearchViewModel
     @FocusState private var locationFieldInFocus: Bool
     @Binding var showLocationSearch: Bool
+    @Binding var presentationDetents: [PresentationDetent]
 
     
     var body: some View {
@@ -19,6 +20,7 @@ struct LocationSearchView: View {
             Button(action: {
                 withAnimation(.spring()) {
                     showLocationSearch.toggle()
+                    presentationDetents = [.height(170)]
                 }
             }) {
                 Text("Cancel")
@@ -59,6 +61,6 @@ struct LocationSearchView: View {
 
 struct LocationSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearchView(showLocationSearch: .constant(true))
+        LocationSearchView(showLocationSearch: .constant(true), presentationDetents: .constant([.large]))
     }
 }

@@ -37,6 +37,9 @@ struct HomeTabView: View {
             Spacer()
 
             Button(action: {
+                let generator = UIImpactFeedbackGenerator(style: .light)
+                generator.prepare()
+                generator.impactOccurred()
                 isShowingTaskSheet.toggle()
 
             }) {
@@ -54,9 +57,7 @@ struct HomeTabView: View {
 
             Button(action: {
                 selectedIndex = 2
-                let generator = UIImpactFeedbackGenerator(style: .light)
-                generator.prepare()
-                generator.impactOccurred()
+                
             }) {
                 VStack {
                     Image(systemName: selectedIndex == 2 ? "\(icons[2]).fill" : icons[2])

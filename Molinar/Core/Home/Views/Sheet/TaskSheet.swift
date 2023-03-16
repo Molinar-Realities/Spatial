@@ -24,6 +24,7 @@ struct TaskSheet: View {
     @Binding var showingSheet: Bool
     @State private var selectedDate = Date()
     @State var showDueDate = false
+    @State var moveIsPublic = true
     
     @State private var deadline = Date()
     
@@ -199,14 +200,12 @@ struct TaskSheet: View {
 
     
     var body: some View {
-        VStack(spacing: 10) {
-            
+        VStack(alignment: .leading, spacing: 15) {
             if !showLocationSearch {
-                TextField("Try typing 'Workout at 3pm'", text: $taskTitle)
+                TextField("Schedule a task, event, or make a post", text: $taskTitle)
                     .focused($taskNameInFocus)
                     .textFieldStyle(.plain)
                     .padding(.horizontal)
-                    .padding(.top)
                     .cornerRadius(10)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -223,10 +222,16 @@ struct TaskSheet: View {
                     }
                    
                 
-                TextField("Where at?", text: $viewModel.queryFragment)
-                    .textFieldStyle(.plain)
-                    .padding(.horizontal)
-                    .cornerRadius(10)
+                HStack {
+                    Image(systemName: "mappin")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 6, height: 6)
+                        .foregroundColor(Color("TrustBlue"))
+                    Text(viewModel.selectedLocationTitle ?? "Current Location")
+                        .foregroundColor(Color(.systemGray3))
+                }
+                .padding(.horizontal)
                     .onTapGesture {
                         print("location clicked")
                         withAnimation(.spring()) {
@@ -238,8 +243,11 @@ struct TaskSheet: View {
                     }
                 
                 Divider()
-                HStack {
+                HStack(spacing: 15) {
                     Button(action: {
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.prepare()
+                        generator.impactOccurred()
                         showDueDate.toggle()
                     }) {
                         HStack {
@@ -251,6 +259,37 @@ struct TaskSheet: View {
                             Text(getDeadlineText())
                                 .foregroundColor(getDeadlineColor())
                         }
+                    }
+                    Button(action: {
+                        moveIsPublic.toggle()
+                        // TODO: make it easier to submit a post into the world. Users dont want to fucking hit another button before hitting send.
+                        // TODO: could be a slider that you slide to the right to post, and left to make a task.
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.prepare()
+                        generator.impactOccurred()
+                    }) {
+                        if moveIsPublic {
+                            HStack {
+                                Image(systemName: "globe.americas.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(Color("TrustBlue"))
+                                Text("Public")
+                                    .foregroundColor(.gray)
+                            }
+                        } else {
+                            HStack {
+                                Image(systemName: "lock.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(.blue)
+                                Text("Private")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        
                     }
                     
                     Spacer()
@@ -279,7 +318,7 @@ struct TaskSheet: View {
 
             }
             if showLocationSearch {
-                LocationSearchView(showLocationSearch: $showLocationSearch)
+                LocationSearchView(showLocationSearch: $showLocationSearch, presentationDetents: $presentationDetents)
                 
             }
                 
@@ -292,6 +331,7 @@ struct TaskSheet: View {
 //                .cornerRadius(10)
             
         }
+        .padding(.vertical)
 //        .frame(height: !showLocationSearch ? 140 : UIScreen.main.bounds.height)
         .popover(isPresented: $showDueDate) {
             ScheduleSheet(deadline: $deadline, showingSheet: $showDueDate)

@@ -25,7 +25,7 @@ struct HomeView: View {
     @State private var sheetText = ""
     @State var taskTitle = ""
     @State private var currentPresentationDetent: PresentationDetent = .height(140)
-    @State var presentationDetents: [PresentationDetent] = [.height(140)]
+    @State var presentationDetents: [PresentationDetent] = [.height(170)]
     @State var shouldShowDragIndicator = true
     @State var showingTaskDetail = false
     @State var selectedFilter: TaskFilterOptions = .today
@@ -89,8 +89,13 @@ struct HomeView: View {
                                                 .onTapGesture {
                                                     self.bottomSheetPosition = .relativeTop(0.97)
                                                 }
-                                            } else {
+                                            } else if selectedFeed == .tasks {
                                                 TaskFilterButtons(selectedOption: $selectedFilter)
+                                            } else if selectedFeed == .posts {
+                                                Text("World News")
+                                                    .font(.headline)
+                                                    .fontWeight(.bold)
+                                                    .padding(.horizontal)
                                             }
                                         
                                               
@@ -224,7 +229,7 @@ struct HomeView: View {
                 // Add Task Sheet
                 .sheet(isPresented: $isShowingTaskSheet, onDismiss: {
                             // Do something when the sheet is dismissed
-                    presentationDetents = [.height(140)]
+                    presentationDetents = [.height(170)]
                         }) {
                             
                             TaskSheet(showingSheet: $isShowingTaskSheet, presentationDetents: $presentationDetents)
