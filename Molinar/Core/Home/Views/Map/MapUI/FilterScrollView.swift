@@ -35,7 +35,7 @@ struct FilterScrollView: View {
                             selectedFeed = .posts
                         }
 
-//                    MapFilterButton(filterLabel: "Fitness")
+                    MapFilterButton(filterLabel: "Help")
 //                    MapFilterButton(filterLabel: "Energy")
                     Spacer()
                 }
