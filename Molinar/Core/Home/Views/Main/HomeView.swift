@@ -43,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["house", "plus.app.fill", "person.2"]
+    let icons = ["globe.americas", "bag", "plus.app.fill", "person.2", "line.3.horizontal"]
 
     var body: some View {
         Group {
