@@ -17,37 +17,35 @@ struct HomeTabView: View {
     var body: some View {
         HStack {
             
-            ForEach(0..<5, id: \.self) { index in
+            ForEach(0..<3, id: \.self) { index in
                 Button(action: {
                     switch index {
                     case 0:
                         selectedFeed = .home
+                        selectedIndex = index
                     case 1:
-                        selectedFeed = .home
-                    case 2:
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
                         isShowingTaskSheet.toggle()
-                    case 3:
+                    case 2:
                         selectedFeed = .home
-                    case 4:
-                        selectedFeed = .home
+                        selectedIndex = index
                     default:
-                        break
+                        selectedIndex = index
+                    
                     }
-                    selectedIndex = index
                 }) {
-                    if index == 2 {
+                    if index == 1 {
                         Spacer()
-                        Image(systemName: icons[2])
+                        Image(systemName: icons[1])
                                                            .font(.system(size: 25))
                                                            .foregroundColor(Color(UIColor.white))
                                                            .overlay(LinearGradient(gradient: Gradient(stops: [
                                                                Gradient.Stop(color: gradientColors[0], location: 0),
                                                                Gradient.Stop(color: gradientColors[1], location: 1)
                                                            ]), startPoint: .leading, endPoint: .trailing))
-                                                           .mask(Image(systemName: icons[2]).font(.system(size: 25)))
+                                                           .mask(Image(systemName: icons[1]).font(.system(size: 25)))
                         Spacer()
                     } else {
                         Spacer()
@@ -66,22 +64,7 @@ struct HomeTabView: View {
         .background(Color.black)
     }
     
-    private func getTitle(for index: Int) -> String {
-        switch index {
-        case 0:
-            return "Explore"
-        case 1:
-            return "Store"
-        case 2:
-            return "Task"
-        case 3:
-            return "Friends"
-        case 4:
-            return "Menu"
-        default:
-            return ""
-        }
-    }
+    
 }
 
 

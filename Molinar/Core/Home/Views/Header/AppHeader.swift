@@ -30,28 +30,16 @@ struct AppHeader: View {
                         }
                     Spacer()
                     VStack {
-                        Text("Happening Now")
+                        Text("Eevee: 1st")
                             .fontWeight(.bold)
-                            .font(.body)
+                            .font(.callout)
                             .foregroundColor(.green)
-                        Text("Meeting with co-founders")
-                            .foregroundColor(.gray)
+                        Text("Bulbasaur: 5th")
+                            .foregroundColor(.red)
                             .font(.caption)
                     }
                     Spacer()
-                    Image(systemName: "bubble.left.and.bubble.right.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .foregroundColor(.gray)
-                        .frame(width: 18, height: 18)
                     
-                    Spacer()
-                    Image(systemName: "bell.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .foregroundColor(.gray)
-                        .frame(width: 18, height: 18)
-                    Spacer()
                     Divider()
                     .padding(.vertical, 8)
                     Button(action: {
@@ -62,6 +50,10 @@ struct AppHeader: View {
                             .scaledToFill()
                             .frame(width: 38, height: 38)
                         .clipShape(Circle())
+                        .overlay {
+                            Text("126")
+                                .foregroundColor(.white)
+                        }
                     }
                         
                     

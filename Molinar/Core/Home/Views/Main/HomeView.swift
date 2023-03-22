@@ -43,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["globe.americas", "bag", "plus.app.fill", "person.2", "line.3.horizontal"]
+    let icons = ["house", "plus.app.fill", "bubble.left"]
 
     var body: some View {
         Group {
@@ -60,7 +60,6 @@ struct HomeView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
