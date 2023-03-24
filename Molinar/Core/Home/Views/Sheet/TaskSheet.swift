@@ -24,7 +24,7 @@ struct TaskSheet: View {
     @Binding var showingSheet: Bool
     @State private var selectedDate = Date()
     @State var showDueDate = false
-    @State var moveIsPublic = true
+    @State var moveIsPublic = false
     
     @State private var deadline = Date()
     
@@ -202,7 +202,7 @@ struct TaskSheet: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             if !showLocationSearch {
-                TextField("Schedule a task, event, or make a post", text: $taskTitle)
+                TextField("What's the move?", text: $taskTitle)
                     .focused($taskNameInFocus)
                     .textFieldStyle(.plain)
                     .padding(.horizontal)
@@ -275,7 +275,7 @@ struct TaskSheet: View {
                                     .scaledToFill()
                                     .frame(width: 12, height: 12)
                                     .foregroundColor(Color("TrustBlue"))
-                                Text("Public")
+                                Text("Everyone")
                                     .foregroundColor(.gray)
                             }
                         } else {
@@ -285,13 +285,14 @@ struct TaskSheet: View {
                                     .scaledToFill()
                                     .frame(width: 12, height: 12)
                                     .foregroundColor(.blue)
-                                Text("Private")
+                                Text("Fam")
                                     .foregroundColor(.gray)
                             }
                         }
                         
                     }
                     
+                    // MARK: - Add Task
                     Spacer()
                     Button(action: {
                         // Generate haptic feedback
@@ -299,7 +300,7 @@ struct TaskSheet: View {
                         generator.prepare()
                         generator.impactOccurred()
                         scheduleReminder(for: Task(dictionary: ["dueDate": deadline, "title": taskTitle, "id": UUID().uuidString]))
-                        taskUpload.uploadTask(title: removeTimePhrase(from: taskTitle), coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location", dueDate: deadline, locationCreatedAt:  locationManager.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 0, longitude: 0))
+                        taskUpload.uploadTask(title: removeTimePhrase(from: taskTitle), coordinate: viewModel.selectedLocationCoordinate ?? locationManager.currentLocation!.coordinate, locationTitle: (viewModel.selectedLocationTitle ?? locationManager.currentLocationTitle) ?? "Error", dueDate: deadline, locationCreatedAt:  locationManager.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 0, longitude: 0))
                         viewModel.queryFragment = ""
                         showingSheet.toggle()
                     }) {

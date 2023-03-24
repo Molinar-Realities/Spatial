@@ -20,24 +20,17 @@ struct FilterScrollView: View {
     @Binding var selectedFeed:FeedFilterOptions
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            VStack {
+            VStack(alignment: .trailing) {
                 HStack(alignment: .top, spacing: 15) {
-                    MiniCalendar()
-                        .onTapGesture {
-                            selectedFeed = .calendar
-                        }
-                    MapFilterButton(filterLabel: "Tasks")
+                    MapFilterButton(filterLabel: "Suggest Change")
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Posts")
+                    MapFilterButton(filterLabel: "Report Bug")
                         .onTapGesture {
-                            selectedFeed = .posts
+                            selectedFeed = .tasks
                         }
-
-                    MapFilterButton(filterLabel: "Help")
-//                    MapFilterButton(filterLabel: "Energy")
-                    Spacer()
+                   
                 }
                 .padding()
                 Spacer()

@@ -19,7 +19,7 @@ struct HomeView: View {
     @State var selectedIndex = 0
     @State var presentSheet = false
     @State private var scrollPosition: CGFloat = 0
-    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.4)
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.47)
     @State var searchText: String = ""
     @State private var isShowingTaskSheet = false
     @State private var sheetText = ""
@@ -43,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["house", "plus.app.fill", "bubble.left"]
+    let icons = ["party.popper", "plus.circle.fill", "bubble.left.and.bubble.right"]
 
     var body: some View {
         Group {
@@ -60,41 +60,21 @@ struct HomeView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
+                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             }
-                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
+                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.47), .relativeTop(1.00)], headerContent: {
                                 switch selectedIndex {
                                 case 0:
                                     if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
-                                        VStack {
                                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-                                            TaskFilterButtons(selectedOption: $selectedFilter)
-                                        }
+                                    
 //                                        }
                                     } else {
                                         if !showingTaskDetail {
-                                            if selectedFeed == .home {
-                                                HStack {
-                                                    Image(systemName: "magnifyingglass")
-                                                    TextField("Search", text: self.$searchText)
-                                                }
-                                                .foregroundColor(Color(UIColor.secondaryLabel))
-                                                .padding(.vertical, 8)
-                                                .padding(.horizontal, 5)
-                                                .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.quaternaryLabel)))
-                                                .padding([.horizontal, .bottom])
-                                                //When you tap the SearchBar, the BottomSheet moves to the .top position to make room for the keyboard.
-                                                .onTapGesture {
-                                                    self.bottomSheetPosition = .relativeTop(0.97)
-                                                }
-                                            } else if selectedFeed == .tasks {
-                                                TaskFilterButtons(selectedOption: $selectedFilter)
-                                            } else if selectedFeed == .posts {
-                                                Text("World News")
-                                                    .font(.headline)
-                                                    .fontWeight(.bold)
-                                                    .padding(.horizontal)
+                                            VStack {
+                                                
                                             }
                                         
                                               

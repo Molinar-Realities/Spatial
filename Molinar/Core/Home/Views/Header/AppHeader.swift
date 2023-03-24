@@ -30,7 +30,7 @@ struct AppHeader: View {
                         }
                     Spacer()
                     VStack {
-                        Text("Eevee: 1st")
+                        Text("Squirtle: 1st")
                             .fontWeight(.bold)
                             .font(.callout)
                             .foregroundColor(.green)
@@ -51,8 +51,9 @@ struct AppHeader: View {
                             .frame(width: 38, height: 38)
                         .clipShape(Circle())
                         .overlay {
-                            Text("126")
+                            Text("151")
                                 .foregroundColor(.white)
+                                
                         }
                     }
                         

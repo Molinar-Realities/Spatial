@@ -22,7 +22,7 @@ struct ForYou: View {
                 // Tasks from Calendar
                 VStack(alignment: .leading, spacing: 5) {
                     // Header for Tasks from Calendar
-                    Text("What's the move?")
+                    Text("Happening Today")
                         .font(.headline)
                         .padding(.horizontal)
                         .padding(.top)
@@ -38,7 +38,7 @@ struct ForYou: View {
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("From Schedule")
+                                    Text("From Chat")
                                         .foregroundColor(.gray)
                                         .font(.footnote)
                                     // TO DO: Make the cards from Apple Music.
@@ -61,15 +61,53 @@ struct ForYou: View {
                     .edgesIgnoringSafeArea(.horizontal)
                 }
                 
-                WorkoutNow()
-                    .padding(.horizontal)
+                VStack(alignment: .leading, spacing: 5) {
+                    // Header for Tasks from Calendar
+                    Text("Study")
+                        .font(.headline)
+                        .padding(.horizontal)
+                        .padding(.top)
+
+                    
+                    // ScrollView for cards
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            // HACK
+                            Rectangle()
+                                .frame(width: 10, height: 187)
+                                .foregroundColor(.clear)
+                            // HACK
+                            ForEach(0 ..< 5) { item in
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text("From Chat")
+                                        .foregroundColor(.gray)
+                                        .font(.footnote)
+                                    // TO DO: Make the cards from Apple Music.
+                                    Rectangle()
+                                        .frame(width: 155, height: 155)
+                                        .cornerRadius(10)
+                                        .shadow(color: Color.gray.opacity(0.5), radius: 3, x: 0, y: 2)
+                                        .padding(.bottom, 5)
+
+
+                                }
+                            }
+                            // HACK
+                            Rectangle()
+                                .frame(width: 10, height: 187)
+                                .foregroundColor(.clear)
+                            // HACK
+                        }
+                    }
+                    .edgesIgnoringSafeArea(.horizontal)
+                }
                 
                 // Your tasks, top projects
                 
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 5) {
                     //Header
-                        Text("Your Projects")
+                        Text("Party")
                             .font(.headline)
                             .padding(.leading)
                         .fontWeight(.bold)
