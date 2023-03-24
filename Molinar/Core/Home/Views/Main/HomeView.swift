@@ -43,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["party.popper", "plus.circle.fill", "bubble.left.and.bubble.right"]
+    let icons = ["checkmark.circle", "plus.circle.fill", "calendar.circle"]
 
     var body: some View {
         Group {
@@ -60,7 +60,7 @@ struct HomeView: View {
                             .overlay(alignment: .top) {
                                 VStack(spacing: 0) {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData))
-                                    FilterScrollView(selectedFeed: $selectedFeed)
+//                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.47), .relativeTop(1.00)], headerContent: {
@@ -73,9 +73,7 @@ struct HomeView: View {
 //                                        }
                                     } else {
                                         if !showingTaskDetail {
-                                            VStack {
-                                                
-                                            }
+                                            EmptyView()
                                         
                                               
                             
@@ -144,17 +142,9 @@ struct HomeView: View {
                                         } else {
                                             if !showingTaskDetail {
                                                 // filter feed view
-                                                if selectedFeed == .home {
-                                                    ForYou()
-                                                } else if selectedFeed == .tasks {
-                                                    TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
-                                                        .environmentObject(tasksViewModel)
-                                                    .edgesIgnoringSafeArea(.all)
-                                                } else if selectedFeed == .events {
-                                                    TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
-                                                        .environmentObject(tasksViewModel)
-                                                    .edgesIgnoringSafeArea(.all)
-                                                }
+                                                TaskFocusNow(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
+                                                    .environmentObject(tasksViewModel)
+                                                .edgesIgnoringSafeArea(.all)
                                                 
                                             } else {
                                                 DetailTask()
@@ -171,12 +161,12 @@ struct HomeView: View {
                                     }
                                     
                                 
-                                case 3:
+                                case 2:
                                     VStack {
-                                        Text("Friends")
+                                        Text("Calendar")
                                     }
                                     
-                                case 4:
+                                case 3:
                                     FriendsBottomTab(searchText: $searchText, bottomSheetPosition: $bottomSheetPosition)
                                         .edgesIgnoringSafeArea(.all)
 

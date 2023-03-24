@@ -44,12 +44,12 @@ struct TaskFocusNow: View {
                 // Your tasks, top projects
                 
                 VStack(alignment: .leading, spacing: 10) {
-//                    ScrollView(.horizontal, showsIndicators: false) {
-//                        HStack {
-//                            TaskFilterButtons(selectedOption: $selectedFilter)
-//                        }
-//                    }
-//                    .padding(.top)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            TaskFilterButtons(selectedOption: $selectedFilter)
+                        }
+                    }
+                    .padding(.top)
                     
                     if selectedFilter == .today {
                         VStack(alignment: .leading) {
@@ -71,6 +71,7 @@ struct TaskFocusNow: View {
                                 .padding(.leading)
                                 .fontWeight(.bold)
                             InboxView()
+                            Spacer()
                         }.padding(.horizontal)
                         
                     } else if selectedFilter == .projects {
@@ -92,9 +93,20 @@ struct TaskFocusNow: View {
                                 }
                             }.padding(.vertical)
                             ProjectsList()
+                            Spacer()
 
                         }.padding(.horizontal)
                         
+                    } else if selectedFilter == .inbox {
+                        VStack(alignment: .leading) {
+                            Text("Upcoming Moves")
+                                .foregroundColor(.black)
+                                .font(.headline)
+                                .padding(.leading)
+                                .fontWeight(.bold)
+                            InboxView()
+                            Spacer()
+                        }.padding(.horizontal)
                     }
                         
 

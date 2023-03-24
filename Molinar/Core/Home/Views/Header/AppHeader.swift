@@ -28,16 +28,7 @@ struct AppHeader: View {
                         .frame(width: 38, height: 38)
                         .onTapGesture {
                         }
-                    Spacer()
-                    VStack {
-                        Text("Squirtle: 1st")
-                            .fontWeight(.bold)
-                            .font(.callout)
-                            .foregroundColor(.green)
-                        Text("Bulbasaur: 5th")
-                            .foregroundColor(.red)
-                            .font(.caption)
-                    }
+                    
                     Spacer()
                     
                     Divider()
@@ -50,11 +41,7 @@ struct AppHeader: View {
                             .scaledToFill()
                             .frame(width: 38, height: 38)
                         .clipShape(Circle())
-                        .overlay {
-                            Text("151")
-                                .foregroundColor(.white)
-                                
-                        }
+                      
                     }
                         
                     
