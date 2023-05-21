@@ -66,7 +66,6 @@ struct ProfileView: View {
             }
             
         }
-        .background(BlurView())
     }
 }
 

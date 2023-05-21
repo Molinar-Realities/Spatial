@@ -21,25 +21,42 @@ struct AppHeader: View {
     var body: some View {
         
             ZStack {
-                HStack {
-                    Image("WeakerBlueGreenLogo")
+             
+                    
+                HStack(alignment: .center) {
+                    Image("TransparentBat")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 38, height: 38)
+                        .frame(width: 18, height: 18)
                         .onTapGesture {
                         }
+                        .padding(.horizontal, 8)
+                    Divider()
+                        .padding(.vertical, 10)
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.black)
+                        .accentColor(.white)
+                        .font(.system(size: 18))
+
+                        .padding(.leading, 8)
                     Spacer()
-                    VStack {
-                        Text("Happening Now")
-                            .fontWeight(.bold)
-                            .font(.body)
-                            .foregroundColor(.green)
-                        Text("Meeting with co-founders")
-                            .foregroundColor(.gray)
-                            .font(.caption)
-                    }
+                    
                     
                     Spacer()
+                    Image(systemName: "person.2.fill")
+                        .foregroundColor(.black)
+                        .accentColor(.white)
+                        .font(.system(size: 18))
+
+                    Image(systemName: "bubble.right.fill")
+                        .foregroundColor(.black)
+                        .accentColor(.white)
+                        .font(.system(size: 18))
+
+                        .padding(.trailing, 8)
+                        
+                        
+                    
                     Divider()
                     .padding(.vertical, 8)
                     Button(action: {
@@ -82,4 +99,6 @@ struct BlurView: UIViewRepresentable {
         uiView.alpha = 0.5 // Update alpha value in case it changes
     }
 }
+
+
 

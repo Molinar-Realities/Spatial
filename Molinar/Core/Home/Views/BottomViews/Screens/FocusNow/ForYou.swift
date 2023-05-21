@@ -22,7 +22,7 @@ struct ForYou: View {
                 // Tasks from Calendar
                 VStack(alignment: .leading, spacing: 5) {
                     // Header for Tasks from Calendar
-                    Text("What's the move?")
+                    Text("Popular Moves")
                         .font(.headline)
                         .padding(.horizontal)
                         .padding(.top)
@@ -38,7 +38,7 @@ struct ForYou: View {
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("From Schedule")
+                                    Text("mattmolinar")
                                         .foregroundColor(.gray)
                                         .font(.footnote)
                                     // TO DO: Make the cards from Apple Music.

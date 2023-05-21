@@ -21,15 +21,32 @@ struct FilterScrollView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             VStack {
                 HStack(alignment: .top, spacing: 15) {
-                    MiniCalendar()
-                        .onTapGesture {
-                            selectedFeed = .calendar
-                        }
-                    MapFilterButton(filterLabel: "Tasks")
+//                    MiniCalendar()
+//                        .onTapGesture {
+//                            selectedFeed = .calendar
+//                        }
+                    MapFilterButton(filterLabel: "Now")
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Events")
+                    MapFilterButton(filterLabel: "Upcoming")
+                        .onTapGesture {
+                            selectedFeed = .events
+                        }
+                    MapFilterButton(filterLabel: "Hangs")
+                        .onTapGesture {
+                            selectedFeed = .events
+                        }
+                    MapFilterButton(filterLabel: "Workout")
+                        .onTapGesture {
+                            selectedFeed = .events
+                        }
+                    MapFilterButton(filterLabel: "Focus")
+                        .onTapGesture {
+                            selectedFeed = .events
+                        }
+
+                    MapFilterButton(filterLabel: "Eat")
                         .onTapGesture {
                             selectedFeed = .events
                         }

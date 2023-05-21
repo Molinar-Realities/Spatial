@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE2D85C22A1A681F0010BB98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */; };
 		DE2F53E329A9CC7A00805518 /* MovesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E229A9CC7A00805518 /* MovesApp.swift */; };
 		DE2F53E529A9CC7A00805518 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* HomeView.swift */; };
 		DE2F53E729A9CC7D00805518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F53E629A9CC7D00805518 /* Assets.xcassets */; };
@@ -31,7 +32,6 @@
 		DE2F541B29AACF8800805518 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541A29AACF8800805518 /* RegisterView.swift */; };
 		DE2F541E29AAD31D00805518 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541D29AAD31D00805518 /* CustomTextField.swift */; };
 		DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F541F29AAD3D200805518 /* CustomSecureField.swift */; };
-		DE2F542329AADB3B00805518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2F542229AADB3B00805518 /* GoogleService-Info.plist */; };
 		DE2F542629AADD2700805518 /* MapboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F542529AADD2700805518 /* MapboxView.swift */; };
 		DE2F542829AADDC300805518 /* MapboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F542729AADDC300805518 /* MapboxViewModel.swift */; };
 		DE2F542D29AADFBF00805518 /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F542C29AADFBF00805518 /* BottomSheetViewModel.swift */; };
@@ -109,6 +109,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F53DF29A9CC7A00805518 /* Molinar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molinar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F53E229A9CC7A00805518 /* MovesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesApp.swift; sourceTree = "<group>"; };
 		DE2F53E429A9CC7A00805518 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -125,7 +126,6 @@
 		DE2F541A29AACF8800805518 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DE2F541D29AAD31D00805518 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DE2F541F29AAD3D200805518 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
-		DE2F542229AADB3B00805518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F542529AADD2700805518 /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
 		DE2F542729AADDC300805518 /* MapboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxViewModel.swift; sourceTree = "<group>"; };
 		DE2F542C29AADFBF00805518 /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
@@ -232,11 +232,11 @@
 				DE744C3529B41F1A003B020D /* BlenderModels */,
 				DEA718F529B14212000DD92C /* Managers */,
 				DEA718F429B141F4000DD92C /* App */,
-				DE2F542229AADB3B00805518 /* GoogleService-Info.plist */,
 				DEA718F329B141DB000DD92C /* Core */,
 				DE2F547129AAE8B800805518 /* Extensions */,
 				DE2F540629AACA8300805518 /* Models */,
 				DE2F53E629A9CC7D00805518 /* Assets.xcassets */,
+				DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */,
 				DE2F53E829A9CC7D00805518 /* Preview Content */,
 			);
 			path = Molinar;
@@ -651,8 +651,8 @@
 			files = (
 				DE744C3829B42336003B020D /* locationPuck.glb in Resources */,
 				DE2F53EA29A9CC7D00805518 /* Preview Assets.xcassets in Resources */,
-				DE2F542329AADB3B00805518 /* GoogleService-Info.plist in Resources */,
 				DE2F53E729A9CC7D00805518 /* Assets.xcassets in Resources */,
+				DE2D85C22A1A681F0010BB98 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

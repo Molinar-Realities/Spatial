@@ -9,8 +9,9 @@ struct RegistrationView: View {
     @State var username: String = ""
     @State var name: String = ""
     @State var age = ""
+    @State var image: UIImage? = UIImage(named: "batman")
+
     @State var imagePickerShowing = false
-    @State var image = UIImage()
     var gradeOptions = ["Freshman", "Sophmore", "Junior", "Senior", "Super Senior", "Graduate"]
     @State var gradeIndex = 0
     @State var grade: String = ""
@@ -54,7 +55,7 @@ struct RegistrationView: View {
                 }
             }
             .sheet(isPresented: $imagePickerShowing) {
-                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                ImagePicker(sourceType: .photoLibrary, selectedImage: .constant(image!))
             }
             Section {
                 TextField("Email", text: $email)
@@ -75,7 +76,7 @@ struct RegistrationView: View {
                 TextField("Grade", text: $grade)
 
                 Button("Sign Up") {
-                    viewModel.registerUser(email: email, password: password, username: username, name: name, profileImage: image, age: age, grade: grade)
+                    viewModel.registerUser(email: email, password: password, username: username, name: name, profileImage: image!, age: age, grade: grade)
                 }
                 
                 

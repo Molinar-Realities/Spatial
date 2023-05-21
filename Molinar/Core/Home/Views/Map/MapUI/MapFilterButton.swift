@@ -12,10 +12,12 @@ struct MapFilterButton: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
+                
                 Text(filterLabel)
-                    .foregroundColor(Color("TrustBlue"))
                     .font(.subheadline)
+                    
             }
+            .foregroundColor(Color.black)
             .padding(.top, 8)
             .padding(.horizontal, 16)
             
