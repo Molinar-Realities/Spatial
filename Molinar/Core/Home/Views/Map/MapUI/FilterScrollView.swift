@@ -25,30 +25,31 @@ struct FilterScrollView: View {
 //                        .onTapGesture {
 //                            selectedFeed = .calendar
 //                        }
-                    MapFilterButton(filterLabel: "Now")
+                    
+                    MapFilterButton(filterLabel: "Nature")
                         .onTapGesture {
-                            selectedFeed = .tasks
-                        }
-                    MapFilterButton(filterLabel: "Upcoming")
-                        .onTapGesture {
-                            selectedFeed = .events
+                            selectedFeed = .home
                         }
                     MapFilterButton(filterLabel: "Hangs")
                         .onTapGesture {
-                            selectedFeed = .events
+                            selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Workout")
+                    MapFilterButton(filterLabel: "Parties")
                         .onTapGesture {
-                            selectedFeed = .events
+                            selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Focus")
+                    MapFilterButton(filterLabel: "Workouts")
                         .onTapGesture {
-                            selectedFeed = .events
+                            selectedFeed = .tasks
                         }
 
-                    MapFilterButton(filterLabel: "Eat")
+                    MapFilterButton(filterLabel: "Food")
                         .onTapGesture {
-                            selectedFeed = .events
+                            selectedFeed = .tasks
+                        }
+                    MapFilterButton(filterLabel: "Co-working")
+                        .onTapGesture {
+                            selectedFeed = .tasks
                         }
 
 //                    MapFilterButton(filterLabel: "Fitness")

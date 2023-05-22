@@ -33,34 +33,6 @@ struct TaskCell: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    let impact = UIImpactFeedbackGenerator(style: .medium)
-                    impact.impactOccurred()
-                    withAnimation {
-                        copyCompleted.toggle()
-                        self.isAnimatingCheckmark = true
-                    }
-                        Firestore.firestore().collection("tasks").document(id).updateData([
-                            "completed": copyCompleted
-                        ]) { error in
-                            if let error = error {
-                                print("Error updating task: \(error.localizedDescription)")
-                            }
-                        }
-                    
-                            }) {
-                                Image(systemName: copyCompleted ? "checkmark.circle.fill" : "circle")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                                    .foregroundColor(copyCompleted ? .green : .black)
-                                    .rotationEffect(Angle(degrees: self.isAnimatingCheckmark ? 360 : 0))
-                                    .animation(.easeInOut(duration: 0.3))
-                                    .onAppear {
-                                        self.isAnimatingCheckmark = false
-                                    }
-                            }
-//                            .opacity(completed ? 0.5 : 1)
-                            .animation(.easeInOut(duration: 0.3))
                 VStack(alignment: .leading) {
                     Text(title)
                         .foregroundColor(.black)

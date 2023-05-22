@@ -26,13 +26,18 @@ struct HomeTabView: View {
                 VStack {
                     Image(systemName: selectedIndex == 0 ? "\(icons[0]).fill" : icons[0])
                         .font(.system(size: 25))
-                        .foregroundColor(selectedIndex == 0 ? .white : Color(UIColor.gray))
+                        .foregroundColor(Color.clear)
+
+//                        .foregroundColor(selectedIndex == 0 ? .white : Color(UIColor.gray))
                     Text("Home")
                         .font(.caption2)
-                        .foregroundColor(selectedIndex == 0 ? .white : Color(UIColor.gray))
+                        .foregroundColor(Color.clear)
+
+//                        .foregroundColor(selectedIndex == 0 ? .white : Color(UIColor.gray))
                 }
                 
             }
+            
 
             Spacer()
 
@@ -47,7 +52,7 @@ struct HomeTabView: View {
                                         Gradient.Stop(color: gradientColors[0], location: 0),
                                         Gradient.Stop(color: gradientColors[1], location: 1)
                                     ]), startPoint: .leading, endPoint: .trailing))
-                                    .mask(Image(systemName: icons[1]).font(.system(size: 25)))
+                                    .mask(Image(systemName: icons[1]).font(.system(size: 38)))
             }
 
             Spacer()
@@ -61,10 +66,13 @@ struct HomeTabView: View {
                 VStack {
                     Image(systemName: selectedIndex == 2 ? "\(icons[2]).fill" : icons[2])
                         .font(.system(size: 25))
-                        .foregroundColor(selectedIndex == 2 ? .white : Color(UIColor.gray))
+                        .foregroundColor(Color.clear)
+
+//                        .foregroundColor(selectedIndex == 2 ? .white : Color(UIColor.gray))
                     Text("Friends")
                         .font(.caption2)
-                        .foregroundColor(selectedIndex == 2 ? .white : Color(UIColor.gray))
+                        .foregroundColor(Color.clear)
+//                        .foregroundColor(selectedIndex == 2 ? .white : Color(UIColor.gray))
                 }
                
             }

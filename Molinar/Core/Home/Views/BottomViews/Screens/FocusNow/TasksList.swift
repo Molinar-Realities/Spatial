@@ -8,7 +8,7 @@
 import SwiftUI
 import BottomSheet
 
-struct TasksList: View {
+struct MovesList: View {
     @Binding var selectedFilter: TaskFilterOptions
     @Binding var bottomSheetPosition: BottomSheetPosition
     @Binding var showTabs: Bool

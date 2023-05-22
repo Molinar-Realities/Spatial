@@ -252,8 +252,25 @@ struct TaskSheet: View {
                                 .foregroundColor(getDeadlineColor())
                         }
                     }
-                    
                     Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "photo.fill.on.rectangle.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 24, height: 24)
+                            .padding(.horizontal)
+                            .foregroundColor(.gray)
+                    }
+                    Button(action: {}) {
+                        Image(systemName: "camera.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 24, height: 24)
+                            .padding(.horizontal)
+                            .foregroundColor(.gray)
+                        
+                    }
+                    
                     Button(action: {
                         // Generate haptic feedback
                         let generator = UIImpactFeedbackGenerator(style: .light)

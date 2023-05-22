@@ -15,10 +15,10 @@ enum TaskFilterOptions: Int, CaseIterable {
     
     var text: String {
         switch self {
-        case .today: return "Today"
-        case .inbox: return "Inbox"
-        case .upcoming: return "Upcoming"
-        case .projects: return "Projects"
+        case .today: return "Home"
+        case .inbox: return "Hangs"
+        case .upcoming: return "Focus"
+        case .projects: return "Eat"
         }
     }
 }

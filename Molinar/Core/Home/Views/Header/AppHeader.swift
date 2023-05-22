@@ -7,16 +7,25 @@
 
 import SwiftUI
 import Kingfisher
+import BottomSheet
 
 struct AppHeader: View {
     private let user: User
     @ObservedObject private var viewModel: ProfileViewModel
     @State var showProfile = false
+    @State private var isSearchActive = false
+    @State var searchText: String = ""
+    @Binding var bottomSheetPosition: BottomSheetPosition
+
+
+
     
-    init(user: User) {
+    init(user: User, bottomSheetPosition: Binding<BottomSheetPosition>) {
         self.user = user
         self.viewModel = ProfileViewModel(user: user)
+        self._bottomSheetPosition = bottomSheetPosition
     }
+
 
     var body: some View {
         
@@ -27,36 +36,84 @@ struct AppHeader: View {
                     Image("TransparentBat")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 18, height: 18)
+                        .frame(width: 24, height: 24)
                         .onTapGesture {
                         }
                         .padding(.horizontal, 8)
                     Divider()
                         .padding(.vertical, 10)
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.black)
-                        .accentColor(.white)
-                        .font(.system(size: 18))
-
-                        .padding(.leading, 8)
-                    Spacer()
                     
-                    
-                    Spacer()
-                    Image(systemName: "person.2.fill")
-                        .foregroundColor(.black)
-                        .accentColor(.white)
-                        .font(.system(size: 18))
+                    if isSearchActive {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                            TextField("Search", text: self.$searchText)
+                            Spacer()
+                            Image(systemName: "x.circle.fill")
+                                .onTapGesture {
+                                    isSearchActive.toggle()
+                                }
+                        }
+                        .foregroundColor(Color(UIColor.secondaryLabel))
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 5)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.quaternaryLabel)))
+//                        .padding([.horizontal, .bottom])
+                    } else {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .accentColor(.white)
+                            .font(.system(size: 18))
 
-                    Image(systemName: "bubble.right.fill")
-                        .foregroundColor(.black)
-                        .accentColor(.white)
-                        .font(.system(size: 18))
-
-                        .padding(.trailing, 8)
+                            .padding(.leading, 8)
+                            .onTapGesture {
+                                isSearchActive.toggle()
+                                self.bottomSheetPosition = .relativeTop(0.97)
+                            }
+                        Spacer()
                         
                         
-                    
+                        Spacer()
+                        Image(systemName: "person.2.fill")
+                            .foregroundColor(.gray)
+                            .accentColor(.white)
+                            .font(.system(size: 18))
+                            .overlay(
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(.red)
+                                        .frame(width: 18, height: 18)
+                                    
+                                    Text("3")
+                                        .font(.system(size: 12))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                }
+                                .offset(x: 8, y: -8), alignment: .topTrailing)
+
+
+                        Image(systemName: "bubble.right.fill")
+                            .foregroundColor(.gray)
+                            .accentColor(.white)
+                            .font(.system(size: 18))
+
+                            .padding(.horizontal, 8)
+                            .overlay(
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(.red)
+                                        .frame(width: 18, height: 18)
+                                    
+                                    Text("5")
+                                        .font(.system(size: 12))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                }
+                                .offset(x: 0, y: -8), alignment: .topTrailing)
+                            
+                            
+                        
+                    }
+                   
                     Divider()
                     .padding(.vertical, 8)
                     Button(action: {
