@@ -51,7 +51,7 @@ struct TaskCell: View {
             Divider()
         }
         .padding()
-        .frame(width: 390, height: 500)
+        .frame(width: 390, height: 300)
         .background(Color.gray.opacity(0.2))
         .cornerRadius(30)
         .background(VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial)))
