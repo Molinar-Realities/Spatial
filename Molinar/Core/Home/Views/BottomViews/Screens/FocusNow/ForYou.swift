@@ -22,12 +22,10 @@ struct ForYou: View {
                 // Tasks from Calendar
                 VStack(alignment: .leading, spacing: 5) {
                     // Header for Tasks from Calendar
-                    Text("Popular Moves")
-                        .font(.headline)
-                        .padding(.horizontal)
-                        .padding(.top)
-
-                    
+//                    Text("Recent Moves")
+//                        .font(.headline)
+//                        .padding(.horizontal)
+//                        .padding(.top)
                     // ScrollView for cards
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -38,9 +36,11 @@ struct ForYou: View {
                             // HACK
                             ForEach(0 ..< 5) { item in
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("mattmolinar")
-                                        .foregroundColor(.gray)
+                                    HStack {
+                                        Text("mattmolinar")
+                                            .foregroundColor(.gray)
                                         .font(.footnote)
+                                    }
                                     // TO DO: Make the cards from Apple Music.
                                     Rectangle()
                                         .frame(width: 155, height: 155)

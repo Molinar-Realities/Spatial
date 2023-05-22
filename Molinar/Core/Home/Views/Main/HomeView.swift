@@ -19,7 +19,7 @@ struct HomeView: View {
     @State var selectedIndex = 0
     @State var presentSheet = false
     @State private var scrollPosition: CGFloat = 0
-    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.5)
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.50)
     @State var searchText: String = ""
     @State private var isShowingTaskSheet = false
     @State private var sheetText = ""
@@ -65,7 +65,7 @@ struct HomeView: View {
                                     FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             }
-                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.125), .relative(0.4), .relativeTop(1.00)], headerContent: {
+                            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.1), .relative(0.50), .relativeTop(1.00)], headerContent: {
                                 switch selectedIndex {
                                 case 0:
                                     if !shouldShowDragIndicator {
