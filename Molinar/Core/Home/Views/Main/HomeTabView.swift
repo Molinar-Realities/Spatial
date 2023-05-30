@@ -51,12 +51,24 @@ struct TabButtonView: View {
     let icon: String
     let selectedIndex: Int
     let index: Int
+    let gradientColors = [Color(red: 19/255, green: 111/255, blue: 220/255), Color(red: 101/255, green: 231/255, blue: 208/255)]
     
     var body: some View {
         VStack {
-            Image(systemName: selectedIndex == index ? "\(icon).fill" : icon)
-                .font(.system(size: 25))
-                .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+            if index == 2 {
+                Image(systemName: icon)
+                    .font(.system(size: 25))
+                    .foregroundColor(.white)
+                    .overlay(LinearGradient(gradient: Gradient(stops: [
+                                                           Gradient.Stop(color: gradientColors[0], location: 0),
+                                                           Gradient.Stop(color: gradientColors[1], location: 1)
+                                                       ]), startPoint: .leading, endPoint: .trailing))
+                                                       .mask(Image(systemName: icon).font(.system(size: 25)))
+            } else {
+                Image(systemName: selectedIndex == index ? "\(icon).fill" : icon)
+                    .font(.system(size: 25))
+                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+            }
             
             if index == 0 {
                 Text("Schedule")
@@ -74,10 +86,17 @@ struct TabButtonView: View {
                 Text("Messages")
                     .font(.caption2)
                     .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+            } else if index == 2 {
+                Text("Create")
+                    .font(.caption2)
+                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+                    
             }
         }
     }
 }
+
+
 
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
