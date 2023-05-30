@@ -18,14 +18,14 @@ struct FriendsHeader: View {
                     .padding(.horizontal)
                 Spacer()
                 
-                Button(action: {}) {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 38, height: 38)
-                        .padding(.horizontal)
-                }
-                .disabled(true)
+//                Button(action: {}) {
+//                    Image(systemName: "plus.circle.fill")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 38, height: 38)
+//                        .padding(.horizontal)
+//                }
+//                .disabled(true)
             }
             
         }

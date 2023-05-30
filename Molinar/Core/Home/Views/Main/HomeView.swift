@@ -29,7 +29,7 @@ struct HomeView: View {
     @State var shouldShowDragIndicator = true
     @State var showingTaskDetail = false
     @State var selectedFilter: TaskFilterOptions = .today
-    @State var selectedFeed: FeedFilterOptions = .home
+    @State var selectedFeed: FeedFilterOptions = .tasks
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -43,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["house", "plus.app.fill", "person.2"]
+    let icons = ["play.circle","magnifyingglass.circle", "plus.app", "person.2", "bubble.left" ]
 
     var body: some View {
         Group {
@@ -78,7 +78,23 @@ struct HomeView: View {
                                         }
                                     } else {
                                         if !showingTaskDetail {
-                                            EmptyView()
+                                            FocusNowHeader()
+                                        } else {
+                                            DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
+                                        }
+                                    }
+                                case 2:
+                                    if !shouldShowDragIndicator {
+//                                        withAnimation(.spring()) {
+                                        VStack {
+                                            AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
+                                                      bottomSheetPosition: $bottomSheetPosition
+                                            )
+                                            FilterScrollView(selectedFeed: $selectedFeed)
+                                        }
+                                    } else {
+                                        if !showingTaskDetail {
+                                            FriendsHeader()
                                         } else {
                                             DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                         }

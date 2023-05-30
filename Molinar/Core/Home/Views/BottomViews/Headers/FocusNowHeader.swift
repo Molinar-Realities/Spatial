@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FocusNowHeader: View {
     var body: some View {
-//        Text("Focus Now")
-//            .foregroundColor(.black)
-//            .font(.largeTitle)
-//            .fontWeight(.bold)
-//            .padding(.horizontal)
-        EmptyView()
+        Text("My Schedule")
+            .foregroundColor(.black)
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding(.horizontal)
+//        EmptyView()
     }
 }
 struct FocusNowHeader_Previews: PreviewProvider {

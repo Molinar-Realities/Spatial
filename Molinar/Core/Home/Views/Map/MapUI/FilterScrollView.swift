@@ -26,34 +26,33 @@ struct FilterScrollView: View {
 //                            selectedFeed = .calendar
 //                        }
                     
-                    MapFilterButton(filterLabel: "Nature")
-                        .onTapGesture {
-                            selectedFeed = .home
-                        }
-                    MapFilterButton(filterLabel: "Hangs")
+                    MapFilterButton(filterLabel: "Today")
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Parties")
+                    MapFilterButton(filterLabel: "Upcoming")
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
-                    MapFilterButton(filterLabel: "Workouts")
+                    MapFilterButton(filterLabel: "Project 1")
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
-
-                    MapFilterButton(filterLabel: "Food")
-                        .onTapGesture {
-                            selectedFeed = .tasks
-                        }
-                    MapFilterButton(filterLabel: "Co-working")
+                    MapFilterButton(filterLabel: "Project 2")
                         .onTapGesture {
                             selectedFeed = .tasks
                         }
 
-//                    MapFilterButton(filterLabel: "Fitness")
-//                    MapFilterButton(filterLabel: "Energy")
+                    MapFilterButton(filterLabel: "Project 3")
+                        .onTapGesture {
+                            selectedFeed = .tasks
+                        }
+                    MapFilterButton(filterLabel: "Project 4")
+                        .onTapGesture {
+                            selectedFeed = .tasks
+                        }
+
+
                     Spacer()
                 }
                 .padding()

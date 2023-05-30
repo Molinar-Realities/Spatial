@@ -501,6 +501,12 @@
 		DEF242D329BAA88600467B6F /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				DE50138029BC5FA8006F1A90 /* ProjectsList.swift */,
+				DE50137529BB49CB006F1A90 /* TaskFilterButtons.swift */,
+				DEA8B4DA29B840CE00CACBDD /* TaskDetailSheet.swift */,
+				DEA8B4B629B6B1CF00CACBDD /* TaskFocusNow.swift */,
+				DEA8B4B829B6C8B200CACBDD /* TasksList.swift */,
+				DEA8B4BA29B6C90700CACBDD /* TaskCell.swift */,
 				DEF242D429BAA89500467B6F /* DetailTask.swift */,
 			);
 			path = Task;
@@ -520,17 +526,11 @@
 			isa = PBXGroup;
 			children = (
 				DEFA4B7F29B000DB00F2FCD8 /* WorkoutNow.swift */,
-				DEA8B4B629B6B1CF00CACBDD /* TaskFocusNow.swift */,
-				DEA8B4B829B6C8B200CACBDD /* TasksList.swift */,
-				DEA8B4BA29B6C90700CACBDD /* TaskCell.swift */,
 				DEA8B4BC29B7991600CACBDD /* FeaturedCardSkeleton.swift */,
-				DEA8B4DA29B840CE00CACBDD /* TaskDetailSheet.swift */,
 				DEA8B4EC29B8FD0500CACBDD /* OldFeatureCard.swift */,
 				DEA8B4EE29B8FD4400CACBDD /* FeaturedCard.swift */,
 				DEA8B4F029B8FDB200CACBDD /* RecommendedTasks.swift */,
-				DE50137529BB49CB006F1A90 /* TaskFilterButtons.swift */,
 				DE50137729BB5E38006F1A90 /* InboxView.swift */,
-				DE50138029BC5FA8006F1A90 /* ProjectsList.swift */,
 				DE50138429BC68C2006F1A90 /* EmptyProjectsList.swift */,
 				DEA8E65C29BF10CE00BF7531 /* ForYou.swift */,
 			);
