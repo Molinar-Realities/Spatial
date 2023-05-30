@@ -42,7 +42,7 @@ struct MovesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView().environmentObject(AuthViewModel.shared)
+            Router().environmentObject(AuthViewModel.shared)
                 .environmentObject(BottomSheetViewModel.shared)
                 .environmentObject(locationViewModel)
                 .environmentObject(taskViewModel)

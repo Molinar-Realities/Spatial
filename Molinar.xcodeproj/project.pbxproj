@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE13357D2A2640DB00D80688 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357C2A2640DB00D80688 /* WorldView.swift */; };
 		DE2D85C22A1A681F0010BB98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */; };
 		DE2F53E329A9CC7A00805518 /* MovesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E229A9CC7A00805518 /* MovesApp.swift */; };
-		DE2F53E529A9CC7A00805518 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* HomeView.swift */; };
+		DE2F53E529A9CC7A00805518 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* Router.swift */; };
 		DE2F53E729A9CC7D00805518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F53E629A9CC7D00805518 /* Assets.xcassets */; };
 		DE2F53EA29A9CC7D00805518 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2F53E929A9CC7D00805518 /* Preview Assets.xcassets */; };
 		DE2F53FA29AAC7EE00805518 /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2F53F029A9D03500805518 /* MapboxCommon.xcframework */; };
@@ -109,10 +110,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DE13357C2A2640DB00D80688 /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
 		DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F53DF29A9CC7A00805518 /* Molinar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molinar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F53E229A9CC7A00805518 /* MovesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesApp.swift; sourceTree = "<group>"; };
-		DE2F53E429A9CC7A00805518 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DE2F53E429A9CC7A00805518 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DE2F53E629A9CC7D00805518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE2F53E929A9CC7D00805518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DE2F53F029A9D03500805518 /* MapboxCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MapboxCommon.xcframework; sourceTree = "<group>"; };
@@ -204,6 +206,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE1335792A263E8F00D80688 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		DE13357A2A263EA500D80688 /* Immersive */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Immersive;
+			sourceTree = "<group>";
+		};
+		DE13357B2A263F7300D80688 /* WorldView */ = {
+			isa = PBXGroup;
+			children = (
+				DE13357C2A2640DB00D80688 /* WorldView.swift */,
+			);
+			path = WorldView;
+			sourceTree = "<group>";
+		};
 		DE2F53D629A9CC7900805518 = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +259,7 @@
 				DEA718F329B141DB000DD92C /* Core */,
 				DE2F547129AAE8B800805518 /* Extensions */,
 				DE2F540629AACA8300805518 /* Models */,
+				DE2F540529AACA7600805518 /* ViewModels */,
 				DE2F53E629A9CC7D00805518 /* Assets.xcassets */,
 				DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */,
 				DE2F53E829A9CC7D00805518 /* Preview Content */,
@@ -277,14 +302,11 @@
 		DE2F540729AACA8800805518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F542129AAD45300805518 /* Main */,
 				DEFA4B9229B0656600F2FCD8 /* Sheet */,
 				DEFA4B9129B0613900F2FCD8 /* Profile */,
 				DEFA4B8129B0058200F2FCD8 /* Header */,
 				DE2F545B29AAE14100805518 /* BottomViews */,
-				DE2F542429AADCFF00805518 /* Map */,
 				DE2F541C29AAD31000805518 /* Components */,
-				DE2F541729AACF6F00805518 /* Authentication */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,14 +330,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		DE2F542129AAD45300805518 /* Main */ = {
+		DE2F542129AAD45300805518 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				DE2F53E429A9CC7A00805518 /* HomeView.swift */,
-				DEA8B4F729B9011600CACBDD /* HomeTabView.swift */,
-				DECC1C4629C07600003469DA /* FeedFilterOptions.swift */,
+				DE2F53E429A9CC7A00805518 /* Router.swift */,
+				DE13357B2A263F7300D80688 /* WorldView */,
+				DE2F541729AACF6F00805518 /* Authentication */,
 			);
-			path = Main;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		DE2F542429AADCFF00805518 /* Map */ = {
@@ -383,6 +405,10 @@
 		DEA718F329B141DB000DD92C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F542429AADCFF00805518 /* Map */,
+				DE13357A2A263EA500D80688 /* Immersive */,
+				DE1335792A263E8F00D80688 /* Messaging */,
+				DE2F542129AAD45300805518 /* Router */,
 				DEA7190529B18BD3000DD92C /* LocationSearch */,
 				DEA7190429B18BB6000DD92C /* Home */,
 			);
@@ -408,8 +434,9 @@
 		DEA7190429B18BB6000DD92C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DECC1C4629C07600003469DA /* FeedFilterOptions.swift */,
+				DEA8B4F729B9011600CACBDD /* HomeTabView.swift */,
 				DE2F540729AACA8800805518 /* Views */,
-				DE2F540529AACA7600805518 /* ViewModels */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -688,7 +715,7 @@
 				DE2F547529AAE97E00805518 /* UploadTaskViewModel.swift in Sources */,
 				DE50138529BC68C3006F1A90 /* EmptyProjectsList.swift in Sources */,
 				DE2F541629AACE7B00805518 /* AuthViewModel.swift in Sources */,
-				DE2F53E529A9CC7A00805518 /* HomeView.swift in Sources */,
+				DE2F53E529A9CC7A00805518 /* Router.swift in Sources */,
 				DEFA4B9629B07D0E00F2FCD8 /* ScheduleSheet.swift in Sources */,
 				DE744C3C29B4629B003B020D /* LocationSearchViewModel.swift in Sources */,
 				DE2F53E329A9CC7A00805518 /* MovesApp.swift in Sources */,
@@ -722,6 +749,7 @@
 				DE50138129BC5FA8006F1A90 /* ProjectsList.swift in Sources */,
 				DE2F540929AACA9700805518 /* User.swift in Sources */,
 				DEA8B4DB29B840CF00CACBDD /* TaskDetailSheet.swift in Sources */,
+				DE13357D2A2640DB00D80688 /* WorldView.swift in Sources */,
 				DEF242D229BAA85900467B6F /* DetailTaskHeader.swift in Sources */,
 				DE50137D29BC59F6006F1A90 /* Project.swift in Sources */,
 			);
