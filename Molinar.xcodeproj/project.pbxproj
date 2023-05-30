@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DE13357D2A2640DB00D80688 /* EarthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357C2A2640DB00D80688 /* EarthView.swift */; };
 		DE13357F2A26830100D80688 /* ExploreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357E2A26830100D80688 /* ExploreHeader.swift */; };
+		DE1335822A26888300D80688 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335812A26888300D80688 /* EventsViewModel.swift */; };
+		DE1335842A26891300D80688 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335832A26891300D80688 /* Event.swift */; };
+		DE1335872A268CB500D80688 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = DE1335862A268CB500D80688 /* Supabase */; };
 		DE2D85C22A1A681F0010BB98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */; };
 		DE2F53E329A9CC7A00805518 /* MovesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E229A9CC7A00805518 /* MovesApp.swift */; };
 		DE2F53E529A9CC7A00805518 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* Router.swift */; };
@@ -113,6 +116,8 @@
 /* Begin PBXFileReference section */
 		DE13357C2A2640DB00D80688 /* EarthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthView.swift; sourceTree = "<group>"; };
 		DE13357E2A26830100D80688 /* ExploreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHeader.swift; sourceTree = "<group>"; };
+		DE1335812A26888300D80688 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		DE1335832A26891300D80688 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F53DF29A9CC7A00805518 /* Molinar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molinar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F53E229A9CC7A00805518 /* MovesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesApp.swift; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 				DEFA4B8B29B0311800F2FCD8 /* BottomSheet in Frameworks */,
 				DE2F53FF29AAC7F100805518 /* MapboxMaps.xcframework in Frameworks */,
 				DE2F540329AAC7F400805518 /* Turf.xcframework in Frameworks */,
+				DE1335872A268CB500D80688 /* Supabase in Frameworks */,
 				DEFA4BA529B09C9200F2FCD8 /* Kingfisher in Frameworks */,
 				DE2F540129AAC7F300805518 /* MapboxMobileEvents.xcframework in Frameworks */,
 				DE2F540E29AACB8400805518 /* FirebaseFirestore in Frameworks */,
@@ -228,6 +234,14 @@
 				DE13357C2A2640DB00D80688 /* EarthView.swift */,
 			);
 			path = EarthView;
+			sourceTree = "<group>";
+		};
+		DE1335802A26886100D80688 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				DE1335812A26888300D80688 /* EventsViewModel.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		DE2F53D629A9CC7900805518 = {
@@ -280,6 +294,7 @@
 		DE2F540529AACA7600805518 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				DE1335802A26886100D80688 /* Events */,
 				DE50137929BC5999006F1A90 /* Projects */,
 				DEA8B4E429B8FADE00CACBDD /* Profile */,
 				DEA8B4E329B8FAD700CACBDD /* Auth */,
@@ -297,6 +312,7 @@
 				DE2F546F29AAE67A00805518 /* Task.swift */,
 				DEFA4BA829B0B60200F2FCD8 /* Item.swift */,
 				DE50137C29BC59F6006F1A90 /* Project.swift */,
+				DE1335832A26891300D80688 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -631,6 +647,7 @@
 				DE2F541129AACB8500805518 /* FirebaseStorage */,
 				DEFA4B8A29B0311800F2FCD8 /* BottomSheet */,
 				DEFA4BA429B09C9200F2FCD8 /* Kingfisher */,
+				DE1335862A268CB500D80688 /* Supabase */,
 			);
 			productName = Molinar;
 			productReference = DE2F53DF29A9CC7A00805518 /* Molinar.app */;
@@ -664,6 +681,7 @@
 				DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				DEFA4BA329B09C9200F2FCD8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DE1335852A268CB500D80688 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = DE2F53E029A9CC7A00805518 /* Products */;
 			projectDirPath = "";
@@ -742,6 +760,7 @@
 				DEA8B4E929B8FCAF00CACBDD /* MessagesHeadline.swift in Sources */,
 				DE2F542829AADDC300805518 /* MapboxViewModel.swift in Sources */,
 				DE50137829BB5E38006F1A90 /* InboxView.swift in Sources */,
+				DE1335822A26888300D80688 /* EventsViewModel.swift in Sources */,
 				DEA8B4F829B9011600CACBDD /* HomeTabView.swift in Sources */,
 				DE2F542629AADD2700805518 /* MapboxView.swift in Sources */,
 				DEA8B4BB29B6C90700CACBDD /* TaskCell.swift in Sources */,
@@ -756,6 +775,7 @@
 				DE13357D2A2640DB00D80688 /* EarthView.swift in Sources */,
 				DEF242D229BAA85900467B6F /* DetailTaskHeader.swift in Sources */,
 				DE50137D29BC59F6006F1A90 /* Project.swift in Sources */,
+				DE1335842A26891300D80688 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,6 +984,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DE1335852A268CB500D80688 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 		DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -991,6 +1019,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DE1335862A268CB500D80688 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE1335852A268CB500D80688 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
 		DE2F540B29AACB8400805518 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
