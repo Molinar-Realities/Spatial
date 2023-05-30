@@ -83,7 +83,39 @@ struct HomeView: View {
                                             DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                         }
                                     }
-                                case 2:
+                                case 1:
+                                    if !shouldShowDragIndicator {
+//                                        withAnimation(.spring()) {
+                                        VStack {
+                                            AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
+                                                      bottomSheetPosition: $bottomSheetPosition
+                                            )
+                                            FilterScrollView(selectedFeed: $selectedFeed)
+                                        }
+                                    } else {
+                                        if !showingTaskDetail {
+                                            FriendsHeader()
+                                        } else {
+                                            DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
+                                        }
+                                    }
+                                case 3:
+                                    if !shouldShowDragIndicator {
+//                                        withAnimation(.spring()) {
+                                        VStack {
+                                            AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
+                                                      bottomSheetPosition: $bottomSheetPosition
+                                            )
+                                            FilterScrollView(selectedFeed: $selectedFeed)
+                                        }
+                                    } else {
+                                        if !showingTaskDetail {
+                                            FriendsHeader()
+                                        } else {
+                                            DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
+                                        }
+                                    }
+                                case 4:
                                     if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
                                         VStack {

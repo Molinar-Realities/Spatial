@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MapTestMolinar2.png",
+      "filename" : "MapIconHome.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "MapTestMolinar2 1.png",
+      "filename" : "MapIconHome 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "MapTestMolinar2 2.png",
+      "filename" : "MapIconHome 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

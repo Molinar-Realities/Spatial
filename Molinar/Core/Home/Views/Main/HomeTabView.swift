@@ -83,7 +83,7 @@ struct TabButtonView: View {
                     .font(.caption2)
                     .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
             } else if index == 4 {
-                Text("Messages")
+                Text("Inbox")
                     .font(.caption2)
                     .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
             } else if index == 2 {

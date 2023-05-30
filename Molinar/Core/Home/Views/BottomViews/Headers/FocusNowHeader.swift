@@ -13,7 +13,7 @@ struct FocusNowHeader: View {
             .foregroundColor(.black)
             .font(.largeTitle)
             .fontWeight(.bold)
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
 //        EmptyView()
     }
 }
