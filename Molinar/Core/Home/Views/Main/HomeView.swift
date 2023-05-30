@@ -43,7 +43,7 @@ struct HomeView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["play.circle","magnifyingglass.circle", "plus.app", "person.2", "bubble.left" ]
+    let icons = ["magnifyingglass.circle","play.circle", "plus.app", "person.2", "bubble.left" ]
 
     var body: some View {
         Group {
@@ -67,7 +67,7 @@ struct HomeView: View {
                             }
                             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.1), .relative(0.50), .relativeTop(1.00)], headerContent: {
                                 switch selectedIndex {
-                                case 0:
+                                case 1:
                                     if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
                                         VStack {
@@ -83,7 +83,7 @@ struct HomeView: View {
                                             DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                         }
                                     }
-                                case 1:
+                                case 0:
                                     if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
                                         VStack {
@@ -137,7 +137,7 @@ struct HomeView: View {
                             }) {
                                 // THE MAIN CONTENT OF THE BOTTOM SHEET.
                                 switch selectedIndex {
-                                case 0:
+                                case 1:
                                     Group {
                                         if tasksViewModel.isLoading {
                                             ProgressView()

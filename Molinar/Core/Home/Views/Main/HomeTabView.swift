@@ -23,7 +23,7 @@ struct HomeTabView: View {
             Spacer()
         }
         .padding(.top, 4)
-        .background(Color.black)
+        .background(Color.white)
     }
     
     private func handleButtonTap(index: Int) {
@@ -67,29 +67,29 @@ struct TabButtonView: View {
             } else {
                 Image(systemName: selectedIndex == index ? "\(icon).fill" : icon)
                     .font(.system(size: 25))
-                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
             }
             
             if index == 0 {
-                Text("Schedule")
-                    .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
-            } else if index == 1 {
                 Text("Explore")
                     .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+            } else if index == 1 {
+                Text("Schedule")
+                    .font(.caption2)
+                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
             } else if index == 3 {
                 Text("Friends")
                     .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
             } else if index == 4 {
                 Text("Inbox")
                     .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
             } else if index == 2 {
                 Text("Create")
                     .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .white : Color(UIColor.gray))
+                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
                     
             }
         }

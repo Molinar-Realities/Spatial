@@ -11,21 +11,13 @@ struct FriendsHeader: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Friends")
+                Text("Explore")
                     .foregroundColor(.black)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 30)
                 Spacer()
                 
-//                Button(action: {}) {
-//                    Image(systemName: "plus.circle.fill")
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width: 38, height: 38)
-//                        .padding(.horizontal)
-//                }
-//                .disabled(true)
             }
             
         }
