@@ -37,7 +37,7 @@ struct HomeTabView: View {
         generator.prepare()
         generator.impactOccurred()
         
-        if index != 2 {
+        if index != 1 {
             selectedIndex = index
 
         } else {
@@ -55,7 +55,7 @@ struct TabButtonView: View {
     
     var body: some View {
         VStack {
-            if index == 2 {
+            if index == 1 {
                 Image(systemName: icon)
                     .font(.system(size: 25))
                     .foregroundColor(.white)
@@ -70,11 +70,11 @@ struct TabButtonView: View {
                     .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
             }
             
-            if index == 0 {
+            if index == 2 {
                 Text("Explore")
                     .font(.caption2)
                     .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
-            } else if index == 1 {
+            } else if index == 0 {
                 Text("Schedule")
                     .font(.caption2)
                     .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))

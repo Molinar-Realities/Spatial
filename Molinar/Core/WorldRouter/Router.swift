@@ -33,6 +33,7 @@ struct Router: View {
     @State var showingTaskDetail = false
     @State var selectedFilter: TaskFilterOptions = .today
     @State var selectedFeed: FeedFilterOptions = .tasks
+    @State var realitySelector = false
     
     let fakeData = ["email": "fake@email.com",
                     "username": "error",
@@ -53,18 +54,20 @@ struct Router: View {
             // outer Router
             if viewModel.userSession != nil {
                 // world view
-                WorldView()
-                .environmentObject(viewModel)
-                .environmentObject(BottomSheetViewModel())
-                .environmentObject(TasksViewModel())
-                .environmentObject(ProjectsViewModel())
-
+                EarthView()
+                    .environmentObject(viewModel)
+                    .environmentObject(BottomSheetViewModel())
+                    .environmentObject(TasksViewModel())
+                    .environmentObject(ProjectsViewModel())
+            } else if realitySelector {
+                // routines
+                EmptyView()
+                
+                // messaging
             } else {
                 LoginView()
             }
-            // immersive mode
-            
-            // messaging mode
+           
             
             
         }

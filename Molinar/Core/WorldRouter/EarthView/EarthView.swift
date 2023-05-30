@@ -5,7 +5,7 @@
 import SwiftUI
 import BottomSheet
 
-struct WorldView: View {
+struct EarthView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var bottomSheetViewModel: BottomSheetViewModel
     @EnvironmentObject var tasksViewModel: TasksViewModel
@@ -39,7 +39,7 @@ struct WorldView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["magnifyingglass.circle","play.circle", "plus.app", "person.2", "bubble.left" ]
+    let icons = ["play.circle", "plus.app", "magnifyingglass.circle" ]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -56,19 +56,19 @@ struct WorldView: View {
                             AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
                                       bottomSheetPosition: $bottomSheetPosition
                             )
-                            FilterScrollView(selectedFeed: $selectedFeed)
+//                            FilterScrollView(selectedFeed: $selectedFeed)
                         }
                     }
                     .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: showingTaskDetail ? [.relative(0.4)] : [.relativeBottom(0.1), .relative(0.50), .relativeTop(1.00)], headerContent: {
                         switch selectedIndex {
-                        case 1:
+                        case 0:
                             if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
                                 VStack {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
                                               bottomSheetPosition: $bottomSheetPosition
                                     )
-                                    FilterScrollView(selectedFeed: $selectedFeed)
+//                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             } else {
                                 if !showingTaskDetail {
@@ -77,18 +77,18 @@ struct WorldView: View {
                                     DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                 }
                             }
-                        case 0:
+                        case 2:
                             if !shouldShowDragIndicator {
 //                                        withAnimation(.spring()) {
                                 VStack {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
                                               bottomSheetPosition: $bottomSheetPosition
                                     )
-                                    FilterScrollView(selectedFeed: $selectedFeed)
+//                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             } else {
                                 if !showingTaskDetail {
-                                    FriendsHeader()
+                                    ExploreHeader()
                                 } else {
                                     DetailTaskHeader(showTabs: $showingTabView, showTaskDetail: $showingTaskDetail)
                                 }
@@ -100,7 +100,7 @@ struct WorldView: View {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
                                               bottomSheetPosition: $bottomSheetPosition
                                     )
-                                    FilterScrollView(selectedFeed: $selectedFeed)
+//                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             } else {
                                 if !showingTaskDetail {
@@ -116,7 +116,7 @@ struct WorldView: View {
                                     AppHeader(user: AuthViewModel.shared.user ?? User(dictionary: fakeData),
                                               bottomSheetPosition: $bottomSheetPosition
                                     )
-                                    FilterScrollView(selectedFeed: $selectedFeed)
+//                                    FilterScrollView(selectedFeed: $selectedFeed)
                                 }
                             } else {
                                 if !showingTaskDetail {
@@ -131,7 +131,7 @@ struct WorldView: View {
                     }) {
                         // THE MAIN CONTENT OF THE BOTTOM SHEET.
                         switch selectedIndex {
-                        case 1:
+                        case 0:
                             Group {
                                 if tasksViewModel.isLoading {
                                     ProgressView()

@@ -1,17 +1,18 @@
 //
-//  FriendsHeader.swift
+//  ExploreHeader.swift
 //  Molinar
 //
-//  Created by Matt Molinar on 3/8/23.
+//  Created by Matt Molinar on 5/30/23.
 //
+
 
 import SwiftUI
 
-struct FriendsHeader: View {
+struct ExploreHeader: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Friends")
+                Text("Explore")
                     .foregroundColor(.black)
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -24,8 +25,3 @@ struct FriendsHeader: View {
     }
 }
 
-struct FriendsHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendsHeader()
-    }
-}

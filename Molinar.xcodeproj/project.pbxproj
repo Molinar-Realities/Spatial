@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE13357D2A2640DB00D80688 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357C2A2640DB00D80688 /* WorldView.swift */; };
+		DE13357D2A2640DB00D80688 /* EarthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357C2A2640DB00D80688 /* EarthView.swift */; };
+		DE13357F2A26830100D80688 /* ExploreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357E2A26830100D80688 /* ExploreHeader.swift */; };
 		DE2D85C22A1A681F0010BB98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */; };
 		DE2F53E329A9CC7A00805518 /* MovesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E229A9CC7A00805518 /* MovesApp.swift */; };
 		DE2F53E529A9CC7A00805518 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* Router.swift */; };
@@ -110,7 +111,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DE13357C2A2640DB00D80688 /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
+		DE13357C2A2640DB00D80688 /* EarthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthView.swift; sourceTree = "<group>"; };
+		DE13357E2A26830100D80688 /* ExploreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHeader.swift; sourceTree = "<group>"; };
 		DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F53DF29A9CC7A00805518 /* Molinar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molinar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F53E229A9CC7A00805518 /* MovesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesApp.swift; sourceTree = "<group>"; };
@@ -220,12 +222,12 @@
 			path = Immersive;
 			sourceTree = "<group>";
 		};
-		DE13357B2A263F7300D80688 /* WorldView */ = {
+		DE13357B2A263F7300D80688 /* EarthView */ = {
 			isa = PBXGroup;
 			children = (
-				DE13357C2A2640DB00D80688 /* WorldView.swift */,
+				DE13357C2A2640DB00D80688 /* EarthView.swift */,
 			);
-			path = WorldView;
+			path = EarthView;
 			sourceTree = "<group>";
 		};
 		DE2F53D629A9CC7900805518 = {
@@ -330,14 +332,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		DE2F542129AAD45300805518 /* Router */ = {
+		DE2F542129AAD45300805518 /* WorldRouter */ = {
 			isa = PBXGroup;
 			children = (
 				DE2F53E429A9CC7A00805518 /* Router.swift */,
-				DE13357B2A263F7300D80688 /* WorldView */,
+				DE13357B2A263F7300D80688 /* EarthView */,
 				DE2F541729AACF6F00805518 /* Authentication */,
 			);
-			path = Router;
+			path = WorldRouter;
 			sourceTree = "<group>";
 		};
 		DE2F542429AADCFF00805518 /* Map */ = {
@@ -408,7 +410,7 @@
 				DE2F542429AADCFF00805518 /* Map */,
 				DE13357A2A263EA500D80688 /* Immersive */,
 				DE1335792A263E8F00D80688 /* Messaging */,
-				DE2F542129AAD45300805518 /* Router */,
+				DE2F542129AAD45300805518 /* WorldRouter */,
 				DEA7190529B18BD3000DD92C /* LocationSearch */,
 				DEA7190429B18BB6000DD92C /* Home */,
 			);
@@ -521,6 +523,7 @@
 				DEF242D129BAA85900467B6F /* DetailTaskHeader.swift */,
 				DEA8B4F329B900CD00CACBDD /* FocusNowHeader.swift */,
 				DEA8B4F529B900F000CACBDD /* FriendsHeader.swift */,
+				DE13357E2A26830100D80688 /* ExploreHeader.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				DEA8B4B729B6B1CF00CACBDD /* TaskFocusNow.swift in Sources */,
 				DE2F542029AAD3D200805518 /* CustomSecureField.swift in Sources */,
 				DEA718F929B1427E000DD92C /* LocationManager.swift in Sources */,
+				DE13357F2A26830100D80688 /* ExploreHeader.swift in Sources */,
 				DEFA4B9429B073C300F2FCD8 /* TaskSheet.swift in Sources */,
 				DE744C3A29B46102003B020D /* LocationSearchResultCell.swift in Sources */,
 				DEFA4B9029B0559A00F2FCD8 /* MiniCalendar.swift in Sources */,
@@ -749,7 +753,7 @@
 				DE50138129BC5FA8006F1A90 /* ProjectsList.swift in Sources */,
 				DE2F540929AACA9700805518 /* User.swift in Sources */,
 				DEA8B4DB29B840CF00CACBDD /* TaskDetailSheet.swift in Sources */,
-				DE13357D2A2640DB00D80688 /* WorldView.swift in Sources */,
+				DE13357D2A2640DB00D80688 /* EarthView.swift in Sources */,
 				DEF242D229BAA85900467B6F /* DetailTaskHeader.swift in Sources */,
 				DE50137D29BC59F6006F1A90 /* Project.swift in Sources */,
 			);
