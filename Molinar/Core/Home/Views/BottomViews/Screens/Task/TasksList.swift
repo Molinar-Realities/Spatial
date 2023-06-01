@@ -25,7 +25,7 @@ struct MovesList: View {
     var body: some View {
         Group {
             if !viewModel.isLoading && !sortedTasks.isEmpty {
-                VStack {
+                VStack(spacing: 0) {
                     ForEach(sortedTasks) { task in
                         TaskCell(completed: task.completed, dueDate: task.dueDate ?? Date(), title: task.title, location: task.locationTitle, id: task.id)
                             .padding()

@@ -15,7 +15,7 @@ struct EarthView: View {
     @State var selectedIndex = 0
     @State var presentSheet = false
     @State private var scrollPosition: CGFloat = 0
-    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.50)
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(1.00)
     @State var searchText: String = ""
     @State private var isShowingTaskSheet = false
     @State private var sheetText = ""

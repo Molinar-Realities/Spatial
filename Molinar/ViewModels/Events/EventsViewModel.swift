@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import Combine
+import Supabase
 
 class EventsViewModel: ObservableObject {
     @Published var events = [Event]()

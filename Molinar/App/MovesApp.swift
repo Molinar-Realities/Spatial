@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseCore
 import UserNotifications
+import GoogleSignIn
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {

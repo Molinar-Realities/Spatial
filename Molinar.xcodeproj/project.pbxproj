@@ -11,7 +11,9 @@
 		DE13357F2A26830100D80688 /* ExploreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357E2A26830100D80688 /* ExploreHeader.swift */; };
 		DE1335822A26888300D80688 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335812A26888300D80688 /* EventsViewModel.swift */; };
 		DE1335842A26891300D80688 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335832A26891300D80688 /* Event.swift */; };
-		DE1335872A268CB500D80688 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = DE1335862A268CB500D80688 /* Supabase */; };
+		DE13358A2A26C40400D80688 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = DE1335892A26C40400D80688 /* GoogleSignIn */; };
+		DE13358C2A26C40400D80688 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE13358B2A26C40400D80688 /* GoogleSignInSwift */; };
+		DE1335902A26C73B00D80688 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13358F2A26C73B00D80688 /* AuthenticationViewModel.swift */; };
 		DE2D85C22A1A681F0010BB98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */; };
 		DE2F53E329A9CC7A00805518 /* MovesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E229A9CC7A00805518 /* MovesApp.swift */; };
 		DE2F53E529A9CC7A00805518 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F53E429A9CC7A00805518 /* Router.swift */; };
@@ -118,6 +120,8 @@
 		DE13357E2A26830100D80688 /* ExploreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHeader.swift; sourceTree = "<group>"; };
 		DE1335812A26888300D80688 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		DE1335832A26891300D80688 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DE13358D2A26C58F00D80688 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DE13358F2A26C73B00D80688 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		DE2D85C12A1A681F0010BB98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2F53DF29A9CC7A00805518 /* Molinar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molinar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2F53E229A9CC7A00805518 /* MovesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesApp.swift; sourceTree = "<group>"; };
@@ -201,10 +205,11 @@
 				DE2F541229AACB8500805518 /* FirebaseStorage in Frameworks */,
 				DE2F53FA29AAC7EE00805518 /* MapboxCommon.xcframework in Frameworks */,
 				DE2F541029AACB8400805518 /* FirebaseFunctions in Frameworks */,
+				DE13358C2A26C40400D80688 /* GoogleSignInSwift in Frameworks */,
+				DE13358A2A26C40400D80688 /* GoogleSignIn in Frameworks */,
 				DEFA4B8B29B0311800F2FCD8 /* BottomSheet in Frameworks */,
 				DE2F53FF29AAC7F100805518 /* MapboxMaps.xcframework in Frameworks */,
 				DE2F540329AAC7F400805518 /* Turf.xcframework in Frameworks */,
-				DE1335872A268CB500D80688 /* Supabase in Frameworks */,
 				DEFA4BA529B09C9200F2FCD8 /* Kingfisher in Frameworks */,
 				DE2F540129AAC7F300805518 /* MapboxMobileEvents.xcframework in Frameworks */,
 				DE2F540E29AACB8400805518 /* FirebaseFirestore in Frameworks */,
@@ -268,6 +273,7 @@
 		DE2F53E129A9CC7A00805518 /* Molinar */ = {
 			isa = PBXGroup;
 			children = (
+				DE13358D2A26C58F00D80688 /* Info.plist */,
 				DEA8B4E529B8FAFC00CACBDD /* Constants */,
 				DE744C3529B41F1A003B020D /* BlenderModels */,
 				DEA718F529B14212000DD92C /* Managers */,
@@ -513,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2F541529AACE7B00805518 /* AuthViewModel.swift */,
+				DE13358F2A26C73B00D80688 /* AuthenticationViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -647,7 +654,8 @@
 				DE2F541129AACB8500805518 /* FirebaseStorage */,
 				DEFA4B8A29B0311800F2FCD8 /* BottomSheet */,
 				DEFA4BA429B09C9200F2FCD8 /* Kingfisher */,
-				DE1335862A268CB500D80688 /* Supabase */,
+				DE1335892A26C40400D80688 /* GoogleSignIn */,
+				DE13358B2A26C40400D80688 /* GoogleSignInSwift */,
 			);
 			productName = Molinar;
 			productReference = DE2F53DF29A9CC7A00805518 /* Molinar.app */;
@@ -681,7 +689,7 @@
 				DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DEFA4B8929B0311800F2FCD8 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				DEFA4BA329B09C9200F2FCD8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				DE1335852A268CB500D80688 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				DE1335882A26C40400D80688 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = DE2F53E029A9CC7A00805518 /* Products */;
 			projectDirPath = "";
@@ -759,6 +767,7 @@
 				DEA8B4DF29B8FA2600CACBDD /* FilterScrollView.swift in Sources */,
 				DEA8B4E929B8FCAF00CACBDD /* MessagesHeadline.swift in Sources */,
 				DE2F542829AADDC300805518 /* MapboxViewModel.swift in Sources */,
+				DE1335902A26C73B00D80688 /* AuthenticationViewModel.swift in Sources */,
 				DE50137829BB5E38006F1A90 /* InboxView.swift in Sources */,
 				DE1335822A26888300D80688 /* EventsViewModel.swift in Sources */,
 				DEA8B4F829B9011600CACBDD /* HomeTabView.swift in Sources */,
@@ -907,6 +916,7 @@
 				DEVELOPMENT_TEAM = F88F3V85M7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Molinar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Moves;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate step-by-step tasks, show your location on the map, and increase security of friend requests.";
@@ -919,8 +929,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.molinar.Molinar;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.molinar.Moves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -939,6 +949,7 @@
 				DEVELOPMENT_TEAM = F88F3V85M7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Molinar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Moves;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate step-by-step tasks, show your location on the map, and increase security of friend requests.";
@@ -951,8 +962,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.molinar.Molinar;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.molinar.Moves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -984,12 +995,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DE1335852A268CB500D80688 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+		DE1335882A26C40400D80688 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.1;
+				minimumVersion = 7.0.0;
 			};
 		};
 		DE2F540A29AACB8400805518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -1019,10 +1030,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DE1335862A268CB500D80688 /* Supabase */ = {
+		DE1335892A26C40400D80688 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE1335852A268CB500D80688 /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Supabase;
+			package = DE1335882A26C40400D80688 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		DE13358B2A26C40400D80688 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE1335882A26C40400D80688 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		DE2F540B29AACB8400805518 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
