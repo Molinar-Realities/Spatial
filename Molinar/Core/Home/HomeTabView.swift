@@ -60,38 +60,39 @@ struct TabButtonView: View {
                     .font(.system(size: 25))
                     .foregroundColor(.white)
                     .overlay(LinearGradient(gradient: Gradient(stops: [
-                                                           Gradient.Stop(color: gradientColors[0], location: 0),
-                                                           Gradient.Stop(color: gradientColors[1], location: 1)
-                                                       ]), startPoint: .leading, endPoint: .trailing))
-                                                       .mask(Image(systemName: icon).font(.system(size: 25)))
-            } else {
-                Image(systemName: selectedIndex == index ? "\(icon).fill" : icon)
-                    .font(.system(size: 25))
-                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+                        Gradient.Stop(color: gradientColors[0], location: 0),
+                        Gradient.Stop(color: gradientColors[1], location: 1)
+                    ]), startPoint: .leading, endPoint: .trailing))
+                    .mask(Image(systemName: icon).font(.system(size: 25)))
             }
+//            } else {
+//                Image(systemName: selectedIndex == index ? "\(icon).fill" : icon)
+//                    .font(.system(size: 25))
+//                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+//            }
             
-            if index == 2 {
-                Text("Explore")
-                    .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
-            } else if index == 0 {
-                Text("Schedule")
-                    .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
-            } else if index == 3 {
-                Text("Friends")
-                    .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
-            } else if index == 4 {
-                Text("Inbox")
-                    .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
-            } else if index == 2 {
-                Text("Create")
-                    .font(.caption2)
-                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
-                    
-            }
+//            if index == 2 {
+//                Text("Calendar")
+//                    .font(.caption2)
+//                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+//            } else if index == 0 {
+//                Text("Tasks")
+//                    .font(.caption2)
+//                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+//            } else if index == 3 {
+//                Text("Friends")
+//                    .font(.caption2)
+//                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+//            } else if index == 4 {
+//                Text("Inbox")
+//                    .font(.caption2)
+//                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+//            } else if index == 2 {
+//                Text("Create")
+//                    .font(.caption2)
+//                    .foregroundColor(selectedIndex == index ? .black : Color(UIColor.gray))
+//
+//            }
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFA117B42A3B7E2400252AA0 /* MovesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA117B32A3B7E2400252AA0 /* MovesView.swift */; };
 		DE13357D2A2640DB00D80688 /* EarthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357C2A2640DB00D80688 /* EarthView.swift */; };
 		DE13357F2A26830100D80688 /* ExploreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13357E2A26830100D80688 /* ExploreHeader.swift */; };
 		DE1335822A26888300D80688 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335812A26888300D80688 /* EventsViewModel.swift */; };
@@ -116,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BFA117B32A3B7E2400252AA0 /* MovesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesView.swift; sourceTree = "<group>"; };
 		DE13357C2A2640DB00D80688 /* EarthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthView.swift; sourceTree = "<group>"; };
 		DE13357E2A26830100D80688 /* ExploreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHeader.swift; sourceTree = "<group>"; };
 		DE1335812A26888300D80688 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +221,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFA117B22A3B7E1700252AA0 /* Moves */ = {
+			isa = PBXGroup;
+			children = (
+				BFA117B32A3B7E2400252AA0 /* MovesView.swift */,
+			);
+			path = Moves;
+			sourceTree = "<group>";
+		};
 		DE1335792A263E8F00D80688 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +578,7 @@
 		DEFA4B7B29AFEF0600F2FCD8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BFA117B22A3B7E1700252AA0 /* Moves */,
 				DEF242D329BAA88600467B6F /* Task */,
 				DEFA4B8C29B04B9200F2FCD8 /* Friends */,
 				DEFA4B7E29B000CD00F2FCD8 /* FocusNow */,
@@ -737,6 +748,7 @@
 				DEA7190929B18C53000DD92C /* LocationSearchView.swift in Sources */,
 				DE2F546E29AAE62000805518 /* TasksViewModel.swift in Sources */,
 				DEA8B4DD29B8F9AF00CACBDD /* MapFilterButton.swift in Sources */,
+				BFA117B42A3B7E2400252AA0 /* MovesView.swift in Sources */,
 				DEA8B4EB29B8FCC500CACBDD /* ConversationCell.swift in Sources */,
 				DEFA4B8E29B04BF900F2FCD8 /* FriendsBottomTab.swift in Sources */,
 				DEA8E65D29BF10CE00BF7531 /* ForYou.swift in Sources */,
@@ -918,7 +930,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Molinar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Moves;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate step-by-step tasks, show your location on the map, and increase security of friend requests.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -930,7 +942,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.molinar.Moves;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Molinar.moves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -951,7 +963,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Molinar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Moves;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate step-by-step tasks, show your location on the map, and increase security of friend requests.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -963,7 +975,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.molinar.Moves;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Molinar.moves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -22,7 +22,7 @@ struct EarthView: View {
     @State var taskTitle = ""
     @State private var currentPresentationDetent: PresentationDetent = .height(140)
     @State var presentationDetents: [PresentationDetent] = [.height(140)]
-    @State var shouldShowDragIndicator = true
+    @State var shouldShowDragIndicator = false
     @State var showingTaskDetail = false
     @State var selectedFilter: TaskFilterOptions = .today
     @State var selectedFeed: FeedFilterOptions = .tasks
@@ -39,7 +39,7 @@ struct EarthView: View {
     
     @FocusState private var taskNameInFocus: Bool
 
-    let icons = ["play.circle", "plus.app", "magnifyingglass.circle" ]
+    let icons = ["checkmark.circle", "plus.app", "calendar.circle" ]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -141,9 +141,10 @@ struct EarthView: View {
                                         if selectedFeed == .home {
                                             ForYou()
                                         } else if selectedFeed == .tasks {
-                                            MovesView(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
-                                                .environmentObject(tasksViewModel)
-                                            .edgesIgnoringSafeArea(.all)
+//                                            MovesView(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
+//                                                .environmentObject(tasksViewModel)
+//                                            .edgesIgnoringSafeArea(.all)
+                                            MovesHome()
                                         } else if selectedFeed == .events {
                                             MovesView(bottomSheetPosition: $bottomSheetPosition, showTaskDetail: $showingTaskDetail, showAddTask: $isShowingTaskSheet, showTabs: $showingTabView, selectedFilter: $selectedFilter)
                                                 .environmentObject(tasksViewModel)
@@ -153,6 +154,10 @@ struct EarthView: View {
                                         DetailTask()
                                     }
                                 }
+                            }
+                        case 2:
+                            Group {
+                                
                             }
                         default:
                             Text("")

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct FocusNowHeader: View {
     var body: some View {
-        Text("My Schedule")
+        Text("Feed")
             .foregroundColor(.black)
             .font(.largeTitle)
             .fontWeight(.bold)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 16)
 //        EmptyView()
     }
 }

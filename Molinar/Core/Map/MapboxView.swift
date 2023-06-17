@@ -126,7 +126,7 @@ class MapboxView: UIViewController, CLLocationManagerDelegate {
                                               bearing: -168.00,
                                               pitch: 80)
         let myResourceOptions = ResourceOptions(accessToken: "pk.eyJ1Ijoibm92ZWxpY2EiLCJhIjoiY2xjdmF0NjR6MHMwZjN3cmxnMHFpaGFjMSJ9.bBri5mIGTCFnINYa75jS4w")
-        let myMapInitOptions = MapInitOptions(resourceOptions: myResourceOptions, cameraOptions: cameraOptions, styleURI: StyleURI(rawValue: "mapbox://styles/novelica/clhyg9mpt04az01pad803a4bt"))
+        let myMapInitOptions = MapInitOptions(resourceOptions: myResourceOptions, cameraOptions: cameraOptions, styleURI: StyleURI(rawValue: "mapbox://styles/novelica/cldzj4ky0003h01qkjx9xqfhk"))
         mapView = MapView(frame: view.bounds, mapInitOptions: myMapInitOptions)
         let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
         self.pointAnnotationManager = pointAnnotationManager

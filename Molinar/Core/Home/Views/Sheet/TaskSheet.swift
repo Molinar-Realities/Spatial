@@ -24,6 +24,7 @@ struct TaskSheet: View {
     @Binding var showingSheet: Bool
     @State private var selectedDate = Date()
     @State var showDueDate = false
+    @State var moveIsPublic = false
     
     @State private var deadline = Date()
     
@@ -199,14 +200,12 @@ struct TaskSheet: View {
 
     
     var body: some View {
-        VStack(spacing: 10) {
-            
+        VStack(alignment: .leading, spacing: 15) {
             if !showLocationSearch {
-                TextField("Try typing 'Workout at 3pm'", text: $taskTitle)
+                TextField("What's the move?", text: $taskTitle)
                     .focused($taskNameInFocus)
                     .textFieldStyle(.plain)
                     .padding(.horizontal)
-                    .padding(.top)
                     .cornerRadius(10)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -223,10 +222,16 @@ struct TaskSheet: View {
                     }
                    
                 
-                TextField("Where at?", text: $viewModel.queryFragment)
-                    .textFieldStyle(.plain)
-                    .padding(.horizontal)
-                    .cornerRadius(10)
+                HStack {
+                    Image(systemName: "mappin")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 6, height: 6)
+                        .foregroundColor(Color("TrustBlue"))
+                    Text(viewModel.selectedLocationTitle ?? "Current Location")
+                        .foregroundColor(Color(.systemGray3))
+                }
+                .padding(.horizontal)
                     .onTapGesture {
                         print("location clicked")
                         withAnimation(.spring()) {
@@ -238,8 +243,11 @@ struct TaskSheet: View {
                     }
                 
                 Divider()
-                HStack {
+                HStack(spacing: 15) {
                     Button(action: {
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.prepare()
+                        generator.impactOccurred()
                         showDueDate.toggle()
                     }) {
                         HStack {
@@ -252,32 +260,54 @@ struct TaskSheet: View {
                                 .foregroundColor(getDeadlineColor())
                         }
                     }
-                    Spacer()
-//                    Button(action: {}) {
-//                        Image(systemName: "photo.fill.on.rectangle.fill")
-//                            .resizable()
-//                            .scaledToFill()
-//                            .frame(width: 24, height: 24)
-//                            .padding(.horizontal)
-//                            .foregroundColor(.gray)
-//                    }
-//                    Button(action: {}) {
-//                        Image(systemName: "camera.fill")
-//                            .resizable()
-//                            .scaledToFill()
-//                            .frame(width: 24, height: 24)
-//                            .padding(.horizontal)
-//                            .foregroundColor(.gray)
-//
-//                    }
+                    Button(action: {
+                        moveIsPublic.toggle()
+                        // TODO: make it easier to submit a post into the world. Users dont want to fucking hit another button before hitting send.
+                        // TODO: could be a slider that you slide to the right to post, and left to make a task.
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.prepare()
+                        generator.impactOccurred()
+                    }) {
+                        if moveIsPublic {
+                            HStack {
+                                Image(systemName: "globe.americas.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(Color("TrustBlue"))
+                                Text("Everyone")
+                                    .foregroundColor(.gray)
+                            }
+                        } else {
+                            HStack {
+                                Image(systemName: "lock.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(.blue)
+                                Text("Fam")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        
+                    }
                     
+                    // MARK: - Add Task
+                    Spacer()
                     Button(action: {
                         // Generate haptic feedback
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
                         scheduleReminder(for: Task(dictionary: ["dueDate": deadline, "title": taskTitle, "id": UUID().uuidString]))
-                        taskUpload.uploadTask(title: removeTimePhrase(from: taskTitle), coordinate: viewModel.selectedLocationCoordinate ?? CLLocationCoordinate2D(latitude: 32.8226283, longitude: -96.8254078), locationTitle: viewModel.selectedLocationTitle ?? "Unknown Location", dueDate: deadline, locationCreatedAt:  locationManager.currentLocation?.coordinate ??  CLLocationCoordinate2D(latitude: 0, longitude: 0))
+                        taskUpload.uploadTask(
+                            title: removeTimePhrase(from: taskTitle),
+                            coordinate: viewModel.selectedLocationCoordinate ?? locationManager.currentLocation!.coordinate,
+                            locationTitle: viewModel.selectedLocationTitle ?? locationManager.currentLocationTitle ?? "Error",
+                            dueDate: deadline,
+                            locationCreatedAt: locationManager.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                        )
+
                         viewModel.queryFragment = ""
                         showingSheet.toggle()
                     }) {
@@ -309,6 +339,7 @@ struct TaskSheet: View {
 //                .cornerRadius(10)
             
         }
+        .padding(.vertical)
 //        .frame(height: !showLocationSearch ? 140 : UIScreen.main.bounds.height)
         .popover(isPresented: $showDueDate) {
             ScheduleSheet(deadline: $deadline, showingSheet: $showDueDate)
